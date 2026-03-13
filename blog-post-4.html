@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <title>Blog Post | Dr. BennyT — Full Stack Developer & AI Expert</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Insights and articles on AI, web development, and digital strategy by Dr. BennyT.">
+    <meta name="description" content="A quick dive into designing robust, scalable infrastructures that handle real-world traffic.">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -78,11 +78,9 @@
             </div>
         </nav>
     </header>
-    <!-- Header Ends -->
 
-    <!-- Page Title -->
     <section class="title-section text-left text-sm-center revealator-slideup revealator-once revealator-delay1" aria-label="Page title">
-        <h1>Blog <span>Post</span></h1>
+        <h1>Read <span>More</span></h1>
         <span class="title-bg" aria-hidden="true">Articles</span>
     </section>
 
@@ -91,27 +89,31 @@
         <section class="main-content revealator-slideup revealator-once revealator-delay1">
             <div class="container">
                 <div class="row">
-                    <!-- Article Starts -->
                     <article class="col-12">
-                        <!-- Meta Starts -->
                         <div class="meta open-sans-font">
                             <span><i class="fa fa-user" aria-hidden="true"></i> Dr. BennyT</span>
-                            <span class="date"><i class="fa fa-calendar" aria-hidden="true"></i> 13 March 2026</span>
-                            <span><i class="fa fa-tags" aria-hidden="true"></i> AI, Web Architecture, Tech Strategy</span>
+                            <span class="date"><i class="fa fa-calendar" aria-hidden="true"></i> 26 Feb 2026</span>
+                            <span><i class="fa fa-tags" aria-hidden="true"></i> Architecture, Systems, Backend</span>
                         </div>
-                        <!-- Meta Ends -->
-                        <!-- Article Content Starts -->
-                        <h1 class="text-uppercase poppins-font">Everything You Need to Know About AI-Driven Web Architecture</h1>
-                        <img src="img/blog/blog-post-1.jpg" class="img-fluid" alt="AI and Web Architecture visualization" loading="lazy">
+                        <h1 class="text-uppercase poppins-font">System Architecture 101: Building Apps That Don't Break</h1>
+                        <img src="img/blog/blog-post-4.jpg" class="img-fluid" alt="System Architecture visualization" loading="lazy">
                         <div class="blog-excerpt open-sans-font pb-5" style="line-height:1.8;">
-                            <p>Modern web architecture is undergoing a paradigm shift. As Artificial Intelligence becomes more integrated into our daily digital experiences, the way we build and scale web applications must evolve to handle intelligent edge computing, real-time data processing, and personalized user journeys.</p>
+                            <p>As an aspiring System Architect, I've learned that writing code is only 20% of the job. Here's a quick dive into designing robust, scalable infrastructures that can handle real-world traffic.</p>
                             
-                            <h2 class="ds-mt-8 ds-mb-4">The Convergence of AI and The Cloud</h2>
-                            <p>We are moving past the era of static data. Today's "Meta-level" engineering requires systems that can learn and adapt. By leveraging distributed systems and high-performance backend patterns (like those found in C++ or optimized Python environments), we can create experiences that feel alive and responsive.</p>
+                            <h2 class="ds-mt-8 ds-mb-4">Decoupling is Your Best Friend</h2>
+                            <p>Tightly coupled monolithic applications are easy to start, but impossible to maintain. By decoupling your frontend UI from your backend services—and your database logic from your API layers—you ensure that an issue in one module doesn't take down the entire system. Think microservices, or at least modular monoliths.</p>
                             
-                            <p>The key to premium product design is not just aesthetics; it is the invisible engineering that ensures accessibility, speed, and intelligence are delivered in one seamless package.</p>
+                            <h2 class="ds-mt-8 ds-mb-4">Fail Gracefully</h2>
+                            <p>Systems will fail. Servers go down, API keys expire, databases hit their connection limits. Good architecture isn't just about preventing failure; it's about handling it elegantly. Implement retry logic, fallback UI states, and dead-letter queues, so your user never sees a raw stack trace.</p>
                         </div>
-                        <!-- Article Content Ends -->
+                        
+                        <div class="text-left text-md-center mt-5 mb-5 pb-5 border-top pt-5">
+                            <h3 class="mb-4 text-uppercase">Check out my community</h3>
+                            <a href="https://scholarzgate.blogspot.com" target="_blank" rel="noopener noreferrer" class="button">
+                                <span class="button-text">More of My Posts at Scholarz Gate</span>
+                                <span class="button-icon fa fa-arrow-right" aria-hidden="true"></span>
+                            </a>
+                        </div>
                     </article>
                 </div>
             </div>
@@ -131,7 +133,6 @@
     <script src="js/bootstrap.js" defer></script>
     <script src="js/custom.js" defer></script>
     <script>
-        // Accessible mobile menu toggle
         var menuToggle = document.getElementById('menu-toggle-input');
         if (menuToggle) {
             menuToggle.addEventListener('change', function () {

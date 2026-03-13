@@ -8,10 +8,13 @@
 
 	function stop_videos() {
 		var video = document.getElementById("video");
-		if (video.paused !== true && video.ended !== true) {
+		if (video && video.paused !== true && video.ended !== true) {
 			video.pause();
 		}
-		$('.youtube-video')[0].contentWindow.postMessage('{"event":"command","func":"' + 'pauseVideo' + '","args":""}', '*');
+		var ytFrame = document.querySelector('.youtube-video');
+		if (ytFrame) {
+			ytFrame.contentWindow.postMessage('{"event":"command","func":"' + 'pauseVideo' + '","args":""}', '*');
+		}
 	}
 
 	$(document).ready(function() {
@@ -75,34 +78,11 @@
 		}
 
 		/* ----------------------------------------------------------- */
-		/*  AJAX CONTACT FORM
+		/*  CONTACT FORM — handled by contact.html inline script (Netlify Forms + Fetch API)
         /* ----------------------------------------------------------- */
-
-		$(".contactform").on("submit", function() {
-			$(".output_message").text("Sending...");
-
-			var form = $(this);
-			$.ajax({
-				url: form.attr("action"),
-				method: form.attr("method"),
-				data: form.serialize(),
-				success: function(result) {
-					if (result == "success") {
-						$(".form-inputs").css("display", "none");
-						$(".box p").css("display", "none");
-						$(".contactform").find(".output_message").addClass("success");
-						$(".output_message").text("Message Sent!");
-					} else {
-						$(".tabs-container").css("height", "440px");
-
-						$(".contactform").find(".output_message").addClass("error");
-						$(".output_message").text("Error Sending!");
-					}
-				}
-			});
-
-			return false;
-		});
+		// The legacy PHP AJAX handler has been removed.
+		// Form submission is now managed by a Fetch API + Netlify Forms integration
+		// in contact.html. No action required here.
 
 	});
 

@@ -1,16 +1,33 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="utf-8">
-    <title>Blog - Tunis Personal Portfolio</title>
+    <title>Blog | Dr BennyT — Web Developer & Aspiring System Architect</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Articles and thoughts from Benedictus Makuyana (Dr BennyT) — a Zimbabwean student developer writing about web development, AI, automation, and tech in Africa.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://docbennyt.github.io/blog.html">
 
-    <!-- Template Google Fonts -->
-    <link href="../../css.css?family=Poppins:400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-    <link href="../../css-1.css?family=Open+Sans:300,400,400i,600,600i,700" rel="stylesheet">
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Blog | Dr BennyT — Web Developer & Aspiring System Architect">
+    <meta property="og:description" content="Thoughts on web development, AI, automation, and tech in Africa from a Zimbabwean student developer.">
+    <meta property="og:url" content="https://docbennyt.github.io/blog.html">
+    <meta property="og:image" content="https://docbennyt.github.io/img/og-card.jpg">
 
-    <!-- Template CSS Files -->
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Blog | Dr BennyT — Web Developer & Aspiring System Architect">
+    <meta name="twitter:description" content="Thoughts on web development, AI, and technology from Zimbabwe.">
+    <meta name="twitter:image" content="https://docbennyt.github.io/img/og-card.jpg">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/preloader.min.css" rel="stylesheet">
     <link href="css/circle.css" rel="stylesheet">
@@ -18,246 +35,208 @@
     <link href="css/fm.revealator.jquery.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
 
-    <!-- CSS Skin File -->
-    <link href="css/skins/yellow.css" rel="stylesheet">
+    <link href="css/design-system.css" rel="stylesheet">
 
-    <!-- Live Style Switcher - demo only -->
-    <link rel="alternate stylesheet" type="text/css" title="blue" href="css/skins/blue.css">
-    <link rel="alternate stylesheet" type="text/css" title="green" href="css/skins/green.css">
-    <link rel="alternate stylesheet" type="text/css" title="yellow" href="css/skins/yellow.css">
-    <link rel="alternate stylesheet" type="text/css" title="blueviolet" href="css/skins/blueviolet.css">
-    <link rel="alternate stylesheet" type="text/css" title="goldenrod" href="css/skins/goldenrod.css">
-    <link rel="alternate stylesheet" type="text/css" title="magenta" href="css/skins/magenta.css">
-    <link rel="alternate stylesheet" type="text/css" title="orange" href="css/skins/orange.css">
-    <link rel="alternate stylesheet" type="text/css" title="purple" href="css/skins/purple.css">
-    <link rel="alternate stylesheet" type="text/css" title="red" href="css/skins/red.css">
-    <link rel="alternate stylesheet" type="text/css" title="yellowgreen" href="css/skins/yellowgreen.css">
-    <link rel="stylesheet" type="text/css" href="css/styleswitcher.css">
-
-    <!-- Modernizr JS File -->
+    <!-- Modernizr -->
     <script src="js/modernizr.custom.js"></script>
 </head>
 
 <body class="blog">
-
-<!-- Header Starts -->
-<header class="header" id="navbar-collapse-toggle">
-    <!-- Fixed Navigation Starts -->
-    <ul class="icon-menu d-none d-lg-block revealator-slideup revealator-once revealator-delay1">
-        <li class="icon-box">
-            <i class="fa fa-home"></i>
-            <a href="index.html">
-                <h2>Home</h2>
-            </a>
-        </li>
-        <li class="icon-box">
-            <i class="fa fa-user"></i>
-            <a href="about.html">
-                <h2>About</h2>
-            </a>
-        </li>
-        <li class="icon-box">
-            <i class="fa fa-briefcase"></i>
-            <a href="portfolio.html">
-                <h2>Portfolio</h2>
-            </a>
-        </li>
-        <li class="icon-box">
-            <i class="fa fa-envelope-open"></i>
-            <a href="contact.html">
-                <h2>Contact</h2>
-            </a>
-        </li>
-        <li class="icon-box active">
-            <i class="fa fa-comments"></i>
-            <a href="blog.html">
-                <h2>Blog</h2>
-            </a>
-        </li>
-    </ul>
-    <!-- Fixed Navigation Ends -->
-    <!-- Mobile Menu Starts -->
-    <nav role="navigation" class="d-block d-lg-none">
-        <div id="menuToggle">
-            <input type="checkbox">
-            <span></span>
-            <span></span>
-            <span></span>
-            <ul class="list-unstyled" id="menu">
-                <li><a href="index.html"><i class="fa fa-home"></i><span>Home</span></a></li>
-                <li><a href="about.html"><i class="fa fa-user"></i><span>About</span></a></li>
-                <li><a href="portfolio.html"><i class="fa fa-folder-open"></i><span>Portfolio</span></a></li>
-                <li><a href="contact.html"><i class="fa fa-envelope-open"></i><span>Contact</span></a></li>
-                <li class="active"><a href="blog.html"><i class="fa fa-comments"></i><span>Blog</span></a></li>
+    <!-- Header Starts -->
+    <header class="header" id="navbar-collapse-toggle" role="banner">
+        <nav aria-label="Main navigation">
+            <ul class="icon-menu d-none d-lg-block revealator-slideup revealator-once revealator-delay1" role="list">
+                <li class="icon-box">
+                    <i class="fa fa-home" aria-hidden="true"></i>
+                    <a href="index.html"><h2>Home</h2></a>
+                </li>
+                <li class="icon-box">
+                    <i class="fa fa-user" aria-hidden="true"></i>
+                    <a href="about.html"><h2>About</h2></a>
+                </li>
+                <li class="icon-box">
+                    <i class="fa fa-briefcase" aria-hidden="true"></i>
+                    <a href="portfolio.html"><h2>Portfolio</h2></a>
+                </li>
+                <li class="icon-box">
+                    <i class="fa fa-envelope-open" aria-hidden="true"></i>
+                    <a href="contact.html"><h2>Contact</h2></a>
+                </li>
+                <li class="icon-box active">
+                    <i class="fa fa-comments" aria-hidden="true"></i>
+                    <a href="blog.html" aria-current="page"><h2>Blog</h2></a>
+                </li>
             </ul>
-        </div>
-    </nav>
-    <!-- Mobile Menu Ends -->
-</header>
-<!-- Header Ends -->
-<!-- Page Title Starts -->
-<section class="title-section text-left text-sm-center revealator-slideup revealator-once revealator-delay1">
-    <h1>my <span>blog</span></h1>
-    <span class="title-bg">posts</span>
-</section>
-<!-- Page Title Ends -->
-<!-- Main Content Starts -->
-<section class="main-content revealator-slideup revealator-once revealator-delay1">
-    <div class="container">
-        <!-- Articles Starts -->
-        <div class="row">
-            <!-- Article Starts -->
-            <div class="col-12 col-md-6 col-lg-6 col-xl-4 mb-30">
-                <article class="post-container">
-                    <div class="post-thumb">
-                        <a href="blog-post.html" class="d-block position-relative overflow-hidden">
-                            <img src="img/blog/blog-post-1.jpg" class="img-fluid" alt="Blog Post">
-                        </a>
-                    </div>
-                    <div class="post-content">
-                        <div class="entry-header">
-                            <h3><a href="blog-post.html">How to Own Your Audience by Creating an Email List</a></h3>
-                        </div>
-                        <div class="entry-content open-sans-font">
-                            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore...
-                            </p>
-                        </div>
-                    </div>
-                </article>
+        </nav>
+        <nav role="navigation" aria-label="Mobile navigation" class="d-block d-lg-none">
+            <div id="menuToggle">
+                <input type="checkbox" id="menu-toggle-input" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="menu">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <ul class="list-unstyled" id="menu" role="list">
+                    <li><a href="index.html"><i class="fa fa-home" aria-hidden="true"></i><span>Home</span></a></li>
+                    <li><a href="about.html"><i class="fa fa-user" aria-hidden="true"></i><span>About</span></a></li>
+                    <li><a href="portfolio.html"><i class="fa fa-folder-open" aria-hidden="true"></i><span>Portfolio</span></a></li>
+                    <li><a href="contact.html"><i class="fa fa-envelope-open" aria-hidden="true"></i><span>Contact</span></a></li>
+                    <li class="active"><a href="blog.html" aria-current="page"><i class="fa fa-comments" aria-hidden="true"></i><span>Blog</span></a></li>
+                </ul>
             </div>
-            <!-- Article Ends -->
-            <!-- Article Starts -->
-            <div class="col-12 col-md-6 col-lg-6 col-xl-4 mb-30">
-                <article class="post-container">
-                    <div class="post-thumb">
-                        <a href="blog-post.html" class="d-block position-relative overflow-hidden">
-                            <img src="img/blog/blog-post-2.jpg" class="img-fluid" alt="">
-                        </a>
-                    </div>
-                    <div class="post-content">
-                        <div class="entry-header">
-                            <h3><a href="blog-post.html">Top 10 Toolkits for Deep Learning in 2020</a></h3>
-                        </div>
-                        <div class="entry-content open-sans-font">
-                            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore...
-                            </p>
-                        </div>
-                    </div>
-                </article>
-            </div>
-            <!-- Article Ends -->
-            <!-- Article Starts -->
-            <div class="col-12 col-md-6 col-lg-6 col-xl-4 mb-30">
-                <article class="post-container">
-                    <div class="post-thumb">
-                        <a href="blog-post.html" class="d-block position-relative overflow-hidden">
-                            <img src="img/blog/blog-post-3.jpg" class="img-fluid" alt="">
-                        </a>
-                    </div>
-                    <div class="post-content">
-                        <div class="entry-header">
-                            <h3><a href="blog-post.html">Everything You Need to Know About Web Accessibility</a></h3>
-                        </div>
-                        <div class="entry-content open-sans-font">
-                            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore...
-                            </p>
-                        </div>
-                    </div>
-                </article>
-            </div>
-            <!-- Article Ends -->
-            <!-- Article Starts -->
-            <div class="col-12 col-md-6 col-lg-6 col-xl-4 mb-30">
-                <article class="post-container">
-                    <div class="post-thumb">
-                        <a href="blog-post.html" class="d-block position-relative overflow-hidden">
-                            <img src="img/blog/blog-post-4.jpg" class="img-fluid" alt="">
-                        </a>
-                    </div>
-                    <div class="post-content">
-                        <div class="entry-header">
-                            <h3><a href="blog-post.html">How to Inject Humor & Comedy Into Your Brand</a></h3>
-                        </div>
-                        <div class="entry-content open-sans-font">
-                            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore...
-                            </p>
-                        </div>
-                    </div>
-                </article>
-            </div>
-            <!-- Article Ends -->
-            <!-- Article Starts -->
-            <div class="col-12 col-md-6 col-lg-6 col-xl-4 mb-30">
-                <article class="post-container">
-                    <div class="post-thumb">
-                        <a href="blog-post.html" class="d-block position-relative overflow-hidden">
-                            <img src="img/blog/blog-post-5.jpg" class="img-fluid" alt="">
-                        </a>
-                    </div>
-                    <div class="post-content">
-                        <div class="entry-header">
-                            <h3><a href="blog-post.html">Women in Web Design: How To Achieve Success</a></h3>
-                        </div>
-                        <div class="entry-content open-sans-font">
-                            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore...
-                            </p>
-                        </div>
-                    </div>
-                </article>
-            </div>
-            <!-- Article Ends -->
-            <!-- Article Starts -->
-            <div class="col-12 col-md-6 col-lg-6 col-xl-4 mb-30">
-                <article class="post-container">
-                    <div class="post-thumb">
-                        <a href="blog-post.html" class="d-block position-relative overflow-hidden">
-                            <img src="img/blog/blog-post-6.jpg" class="img-fluid" alt="">
-                        </a>
-                    </div>
-                    <div class="post-content">
-                        <div class="entry-header">
-                            <h3><a href="blog-post.html">Evergreen versus topical content: An overview</a></h3>
-                        </div>
-                        <div class="entry-content open-sans-font">
-                            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore...
-                            </p>
-                        </div>
-                    </div>
-                </article>
-            </div>
-            <!-- Article Ends -->
-            <!-- Pagination Starts -->
-            <div class="col-12 mt-4">
-                <nav aria-label="Page navigation example">
-                    <ul class="pagination justify-content-center mb-0">
-                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item active"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item"><a class="page-link" href="#">4</a></li>
-                    </ul>
-                </nav>
-            </div>
-            <!-- Pagination Ends -->
-        </div>
-        <!-- Articles Ends -->
-    </div>
+        </nav>
+    </header>
 
-</section>
+    <!-- Page Title -->
+    <section class="title-section text-left text-sm-center revealator-slideup revealator-once revealator-delay1" aria-label="Page title">
+        <h1>My <span>Articles</span></h1>
+        <span class="title-bg" aria-hidden="true">Insights</span>
+    </section>
 
-<!-- Template JS Files -->
-<script src="js/jquery-3.5.0.min.js"></script>
-<script src="js/styleswitcher.js"></script>
-<script src="js/preloader.min.js"></script>
-<script src="js/fm.revealator.jquery.min.js"></script>
-<script src="js/imagesloaded.pkgd.min.js"></script>
-<script src="js/masonry.pkgd.min.js"></script>
-<script src="js/classie.js"></script>
-<script src="js/cbpGridGallery.js"></script>
-<script src="js/jquery.hoverdir.js"></script>
-<script src="js/popper.min.js"></script>
-<script src="js/bootstrap.js"></script>
-<script src="js/custom.js"></script>
+    <!-- Main Content -->
+    <main>
+        <section class="main-content revealator-slideup revealator-once revealator-delay1">
+            <div class="container">
+                <div class="row">
 
+                    <!-- Article 1 -->
+                    <div class="col-12 col-md-6 col-xl-4 mb-30">
+                        <article class="post-container">
+                            <div class="post-thumb">
+                                <a href="blog-post-1.html" class="d-block position-relative overflow-hidden">
+                                    <img src="img/blog/blog-post-1.jpg" class="img-fluid" alt="Article: Real Online Side Hustles" loading="lazy">
+                                </a>
+                            </div>
+                            <div class="post-content">
+                                <div class="entry-header">
+                                    <h2><a href="blog-post-1.html">Real Online Side Hustles That Actually Pay in 2026</a></h2>
+                                </div>
+                                <div class="entry-content open-sans-font">
+                                    <p>Tired of fake gurus? Here is what really works to print your own money online. It takes effort, crazy willpower, and trusting God to bless the work of your hands. You WILL succeed. #GodDid</p>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!-- Article 2 -->
+                    <div class="col-12 col-md-6 col-xl-4 mb-30">
+                        <article class="post-container">
+                            <div class="post-thumb">
+                                <a href="blog-post-2.html" class="d-block position-relative overflow-hidden">
+                                    <img src="img/blog/blog-post-2.jpg" class="img-fluid" alt="Article: Getting started with latest frameworks" loading="lazy">
+                                </a>
+                            </div>
+                            <div class="post-content">
+                                <div class="entry-header">
+                                    <h2><a href="blog-post-2.html">How to Actually Start with the Latest Web Frameworks</a></h2>
+                                </div>
+                                <div class="entry-content open-sans-font">
+                                    <p>Hey fellow devs! Feeling lost in tutorial hell? Let's cut the noise. Here is my friendly, no-BS guide to picking up the modern tools that businesses are actually paying for right now.</p>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!-- Article 3 -->
+                    <div class="col-12 col-md-6 col-xl-4 mb-30">
+                        <article class="post-container">
+                            <div class="post-thumb">
+                                <a href="blog-post-3.html" class="d-block position-relative overflow-hidden">
+                                    <img src="img/blog/blog-post-3.jpg" class="img-fluid" alt="Article: What businesses need to know" loading="lazy">
+                                </a>
+                            </div>
+                            <div class="post-content">
+                                <div class="entry-header">
+                                    <h2><a href="blog-post-3.html">Dear Business Owners: What You Really Need from a Website</a></h2>
+                                </div>
+                                <div class="entry-content open-sans-font">
+                                    <p>Spoiler alert: it's not simply flashy animations or complex tech stacks. Clients, let's talk about delivering real value, speed, and conversion flows that actually turn your visitors into paying customers.</p>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!-- Article 4 -->
+                    <div class="col-12 col-md-6 col-xl-4 mb-30">
+                        <article class="post-container">
+                            <div class="post-thumb">
+                                <a href="blog-post-4.html" class="d-block position-relative overflow-hidden">
+                                    <img src="img/blog/blog-post-4.jpg" class="img-fluid" alt="Article: System architecture basics" loading="lazy">
+                                </a>
+                            </div>
+                            <div class="post-content">
+                                <div class="entry-header">
+                                    <h2><a href="blog-post-4.html">System Architecture 101: Building Apps That Don't Break</a></h2>
+                                </div>
+                                <div class="entry-content open-sans-font">
+                                    <p>As an aspiring System Architect, I've learned that writing code is only 20% of the job. Here's a quick dive into designing robust, scalable infrastructures that can handle real-world traffic.</p>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!-- Article 5 -->
+                    <div class="col-12 col-md-6 col-xl-4 mb-30">
+                        <article class="post-container">
+                            <div class="post-thumb">
+                                <a href="blog-post-5.html" class="d-block position-relative overflow-hidden">
+                                    <img src="img/blog/blog-post-5.jpg" class="img-fluid" alt="Article: The African tech landscape" loading="lazy">
+                                </a>
+                            </div>
+                            <div class="post-content">
+                                <div class="entry-header">
+                                    <h2><a href="blog-post-5.html">Building from Zimbabwe: The Hunger Advantage</a></h2>
+                                </div>
+                                <div class="entry-content open-sans-font">
+                                    <p>When you start coding during a lockdown with limited resources, you learn resourcefulness fast. Here is why builders from Africa are bringing unmatched grit and innovation to the global tech scene.</p>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <!-- Article 6 -->
+                    <div class="col-12 col-md-6 col-xl-4 mb-30">
+                        <article class="post-container">
+                            <div class="post-thumb">
+                                <a href="blog-post-6.html" class="d-block position-relative overflow-hidden">
+                                    <img src="img/blog/blog-post-6.jpg" class="img-fluid" alt="Article: AI integration" loading="lazy">
+                                </a>
+                            </div>
+                            <div class="post-content">
+                                <div class="entry-header">
+                                    <h2><a href="blog-post-6.html">Integrating AI Without Losing the Human Touch</a></h2>
+                                </div>
+                                <div class="entry-content open-sans-font">
+                                    <p>We're all hyped about AI and automation, but a tool is only as good as the problem it solves. Here's how to drop smart AI features into your web projects in a way that actually helps users.</p>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                </div>
+                <!-- Articles Ends -->
+            </div>
+        </section>
+    </main>
+
+    <!-- JS Files -->
+    <script src="js/jquery-3.5.0.min.js"></script>
+    <script src="js/preloader.min.js" defer></script>
+    <script src="js/fm.revealator.jquery.min.js" defer></script>
+    <script src="js/imagesloaded.pkgd.min.js" defer></script>
+    <script src="js/masonry.pkgd.min.js" defer></script>
+    <script src="js/classie.js" defer></script>
+    <script src="js/cbpGridGallery.js" defer></script>
+    <script src="js/jquery.hoverdir.js" defer></script>
+    <script src="js/popper.min.js" defer></script>
+    <script src="js/bootstrap.js" defer></script>
+    <script src="js/custom.js" defer></script>
+    <script>
+      var menuToggle = document.getElementById('menu-toggle-input');
+      if (menuToggle) {
+        menuToggle.addEventListener('change', function() {
+          this.setAttribute('aria-expanded', this.checked ? 'true' : 'false');
+        });
+      }
+    </script>
 </body>
 
 </html>
