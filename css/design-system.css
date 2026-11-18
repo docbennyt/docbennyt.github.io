@@ -1145,6 +1145,7 @@ body {
 .about-portrait {
   position: relative;
   width: 100%;
+  height: auto;
   aspect-ratio: 4 / 5;
   object-fit: cover;
   object-position: center top;
