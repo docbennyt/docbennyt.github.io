@@ -1,145 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
-    <title>Blog Post | Dr. BennyT — Full Stack Developer & AI Expert</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="How to drop smart AI features into your web projects in a way that actually helps users.">
-
-    <!-- Google Fonts -->
+    <title>A guest asked for a late checkout. What should the AI do? | Dr BennyT</title>
+    <meta name="description" content="Use a real hospitality workflow to decide what automation can answer, when it should hand off, and what staff need to see.">
+    <meta name="author" content="Benedictus Makuyana">
+    <link rel="canonical" href="https://docbennyt.github.io/blog-post-6.html">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="A guest asked for a late checkout. What should the AI do?">
+    <meta property="og:description" content="Use a real hospitality workflow to decide what automation can answer, when it should hand off, and what staff need to see.">
+    <meta property="og:url" content="https://docbennyt.github.io/blog-post-6.html">
+    <meta property="og:image" content="https://docbennyt.github.io/img/work/aido-home-1200.webp">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="article:modified_time" content="2026-11-18">
+    <meta property="article:author" content="https://docbennyt.github.io/about.html">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "A guest asked for a late checkout. What should the AI do?", "description": "Use a real hospitality workflow to decide what automation can answer, when it should hand off, and what staff need to see.", "author": {"@type": "Person", "name": "Benedictus Makuyana", "url": "https://docbennyt.github.io/about.html"}, "mainEntityOfPage": "https://docbennyt.github.io/blog-post-6.html", "articleSection": "AI workflows", "inLanguage": "en", "dateModified": "2026-11-18", "image": "https://docbennyt.github.io/img/work/aido-home-1200.webp"}</script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/journal.css">
 
-    <!-- CSS Files -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/preloader.min.css" rel="stylesheet">
-    <link href="css/circle.css" rel="stylesheet">
-    <link href="css/font-awesome.min.css" rel="stylesheet">
-    <link href="css/fm.revealator.jquery.min.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
-    <link href="css/design-system.css?v=20260904" rel="stylesheet">
-
-    <!-- Modernizr -->
-    <script src="js/modernizr.custom.js"></script>
 </head>
-
-<body class="blog-post">
-    <!-- Header Starts -->
-    <header class="header" id="navbar-collapse-toggle" role="banner">
+<body class="journal">
+<a class="journal-skip" href="#main">Skip to content</a>
+<header class="journal-header">
+    <div class="journal-shell journal-bar">
+        <a class="journal-brand" href="index.html">Dr BennyT</a>
         <nav aria-label="Main navigation">
-            <ul class="icon-menu d-none d-lg-block revealator-slideup revealator-once revealator-delay1" role="list">
-                <li class="icon-box">
-                    <i class="fa fa-home" aria-hidden="true"></i>
-                    <a href="index.html">
-                        <h2>Home</h2>
-                    </a>
-                </li>
-                <li class="icon-box">
-                    <i class="fa fa-user" aria-hidden="true"></i>
-                    <a href="about.html">
-                        <h2>About</h2>
-                    </a>
-                </li>
-                <li class="icon-box">
-                    <i class="fa fa-briefcase" aria-hidden="true"></i>
-                    <a href="portfolio.html">
-                        <h2>Portfolio</h2>
-                    </a>
-                </li>
-                <li class="icon-box">
-                    <i class="fa fa-envelope-open" aria-hidden="true"></i>
-                    <a href="contact.html">
-                        <h2>Contact</h2>
-                    </a>
-                </li>
-                <li class="icon-box active">
-                    <i class="fa fa-comments" aria-hidden="true"></i>
-                    <a href="blog.html">
-                        <h2>Blog</h2>
-                    </a>
-                </li>
-            </ul>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="blog.html" aria-current="page">Blog</a>
+            <a href="contact.html">Contact</a>
         </nav>
-        <nav role="navigation" aria-label="Mobile navigation" class="d-block d-lg-none">
-            <div id="menuToggle">
-                <input type="checkbox" id="menu-toggle-input" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="menu">
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-                <ul class="list-unstyled" id="menu" role="list">
-                    <li><a href="index.html"><i class="fa fa-home" aria-hidden="true"></i><span>Home</span></a></li>
-                    <li><a href="about.html"><i class="fa fa-user" aria-hidden="true"></i><span>About</span></a></li>
-                    <li><a href="portfolio.html"><i class="fa fa-folder-open" aria-hidden="true"></i><span>Portfolio</span></a></li>
-                    <li><a href="contact.html"><i class="fa fa-envelope-open" aria-hidden="true"></i><span>Contact</span></a></li>
-                    <li class="active"><a href="blog.html"><i class="fa fa-comments" aria-hidden="true"></i><span>Blog</span></a></li>
-                </ul>
+    </div>
+</header>
+<main id="main" class="journal-shell journal-reading">
+    <div class="journal-return"><a href="blog.html">← All articles</a></div>
+    <article>
+        <header class="journal-article-head">
+            <p class="journal-meta"><span>AI workflows</span> <span>3 min read</span></p>
+            <h1>A guest asked for a late checkout. What should the AI do?</h1>
+            <p class="journal-deck">Use a real hospitality workflow to decide what automation can answer, when it should hand off, and what staff need to see.</p>
+            <p class="journal-byline"><span>By <a rel="author" href="about.html">Benedictus Makuyana</a></span><time datetime="2026-11-18">18 November 2026</time></p>
+        </header>
+        <figure class="journal-article-cover">
+            <img src="img/work/aido-home-800.webp" srcset="img/work/aido-home-480.webp 480w, img/work/aido-home-800.webp 800w, img/work/aido-home-1200.webp 1200w" sizes="(min-width: 975px) 900px, 92vw" width="1200" height="750" alt="The aiDo homepage showing a workflow from enquiry to follow-up" fetchpriority="high" decoding="async">
+            <figcaption>The aiDo homepage shows an enquiry moving through a business workflow.</figcaption>
+        </figure>
+        <div class="journal-reading-grid">
+            <aside>
+                <nav class="journal-toc" aria-label="In this article">
+                    <p>In this article</p>
+                    <ul>
+                        <li><a href="#give-the-assistant-a-small-set-of-jobs">Give the assistant a small set of jobs</a></li>
+                        <li><a href="#make-the-handoff-worth-receiving">Make the handoff worth receiving</a></li>
+                        <li><a href="#score-the-outcome-with-an-example-conversation">Score the outcome with an example conversation</a></li>
+                        <li><a href="#sources">Sources</a></li>
+                    </ul>
+                </nav>
+            </aside>
+            <div class="journal-prose">
+                <p>“Can we check out at two?” is a short question. An accurate answer might depend on the room, that day’s arrivals, the cleaning schedule, and whether the person asking is attached to a booking. A model can write “Absolutely” in less time than it takes a member of staff to look up any of those facts.</p>
+                <p>This is the kind of product question I think about in my work on GuestAI with <a href="https://aido.co.zw/">aiDo</a>. Use the example below as a design exercise. The aim is to give the guest a useful answer and leave the staff with enough context to make a decision.</p>
+                <h2 id="give-the-assistant-a-small-set-of-jobs">Give the assistant a small set of jobs</h2>
+                <p>Let it explain a verified standard policy. Let it ask which checkout time the guest needs. Let it prepare a request for staff when there’s a timing exception. Confirming an exception should require the authority and data to do so. I’d put that rule in the application’s workflow and permission checks. A prompt can guide the wording, while the booking system or staff decision controls what can be promised.</p>
+                <p>NIST’s generative AI profile identifies confabulation as a risk. It matters here because a fabricated sentence can sound just like a genuine approval. A line such as “I’ve sent your 2 p.m. request to reception” is only appropriate after the handoff succeeds. If the handoff fails, the guest needs an available next step and the system needs a record of the failure.</p>
+                <h2 id="make-the-handoff-worth-receiving">Make the handoff worth receiving</h2>
+                <p>Give staff the question in the guest’s own words, the date, the requested time, and a reference they can use to find the booking when appropriate. Show whether the assistant already shared the standard policy. Limit personal details to what the staff need and keep the record in the tool they already use. A summary that hides uncertainty can cause the next person to act on it.</p>
+                <p>As a guest, I’d want to see which part is confirmed and which is pending. “Standard checkout is 10 a.m. Reception has your request for 2 p.m. and will confirm if it’s available” gives me something I can plan around, assuming those statements are true. If the property cannot give a reliable reply time, leave that time open or offer a route to reach reception directly.</p>
+                <h2 id="score-the-outcome-with-an-example-conversation">Score the outcome with an example conversation</h2>
+                <p>Build a short set of fictional test conversations: a late checkout with a known booking, one without a booking reference, a policy lookup that fails, an unsuccessful handoff, and a guest who changes their requested time. For each, write down what the system may promise and what record staff should receive. Review those outcomes with whoever would answer the messages on shift.</p>
+                <p>After launch, look at unresolved requests, accidental promises, missing context, and time to staff response. Automation can take a repetitive question off the queue and still be a poor fit for the decision that follows it. That boundary is where I’d spend the most time before launch.</p>
+                <section class="journal-sources" aria-labelledby="sources">
+                    <h2 id="sources">Sources</h2>
+                    <ul>
+                        <li><a href="https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence">NIST AI 600-1 — Generative Artificial Intelligence Profile</a></li>
+                        <li><a href="https://www.w3.org/WAI/tips/writing/">W3C WAI — Writing clear and accessible web content</a></li>
+                    </ul>
+                </section>
             </div>
-        </nav>
-    </header>
-
-    <section class="title-section text-left text-sm-center revealator-slideup revealator-once revealator-delay1" aria-label="Page title">
-        <h1>Read <span>More</span></h1>
-        <span class="title-bg" aria-hidden="true">Articles</span>
+        </div>
+    </article>
+    <section class="journal-related" aria-labelledby="related-title">
+        <h2 id="related-title">Keep reading</h2>
+        <ul>
+                <li><p class="journal-meta"><span>Product</span> <span>3 min read</span></p><h3><a href="blog-post-3.html">What should a customer be able to do on your website?</a></h3></li>
+                <li><p class="journal-meta"><span>AI workflows</span> <span>3 min read</span></p><h3><a href="blog-post.html">Give your coding agent a failing test and a smaller job</a></h3></li>
+        </ul>
     </section>
-
-    <!-- Main Content -->
-    <main>
-        <section class="main-content revealator-slideup revealator-once revealator-delay1">
-            <div class="container">
-                <div class="row">
-                    <article class="col-12">
-                        <div class="meta open-sans-font">
-                            <span><i class="fa fa-user" aria-hidden="true"></i> Dr. BennyT</span>
-                            <span class="date"><i class="fa fa-calendar" aria-hidden="true"></i> 13 Feb 2026</span>
-                            <span><i class="fa fa-tags" aria-hidden="true"></i> AI, Integration, User Experience</span>
-                        </div>
-                        <h1 class="text-uppercase poppins-font">Integrating AI Without Losing the Human Touch</h1>
-                        <img src="img/blog/blog-post-6.jpg" class="img-fluid" alt="AI integration visualization" loading="lazy">
-                        <div class="blog-excerpt open-sans-font pb-5" style="line-height:1.8;">
-                            <p>We're all hyped about AI and automation, but a tool is only as good as the problem it solves. Here's how to drop smart AI features into your web projects in a way that actually helps users, rather than frustrating them.</p>
-                            
-                            <h2 class="ds-mt-8 ds-mb-4">AI Is An Assistant, Not A Replacement</h2>
-                            <p>Don't force users to use an AI chatbot when a simple HTML form would take them 5 seconds. AI is fantastic at summarizing data, suggesting relevant filters, and parsing natural language queries. But it shouldn't replace the core UI navigation. The human touch means giving the user control.</p>
-                            
-                            <h2 class="ds-mt-8 ds-mb-4">Transparency Matters</h2>
-                            <p>If a response is generated by an LLM, label it. If an email is automated, let the user know. Trust is the hardest currency to earn on the internet, and the easiest to lose. Integrating AI responsibly means maintaining complete transparency with your clients and users about what is real and what is synthetic.</p>
-                        </div>
-                        
-                        <div class="text-left text-md-center mt-5 mb-5 pb-5 border-top pt-5">
-                            <h3 class="mb-4 text-uppercase">Want to learn more?</h3>
-                            <a href="https://scholarzgate.blogspot.com" target="_blank" rel="noopener noreferrer" class="button">
-                                <span class="button-text">More of My Posts at Scholarz Gate</span>
-                                <span class="button-icon fa fa-arrow-right" aria-hidden="true"></span>
-                            </a>
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- JS Files -->
-    <script src="js/jquery-3.5.0.min.js"></script>
-    <script src="js/preloader.min.js" defer></script>
-    <script src="js/fm.revealator.jquery.min.js" defer></script>
-    <script src="js/imagesloaded.pkgd.min.js" defer></script>
-    <script src="js/masonry.pkgd.min.js" defer></script>
-    <script src="js/classie.js" defer></script>
-    <script src="js/cbpGridGallery.js" defer></script>
-    <script src="js/jquery.hoverdir.js" defer></script>
-    <script src="js/popper.min.js" defer></script>
-    <script src="js/bootstrap.js" defer></script>
-    <script src="js/custom.js" defer></script>
-    <script>
-        var menuToggle = document.getElementById('menu-toggle-input');
-        if (menuToggle) {
-            menuToggle.addEventListener('change', function () {
-                this.setAttribute('aria-expanded', this.checked ? 'true' : 'false');
-            });
-        }
-    </script>
+</main>
+<footer class="journal-shell journal-footer">
+    <a href="about.html">Benedictus Makuyana</a>
+    <a href="contact.html">Get in touch</a>
+</footer>
 </body>
-
 </html>

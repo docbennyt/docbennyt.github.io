@@ -30,4 +30,11 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url><loc>https://docbennyt.github.io/blog-post-1.html</loc></url>
+  <url><loc>https://docbennyt.github.io/blog-post-2.html</loc></url>
+  <url><loc>https://docbennyt.github.io/blog-post-3.html</loc></url>
+  <url><loc>https://docbennyt.github.io/blog-post-4.html</loc></url>
+  <url><loc>https://docbennyt.github.io/blog-post-5.html</loc></url>
+  <url><loc>https://docbennyt.github.io/blog-post-6.html</loc></url>
+  <url><loc>https://docbennyt.github.io/blog-post.html</loc></url>
 </urlset>

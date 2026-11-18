@@ -35,12 +35,10 @@
 
     <!-- CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/preloader.min.css" rel="stylesheet">
     <link href="css/circle.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
-    <link href="css/fm.revealator.jquery.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
-    <link href="css/design-system.css?v=20260904" rel="stylesheet">
+    <link href="css/design-system.css?v=20261118-2" rel="stylesheet">
 
     <!-- Modernizr -->
     <script src="js/modernizr.custom.js"></script>
@@ -74,7 +72,7 @@
     <header class="header" id="navbar-collapse-toggle" role="banner">
         <!-- Desktop Navigation -->
         <nav aria-label="Main navigation">
-            <ul class="icon-menu d-none d-lg-block revealator-slideup revealator-once revealator-delay1" role="list">
+            <ul class="icon-menu d-none d-lg-block" role="list">
                 <li class="icon-box active">
                     <i class="fa fa-home" aria-hidden="true"></i>
                     <a href="index.html" aria-current="page">
@@ -133,14 +131,16 @@
     <!-- Main Content -->
     <main>
         <section
-            class="container-fluid main-container container-home p-0 revealator-slideup revealator-once revealator-delay1">
+            class="container-fluid main-container container-home p-0">
             <div class="color-block d-none d-lg-block"></div>
             <div class="row home-details-container align-items-center">
-                <div class="col-lg-4 bg position-fixed d-none d-lg-block"></div>
+                <div class="col-lg-4 bg position-fixed d-none d-lg-block">
+                    <img src="img/benedictus-portrait.webp" width="768" height="1280" alt="Benedictus Makuyana in a black suit" fetchpriority="high">
+                </div>
                 <div class="col-12 col-lg-8 offset-lg-4 home-details text-left text-sm-center text-lg-left">
                     <div>
-                        <img src="img/2.jpg" class="img-fluid main-img-mobile d-none d-sm-block d-lg-none"
-                            alt="Black-and-white tuxedo portrait of Benedictus Makuyana" loading="lazy">
+                        <img src="img/benedictus-portrait.webp" class="img-fluid main-img-mobile d-lg-none"
+                            width="768" height="1280" alt="Benedictus Makuyana in a black suit">
 
                         <!-- Eyebrow tag -->
                         <div class="ds-mb-4">
@@ -159,7 +159,7 @@
 
                         <div class="hero-proof" aria-label="Selected current work">
                             <a href="https://aido.co.zw" target="_blank" rel="noopener noreferrer"><strong>aiDo</strong><span>Founder &amp; builder</span></a>
-                            <a href="https://guest.aido.co.zw" target="_blank" rel="noopener noreferrer"><strong>GuestAI</strong><span>Development lead</span></a>
+                            <a href="portfolio.html#pf-aido"><strong>GuestAI</strong><span>Development lead</span></a>
                             <a href="https://calender.aido.co.zw" target="_blank" rel="noopener noreferrer"><strong>CalenderZW</strong><span>Product engineer</span></a>
                         </div>
 
@@ -195,8 +195,6 @@
 
     <!-- JS Files -->
     <script src="js/jquery-3.5.0.min.js"></script>
-    <script src="js/preloader.min.js" defer></script>
-    <script src="js/fm.revealator.jquery.min.js" defer></script>
     <script src="js/imagesloaded.pkgd.min.js" defer></script>
     <script src="js/masonry.pkgd.min.js" defer></script>
     <script src="js/classie.js" defer></script>
