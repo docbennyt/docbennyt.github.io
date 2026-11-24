@@ -24,6 +24,7 @@
     <link href="css/style.css" rel="stylesheet">
     <link href="css/design-system.css?v=20261118-3" rel="stylesheet">
     <script src="js/modernizr.custom.js"></script>
+    <link rel="stylesheet" href="css/site-polish.css?v=20261124-1">
 </head>
 
 <body class="about about-current">
@@ -42,11 +43,11 @@
                 <input type="checkbox" id="menu-toggle-input" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="menu">
                 <span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
                 <ul class="list-unstyled" id="menu" role="list">
-                    <li><a href="index.html"><i class="fa fa-home" aria-hidden="true"></i><span>Home</span></a></li>
-                    <li class="active"><a href="about.html" aria-current="page"><i class="fa fa-user" aria-hidden="true"></i><span>About</span></a></li>
-                    <li><a href="portfolio.html"><i class="fa fa-folder-open" aria-hidden="true"></i><span>Portfolio</span></a></li>
-                    <li><a href="contact.html"><i class="fa fa-envelope-open" aria-hidden="true"></i><span>Contact</span></a></li>
-                    <li><a href="blog.html"><i class="fa fa-comments" aria-hidden="true"></i><span>Blog</span></a></li>
+                    <li><a href="index.html" aria-label="Home"><i class="fa fa-home" aria-hidden="true"></i><svg class="dock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m3 10 9-7 9 7v9a2 2 0 0 1-2 2h-4v-7H9v7H5a2 2 0 0 1-2-2z"/></svg><span>Home</span></a></li>
+                    <li class="active"><a href="about.html" aria-current="page" aria-label="About"><i class="fa fa-user" aria-hidden="true"></i><svg class="dock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="8" r="3.5"/><path d="M4.5 21v-1.5a7.5 7.5 0 0 1 15 0V21"/></svg><span>About</span></a></li>
+                    <li><a href="portfolio.html" aria-label="Portfolio"><i class="fa fa-folder-open" aria-hidden="true"></i><svg class="dock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="7" width="18" height="14" rx="3"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 13h18M10 13v2h4v-2"/></svg><span>Portfolio</span></a></li>
+                    <li><a href="contact.html" aria-label="Contact"><i class="fa fa-envelope-open" aria-hidden="true"></i><svg class="dock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m4 7 8 6 8-6"/></svg><span>Contact</span></a></li>
+                    <li><a href="blog.html" aria-label="Blog"><i class="fa fa-comments" aria-hidden="true"></i><svg class="dock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 11.5a7.5 7.5 0 0 1-7.5 7.5H5l2-3.5A7.5 7.5 0 1 1 20 11.5Z"/><path d="M9 10h6M9 13h4"/></svg><span>Blog</span></a></li>
                 </ul>
             </div>
         </nav>
@@ -66,7 +67,7 @@
                 <span class="section-kicker">Kariba roots · Building from Harare</span>
                 <h2 id="about-name">Benedictus Tawananyasha Makuyana</h2>
                 <p class="about-role">AI Automation &amp; Product Engineer · BTech Computer Science Student</p>
-                <p class="about-lead">I build useful systems—not technology theatre. My work spans hospitality operations, student infrastructure, business automation and full-stack product delivery.</p>
+                <p class="about-lead">I enjoy building software people can use in their daily lives. Some of my work helps hospitality teams handle bookings, students manage their timetables and businesses automate routine tasks.</p>
                 <p class="nickname-note"><strong>Dr BennyT</strong> is my online identity and a family nickname from birth, not an academic title.</p>
                 <dl class="about-facts">
                     <div><dt>Based in</dt><dd>Harare, Zimbabwe</dd></div>
@@ -90,36 +91,36 @@
 
         <section class="about-section story-section" aria-labelledby="story-title">
             <div class="section-heading">
-                <span class="section-kicker">The through-line</span>
-                <h2 id="story-title">From curiosity to accountable products.</h2>
+                <span class="section-kicker">My story</span>
+                <h2 id="story-title">How I got into tech.</h2>
             </div>
             <div class="story-copy">
-                <p>I started coding during the Covid-19 lockdown after watching <em>Game Shakers</em> and thinking, “I could build something like that.” A mentor introduced me to C and C++; the rest became years of self-directed learning across the web, backend systems, product design and automation.</p>
-                <p>That curiosity now has receipts. At Afriform Software, I worked as an Associate Developer from November 2025 to July 2026, contributing to TimelessHR, AutoSales and the company website. I helped make platforms more dynamic through admin-controlled content, current programmes, blogs and SEO-focused publishing.</p>
-                <p>Today I am building aiDo: practical AI systems for African business. GuestAI handles hospitality workflows; CalenderZW turns university timetables into usable calendars; aiDo DMs is being developed to move customer conversations into orders, bookings, quotes, follow-ups and human handoffs.</p>
-                <p>Alongside product work, I am studying BTech Computer Science at Harare Institute of Technology and building Scholarz Nation into a trusted student opportunity and progress network. The goal is consistent: software that people can actually use, trust and keep using.</p>
+                <p>I started coding during the Covid-19 lockdown after watching <em>Game Shakers</em> and thinking, “I could build something like that.” A mentor introduced me to C and C++. Over the years I taught myself web development and backend engineering, then got interested in product design and automation.</p>
+                <p>At Afriform Software, I worked as an Associate Developer from November 2025 to July 2026, contributing to TimelessHR, AutoSales and the company website. I worked on features that let staff update adverts, programmes and blogs themselves, and helped improve search indexing.</p>
+                <p>I am now building aiDo. GuestAI helps hospitality teams handle guest enquiries and reservations. CalenderZW brings university timetables into the calendar students already use. I am also working on aiDo DMs for businesses that take orders and bookings through messages.</p>
+                <p>I am studying BTech Computer Science at Harare Institute of Technology while working on these products. I also run Scholarz Nation to help students find opportunities and useful learning resources.</p>
             </div>
         </section>
 
         <section class="about-section" aria-labelledby="capabilities-title">
             <div class="section-heading">
-                <span class="section-kicker">What I can own</span>
-                <h2 id="capabilities-title">Capabilities backed by shipped work.</h2>
+                <span class="section-kicker">My skills</span>
+                <h2 id="capabilities-title">What I work with.</h2>
             </div>
             <div class="capability-grid">
-                <article><i class="fa fa-cubes" aria-hidden="true"></i><h3>Product engineering</h3><p>Turning an operational problem into flows, interfaces, APIs, data and a deployable product.</p></article>
-                <article><i class="fa fa-bolt" aria-hidden="true"></i><h3>AI &amp; automation</h3><p>Human-in-the-loop workflows, n8n automation, lead handling, handoffs and practical business AI.</p></article>
+                <article><i class="fa fa-cubes" aria-hidden="true"></i><h3>Product engineering</h3><p>Designing and building software from the initial problem through deployment.</p></article>
+                <article><i class="fa fa-bolt" aria-hidden="true"></i><h3>AI &amp; automation</h3><p>Building n8n automations and AI workflows that staff can step into when needed.</p></article>
                 <article><i class="fa fa-code" aria-hidden="true"></i><h3>Full-stack web</h3><p>JavaScript, TypeScript, React, Astro, Node.js, PHP/Laravel, REST APIs and responsive interfaces.</p></article>
-                <article><i class="fa fa-database" aria-hidden="true"></i><h3>Data foundations</h3><p>Python, SQL, Supabase, structured analysis and machine-learning foundations strengthened through formal study.</p></article>
+                <article><i class="fa fa-database" aria-hidden="true"></i><h3>Data foundations</h3><p>Python, SQL, Supabase, data analysis and the machine-learning foundations I am studying.</p></article>
                 <article><i class="fa fa-server" aria-hidden="true"></i><h3>Delivery &amp; operations</h3><p>GitHub workflows, Docker, VPS deployment, Cloudflare, production checks and maintainable documentation.</p></article>
-                <article><i class="fa fa-compass" aria-hidden="true"></i><h3>Product judgement</h3><p>Clear scope, mobile-first African context, honest capability boundaries and outcome-focused iteration.</p></article>
+                <article><i class="fa fa-compass" aria-hidden="true"></i><h3>Product judgement</h3><p>Keeping the scope realistic and designing for the phones and internet connections people actually have.</p></article>
             </div>
         </section>
 
         <section class="about-section credential-section" aria-labelledby="credential-title">
             <div class="section-heading">
                 <span class="section-kicker">Selected credentials</span>
-                <h2 id="credential-title">Focused learning, verified.</h2>
+                <h2 id="credential-title">Courses and certifications.</h2>
             </div>
             <div class="credential-list">
                 <article class="credential-card">
@@ -168,12 +169,12 @@
         <section class="about-section" aria-labelledby="timeline-title">
             <div class="section-heading">
                 <span class="section-kicker">Experience &amp; education</span>
-                <h2 id="timeline-title">The current trajectory.</h2>
+                <h2 id="timeline-title">Experience and education.</h2>
             </div>
             <ol class="career-timeline">
-                <li><span>2026 — Present</span><div><h3>Founder &amp; Product Engineer · aiDo</h3><p>Building the aiDo ecosystem, including GuestAI, CalenderZW and aiDo DMs, around real operational work and human oversight.</p></div></li>
-                <li><span>Aug 2026 — Present</span><div><h3>BTech Computer Science · Harare Institute of Technology</h3><p>Formal study across computer science, software systems and the engineering foundations behind dependable products.</p></div></li>
-                <li><span>Nov 2025 — Jul 2026</span><div><h3>Associate Developer · Afriform Software</h3><p>Contributed to TimelessHR, AutoSales and Afriform’s corporate platform across backend, product, dynamic content and SEO delivery.</p></div></li>
+                <li><span>2026 to Present</span><div><h3>Founder &amp; Product Engineer · aiDo</h3><p>Developing GuestAI, CalenderZW and aiDo DMs.</p></div></li>
+                <li><span>Aug 2026 to Present</span><div><h3>BTech Computer Science · Harare Institute of Technology</h3><p>Studying computer science and software systems at HIT.</p></div></li>
+                <li><span>Nov 2025 to Jul 2026</span><div><h3>Associate Developer · Afriform Software</h3><p>Contributed to TimelessHR, AutoSales and Afriform’s corporate platform across backend, product, dynamic content and SEO delivery.</p></div></li>
                 <li><span>May 2026</span><div><h3>Complete Data Science Bootcamp · Udemy / 365 Careers</h3><p>Completed 32 hours of structured data science learning and earned a verifiable certificate.</p></div></li>
                 <li><span>Nov 2025</span><div><h3>Cambridge AS &amp; A Levels</h3><p>Completed with A* in Computer Science, A in Pure Mathematics and B in Physics.</p></div></li>
             </ol>

@@ -24,6 +24,7 @@
     <link href="css/style.css" rel="stylesheet">
     <link href="css/design-system.css?v=20261118-3" rel="stylesheet">
     <script src="js/modernizr.custom.js"></script>
+    <link rel="stylesheet" href="css/site-polish.css?v=20261124-1">
 </head>
 
 <body class="portfolio portfolio-current">
@@ -42,11 +43,11 @@
                 <input type="checkbox" id="menu-toggle-input" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="menu">
                 <span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
                 <ul class="list-unstyled" id="menu" role="list">
-                    <li><a href="index.html"><i class="fa fa-home" aria-hidden="true"></i><span>Home</span></a></li>
-                    <li><a href="about.html"><i class="fa fa-user" aria-hidden="true"></i><span>About</span></a></li>
-                    <li class="active"><a href="portfolio.html" aria-current="page"><i class="fa fa-folder-open" aria-hidden="true"></i><span>Portfolio</span></a></li>
-                    <li><a href="contact.html"><i class="fa fa-envelope-open" aria-hidden="true"></i><span>Contact</span></a></li>
-                    <li><a href="blog.html"><i class="fa fa-comments" aria-hidden="true"></i><span>Blog</span></a></li>
+                    <li><a href="index.html" aria-label="Home"><i class="fa fa-home" aria-hidden="true"></i><svg class="dock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m3 10 9-7 9 7v9a2 2 0 0 1-2 2h-4v-7H9v7H5a2 2 0 0 1-2-2z"/></svg><span>Home</span></a></li>
+                    <li><a href="about.html" aria-label="About"><i class="fa fa-user" aria-hidden="true"></i><svg class="dock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="8" r="3.5"/><path d="M4.5 21v-1.5a7.5 7.5 0 0 1 15 0V21"/></svg><span>About</span></a></li>
+                    <li class="active"><a href="portfolio.html" aria-current="page" aria-label="Portfolio"><i class="fa fa-folder-open" aria-hidden="true"></i><svg class="dock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="7" width="18" height="14" rx="3"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 13h18M10 13v2h4v-2"/></svg><span>Portfolio</span></a></li>
+                    <li><a href="contact.html" aria-label="Contact"><i class="fa fa-envelope-open" aria-hidden="true"></i><svg class="dock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m4 7 8 6 8-6"/></svg><span>Contact</span></a></li>
+                    <li><a href="blog.html" aria-label="Blog"><i class="fa fa-comments" aria-hidden="true"></i><svg class="dock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 11.5a7.5 7.5 0 0 1-7.5 7.5H5l2-3.5A7.5 7.5 0 1 1 20 11.5Z"/><path d="M9 10h6M9 13h4"/></svg><span>Blog</span></a></li>
                 </ul>
             </div>
         </nav>
@@ -55,7 +56,7 @@
     <main class="pf-shell">
         <section class="pf-lede" aria-labelledby="pf-lede-title">
             <h1 id="pf-lede-title">Selected work<span>.</span></h1>
-            <p>A till that keeps working offline, a timetable students can carry on their phones, and the software I build with clients and collaborators.</p>
+            <p>A collection of software I have built for businesses and students, along with some projects I worked on with other developers.</p>
             <nav class="pf-index" aria-label="Jump to project">
                 <a href="#pf-shelfsmart">ShelfSmart</a>
                 <a href="#pf-aido">aiDo</a>
@@ -188,7 +189,7 @@
             <section id="pf-pro" class="pf-pro" aria-labelledby="pf-pro-title">
                 <header class="pf-secthead">
                     <h2 id="pf-pro-title">Professional work</h2>
-                    <p>Work I contributed as an associate developer at Afriform Software.</p>
+                    <p>Projects I contributed to as an associate developer at Afriform Software.</p>
                 </header>
 
                 <div class="pf-feature pf-feature--pro" aria-labelledby="pf-timelesshr-title">
@@ -217,7 +218,7 @@
 
                 <article class="pf-row pf-client-note" aria-labelledby="pf-autosales-title">
                     <h3 id="pf-autosales-title">AutoSales</h3>
-                    <p>I was the second lead on the backend of Afriform?s vehicle marketplace, contributing to its APIs and delivery.</p>
+                    <p>I was the second lead on the backend of Afriform’s vehicle marketplace, contributing to its APIs and delivery.</p>
                 </article>
             </section>
 
@@ -227,7 +228,7 @@
                 </header>
                 <article class="pf-row">
                     <h3>Scholarz Nation</h3>
-                    <p>A student opportunity platform connecting verified scholarships, practical guidance and repeat-use tools.</p>
+                    <p>A platform for students to find verified scholarships and learning resources.</p>
                     <a class="pf-link" href="https://scholarzgate.blogspot.com" target="_blank" rel="noopener noreferrer">Visit Scholarz Gate</a>
                 </article>
                 <article class="pf-row">
@@ -237,7 +238,7 @@
                 </article>
                 <article class="pf-row">
                     <h3>aiDo DMs</h3>
-                    <p>A DM-native layer turning customer conversations into orders, quotes and accountable handoffs. In development.</p>
+                    <p>A tool for businesses to manage orders, quotes and handovers from customer messages. In development.</p>
                     <a class="pf-link" href="https://aido.co.zw" target="_blank" rel="noopener noreferrer">Explore the ecosystem</a>
                 </article>
             </section>

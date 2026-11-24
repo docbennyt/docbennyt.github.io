@@ -106,7 +106,7 @@ body.home.home-scroll {
     var(--bg-base);
   background-clip: padding-box;
 }
-.home-scroll #about .title-section { overflow: hidden; }
+.home-scroll #about .title-section { overflow: visible; }
 .home-scroll #about .about-portrait-wrap { transform-origin: center top; }
 .home-scroll .home-scroll-cue { position: relative; }
 .home-scroll .home-scroll-cue:focus-visible {
