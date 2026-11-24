@@ -17,22 +17,22 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/journal.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/journal.css?v=20261124-nav">
     <script src="js/journal.js" defer></script>
 </head>
 <body class="journal">
 <a class="journal-skip" href="#main">Skip to content</a>
-<header class="journal-header">
-    <div class="journal-shell journal-bar">
-        <a class="journal-brand" href="index.html">Dr BennyT</a>
-        <nav aria-label="Main navigation">
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="portfolio.html">Portfolio</a>
-            <a href="blog.html" aria-current="page">Blog</a>
-            <a href="contact.html">Contact</a>
-        </nav>
-    </div>
+<header class="journal-site-nav" role="banner">
+    <nav aria-label="Main navigation">
+        <ul class="journal-nav-list" role="list">
+            <li><a href="index.html"><i class="fa fa-home" aria-hidden="true"></i><span>Home</span></a></li>
+            <li><a href="about.html"><i class="fa fa-user" aria-hidden="true"></i><span>About</span></a></li>
+            <li><a href="portfolio.html"><i class="fa fa-briefcase" aria-hidden="true"></i><span>Portfolio</span></a></li>
+            <li><a href="contact.html"><i class="fa fa-envelope-open" aria-hidden="true"></i><span>Contact</span></a></li>
+            <li class="active"><a href="blog.html" aria-current="page"><i class="fa fa-comments" aria-hidden="true"></i><span>Blog</span></a></li>
+        </ul>
+    </nav>
 </header>
 <main id="main" class="journal-shell">
     <header class="journal-mast">
