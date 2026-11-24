@@ -11,7 +11,7 @@
     <meta property="og:title" content="A guest asked for a late checkout. What should the AI do?">
     <meta property="og:description" content="Use a real hospitality workflow to decide what automation can answer, when it should hand off, and what staff need to see.">
     <meta property="og:url" content="https://docbennyt.github.io/blog-post-6.html">
-    <meta property="og:image" content="https://docbennyt.github.io/img/work/aido-home-1200.webp">
+    <meta property="og:image" content="https://docbennyt.github.io/img/blog/illustrations/guestai-handoff.svg">
     <meta name="twitter:card" content="summary_large_image">
     <meta property="article:modified_time" content="2026-11-18">
     <meta property="article:author" content="https://docbennyt.github.io/about.html">
@@ -37,14 +37,15 @@
         </ul>
     </nav>
 </header>
+        <figure class="journal-article-cover"><img src="img/blog/illustrations/guestai-handoff.svg" width="1200" height="720" alt="Diagram showing a hospitality AI assistant checking verified policy, handing an exception to staff and confirming only an approved answer." fetchpriority="high" decoding="async"><figcaption>A safe hospitality assistant distinguishes policy answers, pending requests and confirmed decisions.</figcaption></figure>
 <main id="main" class="journal-shell journal-reading">
     <div class="journal-return"><a href="blog.html">← All articles</a></div>
     <article>
         <header class="journal-article-head">
-            <p class="journal-meta"><span>AI workflows</span> <span>3 min read</span></p>
+            <p class="journal-meta"><span>AI workflows</span><time datetime="2026-11-18">18 Nov 2026</time><span>3 min read</span></p>
             <h1>A guest asked for a late checkout. What should the AI do?</h1>
             <p class="journal-deck">Use a real hospitality workflow to decide what automation can answer, when it should hand off, and what staff need to see.</p>
-            <p class="journal-byline"><span>By <a rel="author" href="about.html">Benedictus Makuyana</a></span><time datetime="2026-11-18">18 November 2026</time></p>
+            <p class="journal-byline"><span>By <a rel="author" href="about.html">Benedictus Makuyana</a></span><time datetime="2026-11-18">18 November 2026</time></p><div class="journal-tags" aria-label="Article topics"><span>#Hospitality</span><span>#AI-Automation</span><span>#Human-In-The-Loop</span><span>#Product-Design</span></div>
         </header>
         <figure class="journal-article-cover">
             <img src="img/work/aido-home-800.webp" srcset="img/work/aido-home-480.webp 480w, img/work/aido-home-800.webp 800w, img/work/aido-home-1200.webp 1200w" sizes="(min-width: 975px) 900px, 92vw" width="1200" height="750" alt="The aiDo homepage showing a workflow from enquiry to follow-up" fetchpriority="high" decoding="async">
@@ -52,35 +53,24 @@
         </figure>
         <div class="journal-reading-grid">
             <aside>
-                <nav class="journal-toc" aria-label="In this article">
-                    <p>In this article</p>
-                    <ul>
-                        <li><a href="#give-the-assistant-a-small-set-of-jobs">Give the assistant a small set of jobs</a></li>
-                        <li><a href="#make-the-handoff-worth-receiving">Make the handoff worth receiving</a></li>
-                        <li><a href="#score-the-outcome-with-an-example-conversation">Score the outcome with an example conversation</a></li>
-                        <li><a href="#sources">Sources</a></li>
-                    </ul>
-                </nav>
+                <nav class="journal-toc" aria-label="In this article"><p>In this article</p><ul><li><a href="#give-the-assistant-a-small-set-of-jobs">Give the assistant a small set of jobs</a></li><li><a href="#make-the-handoff-useful-to-staff">Make the handoff useful to staff</a></li><li><a href="#test-the-boundary-before-launch">Test the boundary before launch</a></li><li><a href="#sources">Sources</a></li></ul></nav>
             </aside>
             <div class="journal-prose">
-                <p>“Can we check out at two?” is a short question. An accurate answer might depend on the room, that day’s arrivals, the cleaning schedule, and whether the person asking is attached to a booking. A model can write “Absolutely” in less time than it takes a member of staff to look up any of those facts.</p>
-                <p>This is the kind of product question I think about in my work on GuestAI with <a href="https://aido.co.zw/">aiDo</a>. Use the example below as a design exercise. The aim is to give the guest a useful answer and leave the staff with enough context to make a decision.</p>
-                <h2 id="give-the-assistant-a-small-set-of-jobs">Give the assistant a small set of jobs</h2>
-                <p>Let it explain a verified standard policy. Let it ask which checkout time the guest needs. Let it prepare a request for staff when there’s a timing exception. Confirming an exception should require the authority and data to do so. I’d put that rule in the application’s workflow and permission checks. A prompt can guide the wording, while the booking system or staff decision controls what can be promised.</p>
-                <p>NIST’s generative AI profile identifies confabulation as a risk. It matters here because a fabricated sentence can sound just like a genuine approval. A line such as “I’ve sent your 2 p.m. request to reception” is only appropriate after the handoff succeeds. If the handoff fails, the guest needs an available next step and the system needs a record of the failure.</p>
-                <h2 id="make-the-handoff-worth-receiving">Make the handoff worth receiving</h2>
-                <p>Give staff the question in the guest’s own words, the date, the requested time, and a reference they can use to find the booking when appropriate. Show whether the assistant already shared the standard policy. Limit personal details to what the staff need and keep the record in the tool they already use. A summary that hides uncertainty can cause the next person to act on it.</p>
-                <p>As a guest, I’d want to see which part is confirmed and which is pending. “Standard checkout is 10 a.m. Reception has your request for 2 p.m. and will confirm if it’s available” gives me something I can plan around, assuming those statements are true. If the property cannot give a reliable reply time, leave that time open or offer a route to reach reception directly.</p>
-                <h2 id="score-the-outcome-with-an-example-conversation">Score the outcome with an example conversation</h2>
-                <p>Build a short set of fictional test conversations: a late checkout with a known booking, one without a booking reference, a policy lookup that fails, an unsuccessful handoff, and a guest who changes their requested time. For each, write down what the system may promise and what record staff should receive. Review those outcomes with whoever would answer the messages on shift.</p>
-                <p>After launch, look at unresolved requests, accidental promises, missing context, and time to staff response. Automation can take a repetitive question off the queue and still be a poor fit for the decision that follows it. That boundary is where I’d spend the most time before launch.</p>
-                <section class="journal-sources" aria-labelledby="sources">
-                    <h2 id="sources">Sources</h2>
-                    <ul>
-                        <li><a href="https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence">NIST AI 600-1: Generative Artificial Intelligence Profile</a></li>
-                        <li><a href="https://www.w3.org/WAI/tips/writing/">W3C WAI: Writing clear and accessible web content</a></li>
-                    </ul>
-                </section>
+<p class="journal-lede">“Can we check out at two?” is a short question. The correct answer may depend on the booking, that day’s arrivals, the cleaning schedule and the property’s policy. A model can say “Absolutely” before it has checked any of them.</p>
+<aside class="journal-callout"><span>THE SAFETY RULE</span><p>The assistant may explain verified policy and collect a request. The booking system or an authorised staff member must decide whether an exception is approved.</p></aside>
+<h2 id="give-the-assistant-a-small-set-of-jobs">1. Give the assistant a small set of jobs</h2>
+<p>Let it explain a verified standard checkout time. Let it ask which time the guest needs. Let it prepare a request for reception when the guest asks for an exception. Do not let a language model invent room availability or approve a late checkout just because the answer sounds friendly.</p>
+<figure class="journal-inline-project"><img src="img/work/aido-home-800.webp" srcset="img/work/aido-home-480.webp 480w, img/work/aido-home-800.webp 800w, img/work/aido-home-1200.webp 1200w" sizes="(min-width: 760px) 760px, 92vw" width="1200" height="750" alt="aiDo website showing an enquiry and business workflow" loading="lazy" decoding="async"><figcaption>aiDo's product context: an enquiry workflow needs a reliable handoff, not just a fluent reply.</figcaption></figure>
+<p>Put that boundary in the application workflow and permission checks. A prompt can guide the wording, but the booking system or a staff decision controls what may be promised. NIST describes <em>confabulation</em> as generated content that is presented confidently even when it is false or inconsistent. That risk matters when a guest may make travel plans based on one sentence.</p>
+<h2 id="make-the-handoff-useful-to-staff">2. Make the handoff useful to staff</h2>
+<p>Send the guest’s question, requested time, date and a booking reference when it is appropriate and available. Include whether the assistant already shared the standard policy. Give staff enough context to find the booking without copying unnecessary personal details into another system.</p>
+<blockquote>“Standard checkout is 10 a.m. Reception has your request for 2 p.m. and will confirm whether it is available.”</blockquote>
+<p>That message is only appropriate if the standard policy is verified and the request was actually delivered to reception. If the handoff fails, tell the guest that it did not go through and offer a working next step. Do not claim that a request has been sent until the handoff succeeds.</p>
+<h2 id="test-the-boundary-before-launch">3. Test the boundary before launch</h2>
+<div class="journal-scenarios" aria-label="Hospitality AI test scenarios"><div><strong>Known booking</strong><span>Can the assistant identify the right reservation?</span></div><div><strong>No reference</strong><span>Does it ask for the minimum detail needed?</span></div><div><strong>Policy unavailable</strong><span>Does it avoid guessing?</span></div><div><strong>Handoff fails</strong><span>Does it explain that staff were not notified?</span></div><div><strong>Time changes</strong><span>Does it update the pending request correctly?</span></div></div>
+<p>Review the examples with the people who answer guest messages on shift. After launch, track unresolved requests, accidental promises, missing context and time to staff response. Automation can remove repetitive questions from the queue and still be a poor fit for the decision that follows.</p>
+<section class="journal-practice"><div><span>BEFORE YOU SHIP</span><h3>Make every promise traceable</h3></div><ul><li>Identify which facts come from verified property data.</li><li>Mark exceptions as pending until an authorised person approves them.</li><li>Record whether the staff handoff succeeded or failed.</li><li>Show guests the difference between a policy answer and a confirmed decision.</li></ul></section>
+<section class="journal-sources" aria-labelledby="sources"><h2 id="sources">Sources</h2><ul><li><a href="https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf">NIST AI 600-1: Generative Artificial Intelligence Profile</a></li><li><a href="https://www.w3.org/WAI/tips/writing/">W3C WAI: Writing clear and accessible web content</a></li></ul></section>
             </div>
         </div>
     </article>

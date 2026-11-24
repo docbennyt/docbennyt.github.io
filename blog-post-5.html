@@ -11,7 +11,7 @@
     <meta property="og:title" content="Will that timetable open on a student’s phone?">
     <meta property="og:description" content="CalenderZW starts with a familiar Zimbabwean campus problem. The useful test is what happens after somebody sends the timetable to a classmate.">
     <meta property="og:url" content="https://docbennyt.github.io/blog-post-5.html">
-    <meta property="og:image" content="https://docbennyt.github.io/img/work/calenderzw-showcase-1200.webp">
+    <meta property="og:image" content="https://docbennyt.github.io/img/blog/illustrations/timetable-flow.svg">
     <meta name="twitter:card" content="summary_large_image">
     <meta property="article:modified_time" content="2026-11-18">
     <meta property="article:author" content="https://docbennyt.github.io/about.html">
@@ -37,14 +37,15 @@
         </ul>
     </nav>
 </header>
+        <figure class="journal-article-cover"><img src="img/blog/illustrations/timetable-flow.svg" width="1200" height="720" alt="Diagram showing a student timetable moving through import, preview, conflict resolution and calendar export." fetchpriority="high" decoding="async"><figcaption>Students should be able to inspect what the app understood before trusting an exported calendar.</figcaption></figure>
 <main id="main" class="journal-shell journal-reading">
     <div class="journal-return"><a href="blog.html">← All articles</a></div>
     <article>
         <header class="journal-article-head">
-            <p class="journal-meta"><span>Product</span> <span>3 min read</span></p>
+            <p class="journal-meta"><span>Product</span><time datetime="2026-11-18">18 Nov 2026</time><span>3 min read</span></p>
             <h1>Will that timetable open on a student’s phone?</h1>
             <p class="journal-deck">CalenderZW starts with a familiar Zimbabwean campus problem. The useful test is what happens after somebody sends the timetable to a classmate.</p>
-            <p class="journal-byline"><span>By <a rel="author" href="about.html">Benedictus Makuyana</a></span><time datetime="2026-11-18">18 November 2026</time></p>
+            <p class="journal-byline"><span>By <a rel="author" href="about.html">Benedictus Makuyana</a></span><time datetime="2026-11-18">18 November 2026</time></p><div class="journal-tags" aria-label="Article topics"><span>#EdTech</span><span>#Calendars</span><span>#Mobile-UX</span><span>#Zimbabwe</span></div>
         </header>
         <figure class="journal-article-cover">
             <img src="img/work/calenderzw-showcase-800.webp" srcset="img/work/calenderzw-showcase-480.webp 480w, img/work/calenderzw-showcase-800.webp 800w, img/work/calenderzw-showcase-1200.webp 1200w" sizes="(min-width: 975px) 900px, 92vw" width="1200" height="900" alt="CalenderZW showing a class schedule on a laptop and phone" fetchpriority="high" decoding="async">
@@ -52,34 +53,23 @@
         </figure>
         <div class="journal-reading-grid">
             <aside>
-                <nav class="journal-toc" aria-label="In this article">
-                    <p>In this article</p>
-                    <ul>
-                        <li><a href="#make-uncertainty-visible-before-import">Make uncertainty visible before import</a></li>
-                        <li><a href="#test-the-exported-file-in-a-real-calendar">Test the exported file in a real calendar</a></li>
-                        <li><a href="#keep-the-page-light-enough-to-share">Keep the page light enough to share</a></li>
-                        <li><a href="#sources">Sources</a></li>
-                    </ul>
-                </nav>
+                <nav class="journal-toc" aria-label="In this article"><p>In this article</p><ul><li><a href="#preview-before-you-import">Preview before you import</a></li><li><a href="#keep-calendar-events-stable">Keep calendar events stable</a></li><li><a href="#test-the-share-path">Test the share path</a></li><li><a href="#sources">Sources</a></li></ul></nav>
             </aside>
             <div class="journal-prose">
-                <p>A student sends a timetable to a class group. Somebody opens it just to find the first lecture on Monday. They have a small screen, a full group chat, and about thirty seconds for your software. This is the situation I have in mind with <a href="https://calender.aido.co.zw">CalenderZW</a>. A timetable has done a useful job when people can tell where they need to be and when.</p>
-                <p>I build from Zimbabwe, so this is a problem close to the work in my portfolio. The point of testing with a smaller phone and an intermittent connection is to see which decisions hold up for the people using the tool. Start with a real sample, with any personal information removed, then try to finish the task on the device you’d bring to class.</p>
-                <h2 id="make-uncertainty-visible-before-import">Make uncertainty visible before import</h2>
-                <p>A heading that looks like a room number might be a course code. A timetable can include a date range for the term without repeating it under every row. Even a clean-looking time can leave you unsure whether a session crosses midday. Use a preview to show what the app thinks the input means. Put unmapped lines beside the preview so a student can correct the data before it goes into a calendar.</p>
-                <p>I’d put three samples in a test fixture: a regular weekly timetable, one with an incomplete row, and one with two sessions at the same time. The first should stay quick to import. The second needs a way to see what was skipped. The third deserves a visible conflict and a chance to review both entries.</p>
-                <h2 id="test-the-exported-file-in-a-real-calendar">Test the exported file in a real calendar</h2>
-                <p>The iCalendar standard gives events identifiers through <code>UID</code> and describes recurrence and time-zone semantics. For a weekly class, choose how you’ll express its start time and when recurrence ends. If you publish a feed, keep a stable identifier for the same class event across updates and test how your supported clients handle changes. If you offer a downloadable file, try importing it twice and see what each client does. Duplicate behavior can vary by client and import workflow.</p>
-                <p>Check the first week, last week, and a moved session in the actual calendar UI. Test from a phone set to a different time zone. Confirm that a course’s schedule still represents the intended local time. Also keep the web view usable on its own. Some students will just open the page and screenshot it.</p>
-                <h2 id="keep-the-page-light-enough-to-share">Keep the page light enough to share</h2>
-                <p>Start with the timetable text. Reserve space for any screenshots and send smaller assets to smaller screens with responsive images. Test a cold visit under throttling and compare the bytes sent before the timetable becomes readable. On a connection that drops midway through, the problem you’ll notice first is simply that Monday never arrived.</p>
-                <section class="journal-sources" aria-labelledby="sources">
-                    <h2 id="sources">Sources</h2>
-                    <ul>
-                        <li><a href="https://www.rfc-editor.org/rfc/rfc5545.html">IETF RFC 5545: iCalendar event, time-zone, and recurrence rules</a></li>
-                        <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Guides/Responsive_images">MDN: Responsive images</a></li>
-                    </ul>
-                </section>
+<p class="journal-lede">A student sends a timetable to a class group. Someone opens it to find Monday’s first lecture. They have a small screen, a busy chat and about thirty seconds. The product has to make that first answer easy to find.</p>
+<aside class="journal-callout"><span>STUDENT-FIRST RULE</span><p>Do not turn an uncertain timetable into calendar events silently. Show the student what was understood and let them correct it first.</p></aside>
+<h2 id="preview-before-you-import">1. Preview before you import</h2>
+<p>A heading that looks like a room number might be a course code. A term date range may apply to every row without being repeated. A time can be valid but still ambiguous if the source omits whether a session is before or after midday.</p>
+<figure class="journal-inline-project"><img src="img/work/calenderzw-showcase-800.webp" srcset="img/work/calenderzw-showcase-480.webp 480w, img/work/calenderzw-showcase-800.webp 800w, img/work/calenderzw-showcase-1200.webp 1200w" sizes="(min-width: 760px) 760px, 92vw" width="1200" height="900" alt="CalenderZW displaying a class timetable on a laptop and phone" loading="lazy" decoding="async"><figcaption>CalenderZW is the product context: a timetable should remain useful after it leaves the class group chat.</figcaption></figure>
+<p>Show a preview of the sessions the app has parsed. Put lines it could not map beside the preview so the student can correct them before export. Keep three sample inputs in your tests: a regular weekly timetable, an incomplete row and two sessions at the same time. The first should import quickly; the second should show what was skipped; the third should make the conflict visible.</p>
+<h2 id="keep-calendar-events-stable">2. Keep calendar events stable</h2>
+<p>The iCalendar standard uses a <code>UID</code> to identify an event and defines recurrence through properties such as <code>RRULE</code>. Time-zone information matters too. For a weekly class, decide how the local start time and time zone are represented, and where the recurrence ends.</p>
+<p>If you publish a feed, keep the same UID for the same class when its details are updated. If you offer a downloadable calendar file, test importing it twice. Duplicate handling can differ between calendar apps and import flows, so check the actual clients your students use rather than assuming one universal behaviour.</p>
+<h2 id="test-the-share-path">3. Test the share path</h2>
+<p>Check the first week, the last week and a moved session in a real calendar app. Test on a phone configured for a different time zone to catch assumptions about local time. Keep the web view useful on its own too; some students will simply open the page and take a screenshot.</p>
+<p>Start with readable timetable text, then add images only where they help. Use responsive image sizes and test a cold visit on a throttled connection. If the first lecture never appears because the page is waiting for a large image, the design has missed the point.</p>
+<section class="journal-practice"><div><span>TRY WITH REAL INPUTS</span><h3>Three timetable checks</h3></div><ul><li>Import a clean timetable with two sessions on one day.</li><li>Import an incomplete row and show exactly what needs attention.</li><li>Move a class and verify the updated event in a real calendar app.</li><li>Repeat the test after changing the phone's time zone.</li></ul></section>
+<section class="journal-sources" aria-labelledby="sources"><h2 id="sources">Sources</h2><ul><li><a href="https://www.rfc-editor.org/rfc/rfc5545.html">IETF RFC 5545: iCalendar event, time-zone and recurrence rules</a></li><li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Guides/Responsive_images">MDN: Responsive images</a></li></ul></section>
             </div>
         </div>
     </article>

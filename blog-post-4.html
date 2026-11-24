@@ -11,7 +11,7 @@
     <meta property="og:title" content="The sale has to survive a dropped connection">
     <meta property="og:description" content="ShelfSmart is the starting point for an offline design exercise: save the sale locally, retry with the same ID, and show the cashier what’s pending.">
     <meta property="og:url" content="https://docbennyt.github.io/blog-post-4.html">
-    <meta property="og:image" content="https://docbennyt.github.io/img/work/shelfsmart-showcase-1200.webp">
+    <meta property="og:image" content="https://docbennyt.github.io/img/blog/illustrations/offline-pos.svg">
     <meta name="twitter:card" content="summary_large_image">
     <meta property="article:modified_time" content="2026-11-18">
     <meta property="article:author" content="https://docbennyt.github.io/about.html">
@@ -37,14 +37,15 @@
         </ul>
     </nav>
 </header>
+        <figure class="journal-article-cover"><img src="img/blog/illustrations/offline-pos.svg" width="1200" height="720" alt="Diagram showing a point-of-sale transaction saved locally, queued for sync, retried with the same ID and reconciled." fetchpriority="high" decoding="async"><figcaption>An offline sale needs durable local storage, a retry-safe sync job and a clear reconciliation state.</figcaption></figure>
 <main id="main" class="journal-shell journal-reading">
     <div class="journal-return"><a href="blog.html">← All articles</a></div>
     <article>
         <header class="journal-article-head">
-            <p class="journal-meta"><span>Engineering</span> <span>3 min read</span></p>
+            <p class="journal-meta"><span>Engineering</span><time datetime="2026-11-18">18 Nov 2026</time><span>3 min read</span></p>
             <h1>The sale has to survive a dropped connection</h1>
             <p class="journal-deck">ShelfSmart is the starting point for an offline design exercise: save the sale locally, retry with the same ID, and show the cashier what’s pending.</p>
-            <p class="journal-byline"><span>By <a rel="author" href="about.html">Benedictus Makuyana</a></span><time datetime="2026-11-18">18 November 2026</time></p>
+            <p class="journal-byline"><span>By <a rel="author" href="about.html">Benedictus Makuyana</a></span><time datetime="2026-11-18">18 November 2026</time></p><div class="journal-tags" aria-label="Article topics"><span>#Offline-First</span><span>#SQLite</span><span>#POS</span><span>#Reliability</span></div>
         </header>
         <figure class="journal-article-cover">
             <img src="img/work/shelfsmart-showcase-800.webp" srcset="img/work/shelfsmart-showcase-480.webp 480w, img/work/shelfsmart-showcase-800.webp 800w, img/work/shelfsmart-showcase-1200.webp 1200w" sizes="(min-width: 975px) 900px, 92vw" width="1200" height="900" alt="ShelfSmart’s checkout interface on a laptop and a phone" fetchpriority="high" decoding="async">
@@ -52,35 +53,25 @@
         </figure>
         <div class="journal-reading-grid">
             <aside>
-                <nav class="journal-toc" aria-label="In this article">
-                    <p>In this article</p>
-                    <ul>
-                        <li><a href="#decide-what-the-cashier-can-finish-offline">Decide what the cashier can finish offline</a></li>
-                        <li><a href="#give-retries-a-stable-identity">Give retries a stable identity</a></li>
-                        <li><a href="#plan-for-two-cashiers-to-sell-the-last-item">Plan for two cashiers to sell the last item</a></li>
-                        <li><a href="#sources">Sources</a></li>
-                    </ul>
-                </nav>
+                <nav class="journal-toc" aria-label="In this article"><p>In this article</p><ul><li><a href="#separate-recording-a-sale-from-confirming-payment">Separate a sale from payment confirmation</a></li><li><a href="#save-the-sale-and-sync-job-together">Save the sale and sync job together</a></li><li><a href="#make-retries-safe">Make retries safe</a></li><li><a href="#treat-stock-as-a-reconciliation-problem">Treat stock as a reconciliation problem</a></li><li><a href="#sources">Sources</a></li></ul></nav>
             </aside>
             <div class="journal-prose">
-                <p>Take a shop with a queue and a phone that has just lost its connection. The cashier has the items in front of them and can finish a cash sale. Waiting on the server gives the network final say over a task that can happen at the counter. Building <a href="https://shelf-smart.netlify.app/">ShelfSmart</a> makes this problem concrete for me. Below is the design I’d use to explain the trade-off. The flow describes a general pattern and omits product internals.</p>
-                <h2 id="decide-what-the-cashier-can-finish-offline">Decide what the cashier can finish offline</h2>
-                <p>A recorded cash sale and a verified electronic payment are different jobs. For this exercise, let the cashier record cash when offline. Keep any payment that needs remote confirmation in a separate state. Show which sales are stored on the device and which the server has acknowledged. That distinction matters when somebody closes the till and counts their money.</p>
-                <p>Persist the sale and the instruction to sync it in one local transaction. In a database such as SQLite the two writes can commit together. If they’re independent, an interruption can leave a sale with no sync job, or a sync job pointing to a sale that was never saved. On a restart the app should be able to find the pending work from storage.</p>
-                <h2 id="give-retries-a-stable-identity">Give retries a stable identity</h2>
-                <p>Suppose the server records the sale just as the connection drops. The phone sees a timeout. If it retries with a fresh ID, the server may treat the retry as another sale. Assign a stable ID when the record is created and reuse it for the same operation. The AWS Builders’ Library describes a pattern where the caller supplies a request identifier and the server remembers it alongside the operation’s effect. For a shop, I’d scope that key to the business and reject a replay that carries a different transaction under the same ID.</p>
-                <p>The UI can use three plain states in the example: <em>saved on this device</em>, <em>synced</em>, and <em>needs attention</em>. Keep a failure visible long enough for someone to act on it. A queue that quietly gives up after three attempts leaves the cashier with a puzzle at the end of the shift.</p>
-                <h2 id="plan-for-two-cashiers-to-sell-the-last-item">Plan for two cashiers to sell the last item</h2>
-                <p>Offline persistence and stock reconciliation solve different problems. For instance, Firestore documents last-write-wins behavior for multiple offline changes to the same document. That can work for a title edit. A stock total deserves more care: when two tills sell the same last item, both sales may have physically happened. One possible design records each inventory movement separately and flags the resulting discrepancy for review. Decide with the shop owner how that review should work.</p>
-                <p>The test I’d run before trusting the flow uses one sale and a lost acknowledgement. Create the sale in airplane mode, close the app, restart, reconnect, and cause the first successful sync response to be lost. After the retry, there should still be one sale and one stock movement. Then run the same exercise with two terminals. It’s a small rehearsal for the kind of day when the cashier needs the system most.</p>
-                <section class="journal-sources" aria-labelledby="sources">
-                    <h2 id="sources">Sources</h2>
-                    <ul>
-                        <li><a href="https://www.sqlite.org/lang_transaction.html">SQLite: Transactions</a></li>
-                        <li><a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">AWS Builders’ Library: Making retries safe with idempotent APIs</a></li>
-                        <li><a href="https://firebase.google.com/docs/firestore/manage-data/enable-offline">Firebase: Firestore offline reads, writes, and synchronization</a></li>
-                    </ul>
-                </section>
+<p class="journal-lede">At a busy counter, a spinning loader is not a plan when the network disappears. A cashier may still need to record a cash sale, keep the queue moving and know whether the record has reached the server.</p>
+<aside class="journal-callout"><span>OFFLINE-FIRST RULE</span><p>Save locally first, make the pending state visible and design every retry so the same sale cannot be recorded twice.</p></aside>
+<h2 id="separate-recording-a-sale-from-confirming-payment">1. Separate a sale from payment confirmation</h2>
+<p>A recorded cash sale and an electronically verified payment are different jobs. For this design exercise, let the cashier record a cash sale while offline. Keep a payment that needs remote confirmation in a separate state; do not display it as paid just because the customer showed a screenshot.</p>
+<figure class="journal-inline-project"><img src="img/work/shelfsmart-showcase-800.webp" srcset="img/work/shelfsmart-showcase-480.webp 480w, img/work/shelfsmart-showcase-800.webp 800w, img/work/shelfsmart-showcase-1200.webp 1200w" sizes="(min-width: 760px) 760px, 92vw" width="1200" height="900" alt="ShelfSmart point-of-sale and inventory screens on a laptop and phone" loading="lazy" decoding="async"><figcaption>ShelfSmart is the product context for this design exercise; the flow below describes the general offline-first pattern.</figcaption></figure>
+<p>Show which sales are saved on the device and which the server has acknowledged. Persist the sale and the instruction to sync it in one local transaction. In SQLite, a transaction is atomic: either the writes commit together or they do not. Without that boundary, a crash could leave a sale with no sync job, or a sync job pointing to a sale that was never saved.</p>
+<h2 id="save-the-sale-and-sync-job-together">2. Save the sale and sync job together</h2>
+<p>Use a local outbox or pending-operations table. The sale record and its outbox entry should be committed together. After a restart, the app reads the pending work from storage instead of relying on an in-memory queue that disappeared when the process closed.</p>
+<h2 id="make-retries-safe">3. Make retries safe</h2>
+<p>Suppose the server records the sale, but the acknowledgement is lost. The phone sees a timeout. If it retries with a new ID, the server may create a second sale. Assign a stable operation ID when the sale is first created and reuse it for every retry of that same operation.</p>
+<p>AWS describes idempotent APIs that remember a client-supplied request token with the operation. Store enough request information to detect when the same token is reused for a different intent; that should be rejected rather than silently treated as the original sale. A useful cashier-facing state model is <strong>Saved on this device</strong>, <strong>Synced</strong> and <strong>Needs attention</strong>.</p>
+<h2 id="treat-stock-as-a-reconciliation-problem">4. Treat stock as a reconciliation problem</h2>
+<p>Offline persistence and stock reconciliation are not the same problem. Firestore documents last-write-wins behaviour when multiple offline changes affect the same document. That may be acceptable for a simple text edit; it is not a complete stock policy. If two tills sell the last item while disconnected, both sales may have physically happened.</p>
+<p>One safer design records inventory movements separately and flags a discrepancy for review. The shop owner still needs to decide how to handle overselling, refunds or a stock correction. Do not silently erase a sale to make the number look tidy.</p>
+<section class="journal-practice"><div><span>REHEARSE THE FAILURE</span><h3>Test before trusting the till</h3></div><ul><li>Record a cash sale in airplane mode.</li><li>Close and reopen the app; confirm the sale is still visible.</li><li>Reconnect, then simulate a lost sync acknowledgement.</li><li>Retry and verify there is one sale and one stock movement.</li><li>Repeat with two terminals selling the last item.</li></ul></section>
+<section class="journal-sources" aria-labelledby="sources"><h2 id="sources">Sources</h2><ul><li><a href="https://www.sqlite.org/transactional.html">SQLite: Transactional guarantees</a></li><li><a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">AWS Builders’ Library: Making retries safe with idempotent APIs</a></li><li><a href="https://firebase.google.com/docs/firestore/manage-data/enable-offline">Firebase: Firestore offline reads, writes and synchronization</a></li></ul></section>
             </div>
         </div>
     </article>

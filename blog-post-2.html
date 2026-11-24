@@ -11,7 +11,7 @@
     <meta property="og:title" content="Your API response hasn’t read your TypeScript types">
     <meta property="og:description" content="A successful request can still return the wrong shape. Here’s a small parser for the boundary and the requests I’d test around it.">
     <meta property="og:url" content="https://docbennyt.github.io/blog-post-2.html">
-    <meta property="og:image" content="https://docbennyt.github.io/img/og-card.jpg">
+    <meta property="og:image" content="https://docbennyt.github.io/img/blog/illustrations/api-boundary.svg">
     <meta name="twitter:card" content="summary_large_image">
     <meta property="article:modified_time" content="2026-11-18">
     <meta property="article:author" content="https://docbennyt.github.io/about.html">
@@ -37,62 +37,61 @@
         </ul>
     </nav>
 </header>
+        <figure class="journal-article-cover"><img src="img/blog/illustrations/api-boundary.svg" width="1200" height="720" alt="Diagram showing an untrusted API payload passing through runtime checks before becoming a typed value." fetchpriority="high" decoding="async"><figcaption>Validate at the network boundary. Only pass a trusted shape into the rest of the application.</figcaption></figure>
 <main id="main" class="journal-shell journal-reading">
     <div class="journal-return"><a href="blog.html">← All articles</a></div>
     <article>
         <header class="journal-article-head">
-            <p class="journal-meta"><span>Engineering</span> <span>3 min read</span></p>
+            <p class="journal-meta"><span>Engineering</span><time datetime="2026-11-18">18 Nov 2026</time><span>2 min read</span></p>
             <h1>Your API response hasn’t read your TypeScript types</h1>
             <p class="journal-deck">A successful request can still return the wrong shape. Here’s a small parser for the boundary and the requests I’d test around it.</p>
-            <p class="journal-byline"><span>By <a rel="author" href="about.html">Benedictus Makuyana</a></span><time datetime="2026-11-18">18 November 2026</time></p>
+            <p class="journal-byline"><span>By <a rel="author" href="about.html">Benedictus Makuyana</a></span><time datetime="2026-11-18">18 November 2026</time></p><div class="journal-tags" aria-label="Article topics"><span>#TypeScript</span><span>#APIs</span><span>#Validation</span><span>#Testing</span></div>
         </header>
 
         <div class="journal-reading-grid">
             <aside>
-                <nav class="journal-toc" aria-label="In this article">
-                    <p>In this article</p>
-                    <ul>
-                        <li><a href="#a-parser-you-can-read-at-a-glance">A parser you can read at a glance</a></li>
-                        <li><a href="#test-the-boundary-and-the-screen">Test the boundary and the screen</a></li>
-                        <li><a href="#sources">Sources</a></li>
-                    </ul>
-                </nav>
+                <nav class="journal-toc" aria-label="In this article"><p>In this article</p><ul><li><a href="#validate-at-the-boundary">Validate at the boundary</a></li><li><a href="#return-a-shape-the-ui-can-trust">Return a shape the UI can trust</a></li><li><a href="#test-the-data-and-the-request">Test the data and the request</a></li><li><a href="#sources">Sources</a></li></ul></nav>
             </aside>
             <div class="journal-prose">
-                <p>Say your timetable screen needs a class name. The API returns <code>{"title":"Databases"}</code>, the component trims the title, and everything looks good. Next week the response is <code>{"title":null}</code>. If you asserted the type of the response, the editor still sees a string. The browser has a different opinion.</p>
-                <p>I’d put that disagreement in one place: the function that receives the response. The TypeScript handbook calls the process of refining a type through checks <a href="https://www.typescriptlang.org/docs/handbook/2/narrowing.html">narrowing</a>. Start with <code>unknown</code> at the boundary and return a smaller shape once the checks pass.</p>
-                <h2 id="a-parser-you-can-read-at-a-glance">A parser you can read at a glance</h2>
-                <p>Here’s a deliberately small example. The valid response has a title with at least one non-whitespace character. Additional fields can come through the API and are ignored here because the caller only needs the title.</p>
-                <pre tabindex="0" aria-label="TypeScript example"><code>type Session = { title: string };
+<p class="journal-lede">Your editor says <code>title</code> is a string. The server sends <code>null</code>. Both can be true if you asserted a type without checking the actual response. TypeScript types disappear at runtime; JSON still needs validation.</p>
+<aside class="journal-callout"><span>THE BOUNDARY RULE</span><p>Treat data from a network, file or user input as <code>unknown</code> until runtime checks prove the shape you need.</p></aside>
+<h2 id="validate-at-the-boundary">1. Validate at the boundary</h2>
+<p>Keep the check close to the code that receives the response. If the screen only needs a session title, validate that field instead of pretending the whole server response matches a TypeScript interface.</p>
+<h2 id="return-a-shape-the-ui-can-trust">2. Return a shape the UI can trust</h2>
+<p>Here is a deliberately small parser. It accepts an object with a non-empty title and returns only the field the caller needs. A missing, empty or non-string title is rejected before it reaches the component.</p>
+<pre><code>type Session = { title: string };
 
 function parseSession(value: unknown): Session {
-  if (typeof value !== &quot;object&quot; || value === null ||
-      !(&quot;title&quot; in value) || typeof value.title !== &quot;string&quot;) {
-    throw new Error(&quot;Expected a session title&quot;);
+  if (
+    typeof value !== "object" ||
+    value === null ||
+    !("title" in value) ||
+    typeof value.title !== "string"
+  ) {
+    throw new Error("Expected a session title");
   }
 
   const title = value.title.trim();
-  if (!title) throw new Error(&quot;The session title is empty&quot;);
+  if (!title) throw new Error("The session title is empty");
+
   return { title };
 }
 
 async function loadSession(url: string): Promise&lt;Session&gt; {
   const response = await fetch(url);
-  if (!response.ok) throw new Error(&quot;Could not load the session&quot;);
+  if (!response.ok) {
+    throw new Error("Request failed: " + response.status);
+  }
+
   const payload: unknown = await response.json();
   return parseSession(payload);
 }</code></pre>
-                <p>Two kinds of failure are easy to blur together. Fetch can resolve with an HTTP error such as a 404, so check <code>response.ok</code>. Parsing JSON can fail even after a successful HTTP response. The UI can offer one plain message with a retry while the app records enough detail to tell those cases apart. Keep a valid empty result separate from a request that failed.</p>
-                <h2 id="test-the-boundary-and-the-screen">Test the boundary and the screen</h2>
-                <p>I’d test the parser with a padded title, an empty title, <code>null</code>, and a missing field. At the request boundary I’d add a 404 and a response that claims success but sends invalid JSON. At the screen level I’d check the part a student cares about: can they tell what happened, and can they try again without starting over?</p>
-                <p>For a bigger shape with nested data, I’d move to a runtime schema and keep it at the same boundary. If you use an AI tool to write the schema, hand it a representative payload plus the broken cases first. A perfectly plausible type assertion takes one line. A failing payload is what tells you whether the generated code made a useful change.</p>
-                <section class="journal-sources" aria-labelledby="sources">
-                    <h2 id="sources">Sources</h2>
-                    <ul>
-                        <li><a href="https://www.typescriptlang.org/docs/handbook/2/narrowing.html">TypeScript Handbook: Narrowing</a></li>
-                        <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/fetch">MDN: Fetch response and error behavior</a></li>
-                    </ul>
-                </section>
+<p>There are separate failure points here. A request can return an HTTP error such as 404, and a successful response can still contain invalid JSON or an unexpected shape. Keep enough detail in your logs to distinguish them, while showing the user a clear message and a way to retry. For larger nested objects, use a runtime schema validator at the same boundary.</p>
+<h2 id="test-the-data-and-the-request">3. Test the data and the request</h2>
+<div class="journal-steps" aria-label="API validation test cases"><div class="journal-step"><span>01</span><strong>Valid data</strong><small>A title with extra spaces is trimmed</small></div><div class="journal-step"><span>02</span><strong>Bad shape</strong><small>Try null, a missing field and an empty title</small></div><div class="journal-step"><span>03</span><strong>Bad request</strong><small>Try a 404 and invalid JSON</small></div></div>
+<p>At screen level, check that the student can tell what happened and retry without starting again. A parser test proves the boundary; a UI test proves the recovery path.</p>
+<section class="journal-practice"><div><span>PUT IT INTO PRACTICE</span><h3>One rule for every API call</h3></div><ul><li>Mark untrusted payloads as <code>unknown</code>.</li><li>Validate required fields once at the boundary.</li><li>Keep HTTP, parsing and validation failures distinguishable in logs.</li><li>Give the user a clear error and a recoverable next step.</li></ul></section>
+<section class="journal-sources" aria-labelledby="sources"><h2 id="sources">Sources</h2><ul><li><a href="https://www.typescriptlang.org/docs/handbook/2/narrowing.html">TypeScript Handbook: Narrowing</a></li><li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/fetch">MDN: Fetch API and response handling</a></li></ul></section>
             </div>
         </div>
     </article>

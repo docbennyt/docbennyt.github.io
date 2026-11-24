@@ -11,7 +11,7 @@
     <meta property="og:title" content="Give your coding agent a failing test and a smaller job">
     <meta property="og:description" content="A practical loop for AI-assisted development, with one workflow to verify and two studies that explain why I measure the whole job.">
     <meta property="og:url" content="https://docbennyt.github.io/blog-post.html">
-    <meta property="og:image" content="https://docbennyt.github.io/img/og-card.jpg">
+    <meta property="og:image" content="https://docbennyt.github.io/img/blog/illustrations/agent-loop.svg">
     <meta name="twitter:card" content="summary_large_image">
     <meta property="article:modified_time" content="2026-11-18">
     <meta property="article:author" content="https://docbennyt.github.io/about.html">
@@ -37,47 +37,37 @@
         </ul>
     </nav>
 </header>
+        <figure class="journal-article-cover"><img src="img/blog/illustrations/agent-loop.svg" width="1200" height="720" alt="Diagram showing an AI coding workflow from a clear brief and failing test to a focused patch and human review." fetchpriority="high" decoding="async"><figcaption>A coding agent works best when the task has a visible finish line and a human-owned review.</figcaption></figure>
 <main id="main" class="journal-shell journal-reading">
     <div class="journal-return"><a href="blog.html">← All articles</a></div>
     <article>
         <header class="journal-article-head">
-            <p class="journal-meta"><span>AI workflows</span> <span>3 min read</span></p>
+            <p class="journal-meta"><span>AI workflows</span><time datetime="2026-11-18">18 Nov 2026</time><span>3 min read</span></p>
             <h1>Give your coding agent a failing test and a smaller job</h1>
             <p class="journal-deck">A practical loop for AI-assisted development, with one workflow to verify and two studies that explain why I measure the whole job.</p>
-            <p class="journal-byline"><span>By <a rel="author" href="about.html">Benedictus Makuyana</a></span><time datetime="2026-11-18">18 November 2026</time></p>
+            <p class="journal-byline"><span>By <a rel="author" href="about.html">Benedictus Makuyana</a></span><time datetime="2026-11-18">18 November 2026</time></p><div class="journal-tags" aria-label="Article topics"><span>#AI-Agents</span><span>#Code-Review</span><span>#Testing</span><span>#Developer-Tools</span></div>
         </header>
 
         <div class="journal-reading-grid">
             <aside>
-                <nav class="journal-toc" aria-label="In this article">
-                    <p>In this article</p>
-                    <ul>
-                        <li><a href="#give-it-an-observable-finish-line">Give it an observable finish line</a></li>
-                        <li><a href="#measure-from-brief-to-verified-change">Measure from brief to verified change</a></li>
-                        <li><a href="#read-the-change-before-you-commit-it">Read the change before you commit it</a></li>
-                        <li><a href="#sources">Sources</a></li>
-                    </ul>
-                </nav>
+                <nav class="journal-toc" aria-label="In this article"><p>In this article</p><ul><li><a href="#give-it-an-observable-finish-line">Give it an observable finish line</a></li><li><a href="#measure-the-whole-job">Measure the whole job</a></li><li><a href="#review-the-patch-like-you-own-it">Review the patch like you own it</a></li><li><a href="#sources">Sources</a></li></ul></nav>
             </aside>
             <div class="journal-prose">
-                <p>A coding agent will happily give you a whole settings page when all you needed was for the save button to recover from a failed request. You now have more code to read, more states to check, and the original bug somewhere in the middle. I’d begin by making the failure cheap to see.</p>
-                <p>Imagine a staff member edits a booking note and loses their connection just before saving. The useful behavior is specific: keep the draft, show that saving failed, and allow another attempt. Write that behavior in the issue, alongside the steps that reproduce the failure. Add a regression check if the repository supports one. Give the agent the issue and the smallest relevant area of code.</p>
-                <h2 id="give-it-an-observable-finish-line">Give it an observable finish line</h2>
-                <p>My handoff would include the expected behavior, the place where the current save flow lives, and the command for the focused check. I’d ask for the change plus the test result. If the agent discovers it needs to touch a shared persistence layer, I’d inspect that dependency before letting the patch grow. The larger the diff gets, the more time I spend learning what changed.</p>
-                <p>Playwright’s guide recommends testing user-visible behavior. For this example I’d check that the typed note survives the failed request, then that a successful retry displays the saved note. A test that only checks whether a state variable became <code>true</code> skips the part the staff member sees. Run the test against the original code too so you know it actually catches the failure.</p>
-                <h2 id="measure-from-brief-to-verified-change">Measure from brief to verified change</h2>
-                <p>Peng and colleagues reported that participants with GitHub Copilot completed a prescribed JavaScript HTTP server task faster in their experiment. METR’s early-2025 randomized study reported that experienced open-source developers took 19% longer when using AI tools on tasks in repositories they knew. METR treats that result as a snapshot and links to a later update. The tasks, participants, tools, and conditions differed. Those studies give me a reason to watch my own review and rework time closely.</p>
-                <p>For a week, keep a rough log of three things: time to define the job, time to review and test the change, and time spent fixing anything missed. Try the same categories on work you do manually. One week of varied tasks can reveal where your own time goes, even though it can’t isolate the effect of the tool. A fast first patch is welcome. I care about how long it takes me to trust the result.</p>
-                <h2 id="read-the-change-before-you-commit-it">Read the change before you commit it</h2>
-                <p>The final pass is a boring one. Check what happens on the second click. See whether the error message is reachable with the keyboard. Look for unrelated edits and make sure the test covers the original scenario. If you can explain why the draft survives the failure and show the retry working, the agent has helped you deliver something you can stand behind.</p>
-                <section class="journal-sources" aria-labelledby="sources">
-                    <h2 id="sources">Sources</h2>
-                    <ul>
-                        <li><a href="https://playwright.dev/docs/best-practices">Playwright: Best practices for user-visible behavior</a></li>
-                        <li><a href="https://arxiv.org/abs/2302.06590">Peng et al.: Experimental study of GitHub Copilot and developer productivity</a></li>
-                        <li><a href="https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/">METR: Randomized study of early-2025 AI tools and experienced open-source developers</a></li>
-                    </ul>
-                </section>
+<p class="journal-lede">An agent can say “done” while the original bug is still there. The useful question is not how much code it produced. It is whether a person can complete the task that was failing before.</p>
+<aside class="journal-callout"><span>THE RULE</span><p>Give the agent a reproducible failure, a narrow change and a check that proves the user-facing behaviour.</p></aside>
+<h2 id="give-it-an-observable-finish-line">1. Give it an observable finish line</h2>
+<p>Imagine a staff member edits a booking note and loses the connection just before saving. “Make saving robust” is too vague. Write the expected behaviour instead: keep the draft, show that saving failed and let the staff member retry without typing everything again.</p>
+<p>Give the agent the reproduction steps, the relevant save flow and the command for the focused test. Ask it to change that path and report what it ran. If it discovers that a shared persistence layer must change, pause and inspect that dependency before the patch grows.</p>
+<div class="journal-steps" aria-label="A focused coding-agent handoff"><div class="journal-step"><span>01</span><strong>Reproduce</strong><small>Show the failure on the original code</small></div><div class="journal-step"><span>02</span><strong>Constrain</strong><small>Name the expected behaviour and files</small></div><div class="journal-step"><span>03</span><strong>Verify</strong><small>Run the regression check and inspect the diff</small></div></div>
+<p>Playwright recommends testing what users can see and do. For this example, check that the note survives the failed request and appears after a successful retry. Run the test against the original code too; otherwise you do not know whether it catches the bug.</p>
+<h2 id="measure-the-whole-job">2. Measure the whole job</h2>
+<p>Productivity studies do not produce one universal speed score. Peng and colleagues reported that participants using GitHub Copilot completed a prescribed JavaScript HTTP-server task 55.8% faster in their controlled experiment. METR’s 2025 randomized study found that experienced open-source developers took 19% longer on tasks in familiar repositories when using the early-2025 AI tools they studied. The tasks, participants and tools were different, so those results should not be compared as if they were the same experiment.</p>
+<p>There is an important update. On 24 February 2026, METR said its later experiment could not provide a reliable estimate of the current productivity effect. Developers were increasingly selecting which tasks they submitted and whether they would work without AI; the team also identified timing problems when people ran multiple agents. METR thought developers were probably getting more speed-up from AI by early 2026, but said its data was weak evidence for the size of that effect. The 19% result is a historical finding, not a claim that AI makes every developer slower today.</p>
+<p>For your own work, log the time spent defining the task, reviewing and testing the patch, and fixing anything missed. Compare similar tasks rather than one easy AI task with one difficult manual task. A small personal log cannot prove causation, but it can show where your time is actually going.</p>
+<h2 id="review-the-patch-like-you-own-it">3. Review the patch like you own it</h2>
+<p>Check the second click, the failed request, the keyboard path and any unrelated files that changed. Read the test and make sure it would have failed before the fix. If you cannot explain why the change works, ask for a smaller explanation or inspect the code yourself. The commit is yours, even when an agent wrote the first draft.</p>
+<section class="journal-practice"><div><span>PUT IT INTO PRACTICE</span><h3>Try this on your next task</h3></div><ul><li>Write the expected behaviour in one sentence.</li><li>Give the agent a reproduction and a focused failing test.</li><li>Ask for the smallest patch and the exact test command.</li><li>Read the diff and rerun the check before committing.</li></ul></section>
+<section class="journal-sources" aria-labelledby="sources"><h2 id="sources">Sources</h2><ul><li><a href="https://playwright.dev/docs/best-practices">Playwright: Best practices for user-visible behaviour</a></li><li><a href="https://arxiv.org/abs/2302.06590">Peng et al. (2023): The impact of AI on developer productivity</a></li><li><a href="https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/">METR (2025): Early-2025 AI and experienced open-source developers</a></li><li><a href="https://metr.org/blog/2026-02-24-uplift-update/">METR (2026): Why its later productivity experiment needs a new design</a></li></ul></section>
             </div>
         </div>
     </article>
