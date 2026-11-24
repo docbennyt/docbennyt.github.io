@@ -61,7 +61,6 @@
           hideEventTypeDetails: false,
           layout: "month_view",
           theme: "light",
-          styles: { branding: { brandColor: "#1a7535" } }
         });
         calInitialized = true;
       }
@@ -81,7 +80,7 @@
         }
       });
       observer.observe(inline, { childList: true, subtree: true });
-      Cal.ns["30min"]("inline", {
+      Cal("inline", {
         elementOrSelector: "#cal-booking-inline",
         calLink: "benedictus-makuyana/30min",
         config: {
