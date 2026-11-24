@@ -86,7 +86,7 @@
         config: {
           layout: "month_view",
           theme: "light",
-          useSlotsViewOnSmallScreen: true
+          useSlotsViewOnSmallScreen: "true"
         }
       });
       window.setTimeout(() => {
