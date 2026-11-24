@@ -125,9 +125,9 @@
                     <div class="contact-connect-options">
                         <a class="contact-connect-card contact-connect-card--call"
                             href="https://cal.com/benedictus-makuyana/30min"
-                            data-cal-link="benedictus-makuyana/30min"
-                            data-cal-namespace="30min"
-                            data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
+                            data-open-booking
+                            aria-haspopup="dialog"
+                            aria-controls="cal-booking-modal"
                             aria-label="Book a 30-minute call with Benedictus">
                             <span class="contact-connect-icon contact-connect-icon--calendar"><i class="fa fa-calendar" aria-hidden="true"></i></span>
                             <span class="contact-connect-card-copy"><strong>Book a Call</strong><small>30-minute conversation</small></span>
@@ -151,6 +151,22 @@
                         </a>
                     </div>
                 </section>
+                <div class="cal-booking-modal" id="cal-booking-modal" aria-hidden="true" hidden>
+                    <div class="cal-booking-backdrop" data-close-booking></div>
+                    <section class="cal-booking-dialog" role="dialog" aria-modal="true" aria-labelledby="cal-booking-title" aria-describedby="cal-booking-description" tabindex="-1">
+                        <header class="cal-booking-header">
+                            <div>
+                                <span class="cal-booking-kicker">LET'S MAKE TIME FOR IT</span>
+                                <h2 id="cal-booking-title">Book a 30-minute call</h2>
+                                <p id="cal-booking-description">Choose a time that works for you. We can talk through your project, the problem you're solving and practical next steps.</p>
+                            </div>
+                            <button class="cal-booking-close" type="button" data-close-booking aria-label="Close booking calendar">×</button>
+                        </header>
+                        <p class="cal-booking-status" id="cal-booking-status" role="status" aria-live="polite">Loading available times…</p>
+                        <div class="cal-booking-inline" id="cal-booking-inline"></div>
+                        <a class="cal-booking-fallback" id="cal-booking-fallback" href="https://cal.com/benedictus-makuyana/30min" target="_blank" rel="noopener noreferrer" hidden>Open the booking page in a new tab ↗</a>
+                    </section>
+                </div>
                 <div class="row">
                     <!-- Left Side: Contact Info -->
                     <div class="col-12 col-lg-4">

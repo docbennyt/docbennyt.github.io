@@ -303,3 +303,10 @@ body.about-current .about-actions a,
 @media (prefers-reduced-motion: reduce) {
   .home-scroll .dynamic-island, .home-scroll .dynamic-island__chevron { transition: none; }
 }
+
+/* Cache-busted, explicit visibility rules for the visitor-time island. */
+.home-scroll #home .home-eyebrow { display:block !important; visibility:visible !important; opacity:1 !important; position:relative; z-index:5; margin:0 0 16px; }
+.home-scroll #home .dynamic-island { display:inline-flex !important; visibility:visible !important; opacity:1 !important; position:relative; z-index:6; }
+@media (max-width: 991px) {
+  .home-scroll #home .home-eyebrow { display:block !important; grid-column:1 / -1; grid-row:2; margin:15px 0 0 !important; }
+}

@@ -148,3 +148,122 @@
 @media (prefers-reduced-motion: reduce) {
   .contact .contact-connect-card,.contact .contact-connect-arrow,.contact .contact-connect-cv { transition: none; }
 }
+
+/* On-page Cal.com booking dialog. The calendar itself is rendered by Cal.com. */
+body.cal-booking-open { overflow:hidden; }
+.contact .contact-connect-card[data-open-booking] { cursor:pointer; width:100%; font:inherit; text-align:left; }
+.contact .cal-booking-modal[hidden] { display:none !important; }
+.contact .cal-booking-modal {
+  position:fixed;
+  inset:0;
+  z-index:10050;
+  display:grid;
+  place-items:center;
+  padding:20px;
+}
+.contact .cal-booking-backdrop {
+  position:absolute;
+  inset:0;
+  background:rgba(3,5,8,.82);
+  backdrop-filter:blur(13px);
+  -webkit-backdrop-filter:blur(13px);
+}
+.contact .cal-booking-dialog {
+  position:relative;
+  z-index:1;
+  display:flex;
+  flex-direction:column;
+  width:min(1120px,100%);
+  max-height:min(92vh,900px);
+  padding:clamp(18px,2.4vw,28px);
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,.14);
+  border-radius:22px;
+  background:#0d1014;
+  box-shadow:0 30px 100px rgba(0,0,0,.55);
+}
+.contact .cal-booking-header {
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:18px;
+  padding-bottom:17px;
+}
+.contact .cal-booking-kicker {
+  display:block;
+  margin-bottom:6px;
+  color:#8faeff;
+  font:700 .65rem/1.3 "JetBrains Mono",monospace;
+  letter-spacing:.13em;
+}
+.contact .cal-booking-header h2 {
+  margin:0 0 6px;
+  color:#f5f6f8;
+  font-size:clamp(1.35rem,2.5vw,1.9rem);
+  font-weight:750;
+  letter-spacing:-.035em;
+  text-transform:none;
+}
+.contact .cal-booking-header p {
+  max-width:64ch;
+  margin:0;
+  color:#aab2bf;
+  font-size:.85rem;
+  line-height:1.6;
+}
+.contact .cal-booking-close {
+  display:grid;
+  place-items:center;
+  flex:0 0 40px;
+  width:40px;
+  height:40px;
+  border:1px solid rgba(255,255,255,.14);
+  border-radius:50%;
+  background:rgba(255,255,255,.045);
+  color:#d9dee7;
+  font-size:1.4rem;
+  line-height:1;
+  cursor:pointer;
+}
+.contact .cal-booking-close:hover { color:#fff; background:rgba(255,255,255,.1); }
+.contact .cal-booking-status {
+  min-height:18px;
+  margin:0 0 8px;
+  color:#7f8997;
+  font:500 .68rem/1.4 "JetBrains Mono",monospace;
+}
+.contact .cal-booking-inline {
+  min-height:520px;
+  height:min(66vh,680px);
+  overflow:auto;
+  border:1px solid #e4e7eb;
+  border-radius:13px;
+  background:#fff;
+}
+.contact .cal-booking-inline iframe {
+  display:block;
+  width:100% !important;
+  min-height:520px;
+  height:100%;
+  border:0;
+  border-radius:13px;
+}
+.contact .cal-booking-fallback {
+  display:inline-flex;
+  align-self:flex-start;
+  margin-top:10px;
+  color:#a8c6ff;
+  font-size:.82rem;
+  text-underline-offset:3px;
+}
+.contact .cal-booking-fallback[hidden] { display:none !important; }
+.contact .cal-booking-close:focus-visible,
+.contact .cal-booking-fallback:focus-visible { outline:2px solid #a8c6ff; outline-offset:3px; }
+@media(max-width:700px) {
+  .contact .cal-booking-modal { padding:8px; }
+  .contact .cal-booking-dialog { max-height:96vh; padding:16px 12px 12px; border-radius:17px; }
+  .contact .cal-booking-header { gap:10px; padding-bottom:12px; }
+  .contact .cal-booking-header p { font-size:.78rem; }
+  .contact .cal-booking-inline { height:76vh; min-height:500px; }
+  .contact .cal-booking-inline iframe { min-height:500px; }
+}

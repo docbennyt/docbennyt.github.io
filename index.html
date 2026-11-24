@@ -64,7 +64,12 @@
     }
     </script>
     <link rel="stylesheet" href="css/site-polish.css?v=20261124-1">
-    <link rel="stylesheet" href="css/home-about.css?v=20261124-5">
+    <link rel="stylesheet" href="css/home-about.css?v=20261124-6">
+<style id="visitor-island-critical">
+body.home.home-scroll #home .home-eyebrow{display:block!important;visibility:visible!important;opacity:1!important;position:relative;z-index:5;margin:0 0 16px}
+body.home.home-scroll #home .dynamic-island{display:inline-flex!important;visibility:visible!important;opacity:1!important;position:relative;z-index:6;max-width:100%;min-height:40px;padding:7px 12px;border:1px solid rgba(148,163,184,.3);border-radius:999px;background:rgba(20,24,31,.94);color:#eef2f7;box-shadow:0 7px 24px rgba(0,0,0,.2);font:600 .76rem/1.2 Inter,system-ui,sans-serif;cursor:pointer}
+@media(max-width:991px){body.home.home-scroll #home .home-eyebrow{grid-column:1/-1;grid-row:2;margin:15px 0 0!important}body.home.home-scroll #home .dynamic-island{min-height:38px;font-size:.72rem}}
+</style>
 </head>
 
 <body class="home home-scroll">
@@ -143,7 +148,7 @@
                             width="768" height="1280" decoding="async" alt="Benedictus Makuyana in a black suit">
 
                         <!-- Eyebrow tag -->
-                        <div class="ds-mb-4 home-eyebrow">
+                        <div class="home-eyebrow">
                             <button class="dynamic-island" type="button" data-visitor-island aria-expanded="false"
                                 aria-controls="visitor-island-details" title="Show your local date and time zone">
                                 <span class="dynamic-island__main">
@@ -346,7 +351,7 @@
     <!-- JS Files -->
 
 
-    <script src="js/dynamic-island.js?v=20261124-1" defer></script>
+    <script src="js/dynamic-island.js?v=20261124-2" defer></script>
     <script src="js/home-scroll.js?v=20261124-5" defer></script>
     <script src="js/about-credentials.js?v=1" defer></script>
 </body>
