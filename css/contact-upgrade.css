@@ -267,3 +267,9 @@ body.cal-booking-open { overflow:hidden; }
   .contact .cal-booking-inline { height:76vh; min-height:500px; }
   .contact .cal-booking-inline iframe { min-height:500px; }
 }
+
+@media(max-width:700px) {
+  .contact .cal-booking-dialog { overflow-y:auto; }
+  .contact .cal-booking-inline { height:min(66vh,650px); min-height:320px; flex:1 1 auto; }
+  .contact .cal-booking-inline iframe { min-height:320px; }
+}

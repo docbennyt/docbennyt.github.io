@@ -30,16 +30,6 @@
     };
   })(window, "https://app.cal.com/embed/embed.js", "init");
 
-  Cal("init", "30min", { origin: "https://app.cal.com" });
-  Cal.config = Cal.config || {};
-  Cal.config.forwardQueryParams = true;
-  Cal.ns["30min"]("ui", {
-    hideEventTypeDetails: false,
-    layout: "month_view",
-    theme: "light",
-    styles: { branding: { brandColor: "#1a7535" } }
-  });
-
   const modal = document.getElementById("cal-booking-modal");
   const dialog = modal && modal.querySelector(".cal-booking-dialog");
   const inline = document.getElementById("cal-booking-inline");
@@ -49,6 +39,7 @@
   if (!modal || !dialog || !inline || !openers.length) return;
 
   let mounted = false;
+  let calInitialized = false;
   let lastTrigger = null;
   function showFallback(message) {
     if (status) status.textContent = message;
@@ -57,11 +48,23 @@
   function mountCalendar() {
     if (mounted) return;
     mounted = true;
-    if (!window.Cal || !Cal.ns || !Cal.ns["30min"]) {
+    if (!window.Cal) {
       showFallback("The booking calendar could not load here. You can open the secure Cal.com booking page instead.");
       return;
     }
     try {
+      if (!calInitialized) {
+        Cal("init", "30min", { origin: "https://app.cal.com" });
+        Cal.config = Cal.config || {};
+        Cal.config.forwardQueryParams = true;
+        Cal.ns["30min"]("ui", {
+          hideEventTypeDetails: false,
+          layout: "month_view",
+          theme: "light",
+          styles: { branding: { brandColor: "#1a7535" } }
+        });
+        calInitialized = true;
+      }
       Cal("on", {
         action: "linkReady",
         callback: () => { if (status) status.textContent = "Choose a date and an available time below."; }
@@ -70,6 +73,14 @@
         action: "linkFailed",
         callback: () => showFallback("Cal.com could not load the calendar. Open the booking page in a new tab instead.")
       });
+      const observer = new MutationObserver(() => {
+        if (inline.querySelector("iframe")) {
+          if (status) status.textContent = "Choose a date and an available time below.";
+          if (fallback) fallback.hidden = true;
+          observer.disconnect();
+        }
+      });
+      observer.observe(inline, { childList: true, subtree: true });
       Cal.ns["30min"]("inline", {
         elementOrSelector: "#cal-booking-inline",
         calLink: "benedictus-makuyana/30min",
