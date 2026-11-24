@@ -93,3 +93,41 @@ body.home.home-scroll {
   html:has(body.home-scroll) { scroll-behavior: auto; }
   .home-scroll .home-scroll-cue i { transition: none; }
 }
+
+/* Film-style scene change. The About surface covers the receding hero.
+   Layout remains ordinary document flow when GSAP is unavailable. */
+.home-scroll main { position: relative; }
+.home-scroll #home { z-index: 0; }
+.home-scroll #about {
+  z-index: 2;
+  background:
+    radial-gradient(ellipse at 8% 0%, rgba(66,105,222,.12), transparent 55vh),
+    radial-gradient(ellipse at 98% 14%, rgba(31,174,139,.11), transparent 70vh),
+    var(--bg-base);
+  background-clip: padding-box;
+}
+.home-scroll #about .title-section { overflow: hidden; }
+.home-scroll #about .about-portrait-wrap { transform-origin: center top; }
+.home-scroll .home-scroll-cue { position: relative; }
+.home-scroll .home-scroll-cue:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+@media (min-width: 992px) and (prefers-reduced-motion: no-preference) {
+  .home-scroll.has-cinematic-motion #about {
+    box-shadow: 0 -24px 64px rgba(0,0,0,.38);
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .home-scroll .home-scroll-cue i {
+    animation: home-scroll-invite 2.6s ease-in-out 1s 2;
+  }
+  @keyframes home-scroll-invite {
+    0%, 65%, 100% { transform: translateY(0); }
+    30% { transform: translateY(4px); }
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .home-scroll #about { box-shadow: none; }
+}
