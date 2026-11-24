@@ -14,9 +14,7 @@ if (filters) {
       }
       for (const article of articles) {
         const showAll = button === buttons[0];
-        article.hidden = showAll
-          ? article.classList.contains("journal-row--featured")
-          : article.dataset.topic !== button.textContent.trim();
+        article.hidden = article.classList.contains("journal-row--featured") || (!showAll && article.dataset.topic !== button.textContent.trim());
         if (!article.hidden) visible += 1;
       }
       status.textContent = `${visible} ${visible === 1 ? "article" : "articles"} shown`;
