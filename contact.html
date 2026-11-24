@@ -39,6 +39,7 @@
     <link href="css/fm.revealator.jquery.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
     <link href="css/design-system.css?v=20260904" rel="stylesheet">
+    <link href="css/contact-upgrade.css?v=20261124-1" rel="stylesheet">
 
     <!-- Modernizr -->
     <script src="js/modernizr.custom.js"></script>
@@ -113,6 +114,43 @@
     <main>
         <section class="main-content revealator-slideup revealator-once revealator-delay1">
             <div class="container">
+                <section class="contact-connect-panel" aria-labelledby="connect-title">
+                    <div class="contact-connect-heading">
+                        <div>
+                            <span class="contact-connect-kicker">GET IN TOUCH</span>
+                            <h2 id="connect-title">Pick a way to connect</h2>
+                        </div>
+                        <p>Have an idea, a project or a question? Choose the route that works best for you.</p>
+                    </div>
+                    <div class="contact-connect-options">
+                        <a class="contact-connect-card contact-connect-card--call"
+                            href="https://cal.com/benedictus-makuyana/30min"
+                            data-cal-link="benedictus-makuyana/30min"
+                            data-cal-namespace="30min"
+                            data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'
+                            aria-label="Book a 30-minute call with Benedictus">
+                            <span class="contact-connect-icon contact-connect-icon--calendar"><i class="fa fa-calendar" aria-hidden="true"></i></span>
+                            <span class="contact-connect-card-copy"><strong>Book a Call</strong><small>30-minute conversation</small></span>
+                            <span class="contact-connect-arrow" aria-hidden="true">↗</span>
+                        </a>
+                        <a class="contact-connect-card contact-connect-card--email" href="mailto:dr.bennyt.09@gmail.com">
+                            <span class="contact-connect-icon contact-connect-icon--email"><i class="fa fa-envelope" aria-hidden="true"></i></span>
+                            <span class="contact-connect-card-copy"><strong>Email Me</strong><small>dr.bennyt.09@gmail.com</small></span>
+                            <span class="contact-connect-arrow" aria-hidden="true">↗</span>
+                        </a>
+                    </div>
+                    <div class="contact-connect-footer">
+                        <div class="contact-connect-socials">
+                            <span>ALSO FIND ME ON</span>
+                            <a href="https://github.com/docbennyt/" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa fa-github" aria-hidden="true"></i></a>
+                            <a href="https://www.linkedin.com/in/makuyanabenedictus/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                            <a href="https://www.instagram.com/dr_bennyt/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                        </div>
+                        <a class="contact-connect-cv" href="files/Benedictus_Makuyana_AI_Automation_Marketing_CV.pdf" download="Benedictus-Makuyana-CV">
+                            <i class="fa fa-external-link" aria-hidden="true"></i><span>Download CV</span>
+                        </a>
+                    </div>
+                </section>
                 <div class="row">
                     <!-- Left Side: Contact Info -->
                     <div class="col-12 col-lg-4">
@@ -147,26 +185,15 @@
                             Harare, Zimbabwe (available for remote work).
                         </p>
 
-                        <ul class="social list-unstyled pt-1 mb-5" aria-label="Social media links">
-                            <li class="github"><a title="GitHub" href="https://github.com/docbennyt/" target="_blank"
-                                    rel="noopener noreferrer"><i class="fa fa-github" aria-hidden="true"></i></a></li>
-                            <li class="linkedin"><a title="LinkedIn"
-                                    href="https://zw.linkedin.com/in/dr-bennyt-943b10271" target="_blank"
-                                    rel="noopener noreferrer"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-                            </li>
-                            <li class="instagram"><a title="Instagram" href="https://www.instagram.com/dr_bennyt/"
-                                    target="_blank" rel="noopener noreferrer"><i class="fa fa-instagram"
-                                        aria-hidden="true"></i></a></li>
-                        </ul>
+                        
                     </div>
 
                     <!-- Contact Form (Netlify Forms) -->
                     <div class="col-12 col-lg-8">
-                        <form id="contact-form" action="https://formspree.io/f/dr.bennyt.09@gmail.com" method="POST"
-                            novalidate>
+                        <form id="contact-form" action="https://formspree.io/f/mljeporj" method="POST">
                             <!-- Formspree needs these for proper identification -->
                             <input type="hidden" name="_subject" value="New Portfolio Inquiry">
-                            <input type="hidden" name="_replyto" value="">
+                            <div class="contact-honeypot" aria-hidden="true"><label for="cf-company">Leave this field empty</label><input id="cf-company" type="text" name="_gotcha" tabindex="-1" autocomplete="off"></div>
 
                             <div class="row">
                                 <div class="col-12 col-md-4 mb-3">
@@ -206,6 +233,7 @@
                                     </div>
                                 </div>
                                 <div class="col-12">
+                                    <p id="cf-status" class="contact-form-status" role="status" aria-live="polite"></p>
                                     <button type="submit" class="button" id="cf-submit">
                                         <span class="button-text">Send Message</span>
                                         <span class="button-icon fa fa-send" aria-hidden="true"></span>
@@ -234,161 +262,8 @@
     <script src="js/popper.min.js" defer></script>
     <script src="js/bootstrap.js" defer></script>
     <script src="js/custom.js" defer></script>
-    <script>
-        // Accessible mobile menu toggle
-        var menuToggle = document.getElementById('menu-toggle-input');
-        if (menuToggle) {
-            menuToggle.addEventListener('change', function () {
-                this.setAttribute('aria-expanded', this.checked ? 'true' : 'false');
-            });
-        }
-
-        // Email reveal ,  decode on hover, click, or focus
-        var emailMasked = document.getElementById('contact-email-masked');
-        if (emailMasked) {
-            var originalHTML = emailMasked.innerHTML;
-            var isRevealed = false;
-
-            var revealEmail = function () {
-                if (isRevealed) return;
-                isRevealed = true;
-                emailMasked.innerHTML = '<a href="mailto:dr.bennyt.09@gmail.com" style="color:inherit; text-decoration:none;">dr.bennyt.09@gmail.com</a>';
-                emailMasked.classList.remove('ds-email-reveal');
-                emailMasked.classList.add('ds-email-revealed');
-            };
-
-            var hideEmail = function () {
-                if (!isRevealed) return;
-                isRevealed = false;
-                emailMasked.innerHTML = originalHTML;
-                emailMasked.classList.remove('ds-email-revealed');
-                emailMasked.classList.add('ds-email-reveal');
-            };
-
-            emailMasked.addEventListener('mouseenter', revealEmail);
-            emailMasked.addEventListener('mouseleave', hideEmail);
-            emailMasked.addEventListener('click', revealEmail);
-            emailMasked.addEventListener('focus', revealEmail);
-            emailMasked.addEventListener('blur', hideEmail);
-        }
-
-        // Toast Factory
-        function showToast(message, type = 'info') {
-            const container = document.getElementById('toast-container');
-            const toast = document.createElement('div');
-            toast.className = `ds-toast ds-toast--${type}`;
-
-            const icon = type === 'success' ? 'fa-check-circle' : (type === 'error' ? 'fa-exclamation-triangle' : 'fa-info-circle');
-
-            toast.innerHTML = `
-                <i class="fa ${icon}" aria-hidden="true"></i>
-                <div class="ds-toast__content">${message}</div>
-            `;
-
-            container.appendChild(toast);
-
-            // Animate in
-            setTimeout(() => toast.classList.add('show'), 100);
-
-            // Remove after delay
-            setTimeout(() => {
-                toast.classList.remove('show');
-                setTimeout(() => toast.remove(), 400);
-            }, 5000);
-        }
-
-        // Contact form: validation + Formspree submission
-        (function () {
-            var form = document.getElementById('contact-form');
-            if (!form) return;
-
-            function clearErrors() {
-                ['cf-name-error', 'cf-email-error', 'cf-message-error'].forEach(function (id) {
-                    var el = document.getElementById(id);
-                    if (el) el.textContent = '';
-                });
-                form.querySelectorAll('.ds-input, .ds-textarea').forEach(function (el) {
-                    el.classList.remove('error');
-                });
-            }
-
-            function setError(fieldId, errorId, msg) {
-                var field = document.getElementById(fieldId);
-                var err = document.getElementById(errorId);
-                if (field) field.classList.add('error');
-                if (err) err.textContent = msg;
-            }
-
-            function validate() {
-                var valid = true;
-                const name = document.getElementById('cf-name').value.trim();
-                const email = document.getElementById('cf-email').value.trim();
-                const message = document.getElementById('cf-message').value.trim();
-
-                if (!name) {
-                    setError('cf-name', 'cf-name-error', 'Please enter your name.');
-                    valid = false;
-                }
-                if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-                    setError('cf-email', 'cf-email-error', 'Please enter a valid email address.');
-                    valid = false;
-                }
-                if (message.length < 10) {
-                    setError('cf-message', 'cf-message-error', 'Please enter a message (at least 10 characters).');
-                    valid = false;
-                }
-                return valid;
-            }
-
-            form.addEventListener('submit', function (e) {
-                e.preventDefault();
-                clearErrors();
-
-                if (!validate()) {
-                    showToast('Please fix the errors in the form.', 'error');
-                    return;
-                }
-
-                var btn = document.getElementById('cf-submit');
-                const btnText = btn.querySelector('.button-text');
-                const originalText = btnText.textContent;
-
-                btn.disabled = true;
-                btnText.textContent = 'Sending...';
-
-                var data = new FormData(form);
-
-                // Formspree API call
-                fetch(form.action, {
-                    method: 'POST',
-                    body: data,
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                })
-                    .then(function (response) {
-                        if (response.ok) {
-                            showToast('Message sent! I will get back to you soon.', 'success');
-                            form.reset();
-                        } else {
-                            throw new Error('Formspree response error');
-                        }
-                    })
-                    .catch(function (error) {
-                        // Check if it's a CORS/protocol error (local file testing)
-                        if (window.location.protocol === 'file:') {
-                            showToast('Note: Form submission is blocked when opening HTML files directly. Please use a local server or deploy to a host.', 'error');
-                        } else {
-                            showToast('Failed to send. Please try again or email me directly.', 'error');
-                        }
-                    })
-                    .finally(function () {
-                        btn.disabled = false;
-                        btnText.textContent = originalText;
-                    });
-            });
-        })();
-    </script>
+    <script src="js/contact-page.js?v=20261124-1" defer></script>
+    <script src="js/contact-booking.js?v=20261124-1" defer></script>
 </body>
 
 </html>

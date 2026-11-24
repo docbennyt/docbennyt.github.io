@@ -144,7 +144,23 @@
 
                         <!-- Eyebrow tag -->
                         <div class="ds-mb-4 home-eyebrow">
-                            <span class="hero-badge">Software for everyday problems</span>
+                            <button class="dynamic-island" type="button" data-visitor-island aria-expanded="false"
+                                aria-controls="visitor-island-details" title="Show your local date and time zone">
+                                <span class="dynamic-island__main">
+                                    <span class="dynamic-island__live-dot" aria-hidden="true"></span>
+                                    <span class="dynamic-island__hello">Hey 👋</span>
+                                    <span class="dynamic-island__greeting" data-local-greeting>Good evening</span>
+                                    <span class="dynamic-island__period-icon" data-local-period-icon aria-hidden="true">🌙</span>
+                                </span>
+                                <span class="dynamic-island__clock">
+                                    <time data-local-time>--:--</time>
+                                    <span class="dynamic-island__chevron" aria-hidden="true">⌄</span>
+                                </span>
+                                <span class="dynamic-island__details" id="visitor-island-details" hidden>
+                                    <span data-local-date>Your local date</span>
+                                    <span data-local-zone>Your time zone</span>
+                                </span>
+                            </button>
                         </div>
 
                         <!-- Main heading -->
@@ -330,6 +346,7 @@
     <!-- JS Files -->
 
 
+    <script src="js/dynamic-island.js?v=20261124-1" defer></script>
     <script src="js/home-scroll.js?v=20261124-5" defer></script>
     <script src="js/about-credentials.js?v=1" defer></script>
 </body>
