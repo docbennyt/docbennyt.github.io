@@ -39,6 +39,7 @@
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
     <link href="css/design-system.css?v=20261118-3" rel="stylesheet">
+    <link href="css/home-scroll.css?v=20261124-1" rel="stylesheet">
 
     <!-- Modernizr -->
     <script src="js/modernizr.custom.js"></script>
@@ -67,7 +68,7 @@
     </script>
 </head>
 
-<body class="home">
+<body class="home home-scroll">
     <!-- Header -->
     <header class="header" id="navbar-collapse-toggle" role="banner">
         <!-- Desktop Navigation -->
@@ -75,13 +76,13 @@
             <ul class="icon-menu d-none d-lg-block" role="list">
                 <li class="icon-box active">
                     <i class="fa fa-home" aria-hidden="true"></i>
-                    <a href="index.html" aria-current="page">
+                    <a href="#home" aria-current="location">
                         <h2>Home</h2>
                     </a>
                 </li>
                 <li class="icon-box">
                     <i class="fa fa-user" aria-hidden="true"></i>
-                    <a href="about.html">
+                    <a href="#about">
                         <h2>About</h2>
                     </a>
                 </li>
@@ -115,9 +116,9 @@
                 <span aria-hidden="true"></span>
                 <span aria-hidden="true"></span>
                 <ul class="list-unstyled" id="menu" role="list">
-                    <li class="active"><a href="index.html" aria-current="page"><i class="fa fa-home"
+                    <li class="active"><a href="#home" aria-current="location"><i class="fa fa-home"
                                 aria-hidden="true"></i><span>Home</span></a></li>
-                    <li><a href="about.html"><i class="fa fa-user" aria-hidden="true"></i><span>About</span></a></li>
+                    <li><a href="#about"><i class="fa fa-user" aria-hidden="true"></i><span>About</span></a></li>
                     <li><a href="portfolio.html"><i class="fa fa-folder-open"
                                 aria-hidden="true"></i><span>Portfolio</span></a></li>
                     <li><a href="contact.html"><i class="fa fa-envelope-open"
@@ -131,10 +132,10 @@
     <!-- Main Content -->
     <main>
         <section
-            class="container-fluid main-container container-home p-0">
+            id="home" class="container-fluid main-container container-home p-0" aria-label="Home" tabindex="-1">
             <div class="color-block d-none d-lg-block"></div>
             <div class="row home-details-container align-items-center">
-                <div class="col-lg-4 bg position-fixed d-none d-lg-block">
+                <div class="col-lg-4 bg d-none d-lg-block">
                     <img src="img/benedictus-portrait.webp" width="768" height="1280" alt="Benedictus Makuyana in a black suit" fetchpriority="high">
                 </div>
                 <div class="col-12 col-lg-8 offset-lg-4 home-details text-left text-sm-center text-lg-left">
@@ -172,7 +173,7 @@
                             </a>
 
                             <!-- Secondary: About page -->
-                            <a class="button" href="about.html"
+                            <a class="button" href="#about"
                                 style="background:transparent; border:1px solid rgba(255,255,255,0.3); color:inherit;"
                                 aria-label="Learn more about Benedictus Makuyana">
                                 <span class="button-text">Learn More About Me</span>
@@ -187,7 +188,142 @@
                                 Let's talk &rarr;
                             </a>
                         </p>
+                        <a class="home-scroll-cue" href="#about"><span>Scroll to explore</span><i class="fa fa-angle-down" aria-hidden="true"></i></a>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- The About content below mirrors about.html; keep both in sync when editing biography or credentials. -->
+        <section id="about" class="home-about about-current" aria-labelledby="home-about-title" tabindex="-1">
+            <div class="title-section text-left text-sm-center">
+                <h2 id="home-about-title">About <span>Me</span></h2>
+                <span class="title-bg" aria-hidden="true">Story</span>
+            </div>
+            <div class="about-shell">
+        <section class="about-hero" aria-labelledby="about-name">
+            <div class="about-portrait-wrap">
+                <img src="img/benedictus-portrait.webp" width="768" height="1280" alt="Benedictus Makuyana in a black suit" class="about-portrait" loading="lazy" decoding="async">
+            </div>
+            <div class="about-identity">
+                <span class="section-kicker">Kariba roots · Building from Harare</span>
+                <h2 id="about-name">Benedictus Tawananyasha Makuyana</h2>
+                <p class="about-role">AI Automation &amp; Product Engineer · BTech Computer Science Student</p>
+                <p class="about-lead">I build useful systems—not technology theatre. My work spans hospitality operations, student infrastructure, business automation and full-stack product delivery.</p>
+                <p class="nickname-note"><strong>Dr BennyT</strong> is my online identity and a family nickname from birth, not an academic title.</p>
+                <dl class="about-facts">
+                    <div><dt>Based in</dt><dd>Harare, Zimbabwe</dd></div>
+                    <div><dt>Current focus</dt><dd>aiDo products &amp; BTech CS</dd></div>
+                    <div><dt>Open to</dt><dd>Product collaborations, freelance work &amp; internships</dd></div>
+                    <div><dt>Languages</dt><dd>English, Shona, Chinese</dd></div>
+                </dl>
+                <div class="about-actions">
+                    <a class="ds-btn ds-btn--primary" href="portfolio.html">See selected work <span aria-hidden="true">→</span></a>
+                    <a class="ds-btn ds-btn--outline" href="files/Benedictus_Makuyana_AI_Automation_Marketing_CV.pdf" download="Benedictus-Makuyana-CV">Download CV <span aria-hidden="true">↓</span></a>
+                </div>
+            </div>
+        </section>
+
+        <section class="proof-stats" aria-label="Career facts">
+            <div><strong>2020</strong><span>Started coding</span></div>
+            <div><strong>3</strong><span>Live aiDo web products</span></div>
+            <div><strong>32h</strong><span>Data science programme</span></div>
+            <div><strong>BTech</strong><span>Computer Science at HIT</span></div>
+        </section>
+
+        <section class="about-section story-section" aria-labelledby="story-title">
+            <div class="section-heading">
+                <span class="section-kicker">The through-line</span>
+                <h2 id="story-title">From curiosity to accountable products.</h2>
+            </div>
+            <div class="story-copy">
+                <p>I started coding during the Covid-19 lockdown after watching <em>Game Shakers</em> and thinking, “I could build something like that.” A mentor introduced me to C and C++; the rest became years of self-directed learning across the web, backend systems, product design and automation.</p>
+                <p>That curiosity now has receipts. At Afriform Software, I worked as an Associate Developer from November 2025 to July 2026, contributing to TimelessHR, AutoSales and the company website. I helped make platforms more dynamic through admin-controlled content, current programmes, blogs and SEO-focused publishing.</p>
+                <p>Today I am building aiDo: practical AI systems for African business. GuestAI handles hospitality workflows; CalenderZW turns university timetables into usable calendars; aiDo DMs is being developed to move customer conversations into orders, bookings, quotes, follow-ups and human handoffs.</p>
+                <p>Alongside product work, I am studying BTech Computer Science at Harare Institute of Technology and building Scholarz Nation into a trusted student opportunity and progress network. The goal is consistent: software that people can actually use, trust and keep using.</p>
+            </div>
+        </section>
+
+        <section class="about-section" aria-labelledby="capabilities-title">
+            <div class="section-heading">
+                <span class="section-kicker">What I can own</span>
+                <h2 id="capabilities-title">Capabilities backed by shipped work.</h2>
+            </div>
+            <div class="capability-grid">
+                <article><i class="fa fa-cubes" aria-hidden="true"></i><h3>Product engineering</h3><p>Turning an operational problem into flows, interfaces, APIs, data and a deployable product.</p></article>
+                <article><i class="fa fa-bolt" aria-hidden="true"></i><h3>AI &amp; automation</h3><p>Human-in-the-loop workflows, n8n automation, lead handling, handoffs and practical business AI.</p></article>
+                <article><i class="fa fa-code" aria-hidden="true"></i><h3>Full-stack web</h3><p>JavaScript, TypeScript, React, Astro, Node.js, PHP/Laravel, REST APIs and responsive interfaces.</p></article>
+                <article><i class="fa fa-database" aria-hidden="true"></i><h3>Data foundations</h3><p>Python, SQL, Supabase, structured analysis and machine-learning foundations strengthened through formal study.</p></article>
+                <article><i class="fa fa-server" aria-hidden="true"></i><h3>Delivery &amp; operations</h3><p>GitHub workflows, Docker, VPS deployment, Cloudflare, production checks and maintainable documentation.</p></article>
+                <article><i class="fa fa-compass" aria-hidden="true"></i><h3>Product judgement</h3><p>Clear scope, mobile-first African context, honest capability boundaries and outcome-focused iteration.</p></article>
+            </div>
+        </section>
+
+        <section class="about-section credential-section" aria-labelledby="credential-title">
+            <div class="section-heading">
+                <span class="section-kicker">Selected credentials</span>
+                <h2 id="credential-title">Focused learning, verified.</h2>
+            </div>
+            <div class="credential-list">
+                <article class="credential-card">
+                    <a class="credential-image-link" href="files/certificates/benedictus-makuyana-data-science-bootcamp-2026.pdf" target="_blank" rel="noopener noreferrer" aria-label="Open Data Science Bootcamp certificate PDF">
+                        <img src="img/certificates/data-science-bootcamp-2026.webp" alt="Udemy certificate for The Data Science Course: Complete Data Science Bootcamp 2026" loading="lazy">
+                    </a>
+                    <div class="credential-copy">
+                        <span class="credential-provider">Udemy · 365 Careers</span>
+                        <h3>The Data Science Course: Complete Data Science Bootcamp 2026</h3>
+                        <p>A 32-hour completion programme covering the foundations and applied workflow of modern data science.</p>
+                        <dl>
+                            <div><dt>Issued</dt><dd>May 19, 2026</dd></div>
+                            <div><dt>Length</dt><dd>32 total hours</dd></div>
+                            <div><dt>Credential</dt><dd>UC-66e2b861-86d0-4729-a1dc-20adf61e4278</dd></div>
+                        </dl>
+                        <div class="credential-actions">
+                            <a class="project-link" href="https://ude.my/UC-66e2b861-86d0-4729-a1dc-20adf61e4278" target="_blank" rel="noopener noreferrer">Verify on Udemy <span aria-hidden="true">↗</span></a>
+                            <a class="project-link project-link--muted" href="files/certificates/benedictus-makuyana-data-science-bootcamp-2026.pdf" target="_blank" rel="noopener noreferrer">View certificate <span aria-hidden="true">↗</span></a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="credential-compact">
+                    <a class="credential-compact__badge" href="https://www.credly.com/go/ptxmaw6L" target="_blank" rel="noopener noreferrer" aria-label="Verify Enterprise Design Thinking Practitioner credential on Credly">
+                        <img src="img/certificates/ibm-enterprise-design-thinking-practitioner.webp" alt="IBM SkillsBuild Enterprise Design Thinking Practitioner badge" loading="lazy">
+                    </a>
+                    <div class="credential-compact__copy">
+                        <span class="credential-provider">IBM SkillsBuild · Credly</span>
+                        <h3>Enterprise Design Thinking Practitioner</h3>
+                        <p>Issued March 2, 2026. A supporting credential in collaborative, user-centred product thinking.</p>
+                        <div class="credential-actions">
+                            <a class="project-link" href="https://www.credly.com/go/ptxmaw6L" target="_blank" rel="noopener noreferrer">Verify on Credly <span aria-hidden="true">↗</span></a>
+                            <a class="project-link project-link--muted" href="files/certificates/ibm-enterprise-design-thinking-practitioner-2026.pdf" target="_blank" rel="noopener noreferrer">View certificate <span aria-hidden="true">↗</span></a>
+                        </div>
+                    </div>
+                    <details class="credly-proof">
+                        <summary>View official Credly badge</summary>
+                        <div class="credly-proof__embed">
+                            <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="95bf4644-e2e4-4afd-990b-4730e5eda2dd" data-share-badge-host="https://www.credly.com"></div>
+                        </div>
+                    </details>
+                </article>
+            </div>
+        </section>
+
+        <section class="about-section" aria-labelledby="timeline-title">
+            <div class="section-heading">
+                <span class="section-kicker">Experience &amp; education</span>
+                <h2 id="timeline-title">The current trajectory.</h2>
+            </div>
+            <ol class="career-timeline">
+                <li><span>2026 — Present</span><div><h3>Founder &amp; Product Engineer · aiDo</h3><p>Building the aiDo ecosystem, including GuestAI, CalenderZW and aiDo DMs, around real operational work and human oversight.</p></div></li>
+                <li><span>Aug 2026 — Present</span><div><h3>BTech Computer Science · Harare Institute of Technology</h3><p>Formal study across computer science, software systems and the engineering foundations behind dependable products.</p></div></li>
+                <li><span>Nov 2025 — Jul 2026</span><div><h3>Associate Developer · Afriform Software</h3><p>Contributed to TimelessHR, AutoSales and Afriform’s corporate platform across backend, product, dynamic content and SEO delivery.</p></div></li>
+                <li><span>May 2026</span><div><h3>Complete Data Science Bootcamp · Udemy / 365 Careers</h3><p>Completed 32 hours of structured data science learning and earned a verifiable certificate.</p></div></li>
+                <li><span>Nov 2025</span><div><h3>Cambridge AS &amp; A Levels</h3><p>Completed with A* in Computer Science, A in Pure Mathematics and B in Physics.</p></div></li>
+            </ol>
+        </section>
+    
+                <div class="home-next-work">
+                    <a class="ds-btn ds-btn--primary" href="portfolio.html">Explore selected work <span aria-hidden="true">→</span></a>
                 </div>
             </div>
         </section>
@@ -203,6 +339,7 @@
     <script src="js/popper.min.js" defer></script>
     <script src="js/bootstrap.js" defer></script>
     <script src="js/custom.js" defer></script>
+    <script src="js/home-scroll.js?v=20261124-1" defer></script>
     <script>
         // Mobile menu aria-expanded
         var menuToggle = document.getElementById('menu-toggle-input');
