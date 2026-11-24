@@ -490,3 +490,10 @@ html, body { margin: 0; overflow-x: clip; }
 .journal-prose pre code { white-space:pre; }
 @media(max-width:760px) { .journal-row{grid-template-columns:minmax(0,1fr) auto}.journal-steps{grid-template-columns:repeat(2,minmax(0,1fr))}.journal-practice>ul{grid-template-columns:1fr} }
 @media(max-width:540px) { .journal-row{align-items:start;gap:.8rem}.journal-row .journal-thumb{width:90px}.journal-row .journal-thumb img{aspect-ratio:1/1}.journal-tags{gap:.3rem}.journal-tags span{font-size:.62rem;min-height:23px;padding-inline:6px}.journal-steps,.journal-scenarios{grid-template-columns:1fr}.journal-article-cover{border-radius:12px}.journal-article-cover img{aspect-ratio:4/3}.journal-inline-project img{aspect-ratio:4/3} }
+
+/* Keep every article thumbnail visible, including the narrowest supported phones. */
+@media (max-width: 355px) {
+  .journal .journal-row { grid-template-columns: minmax(0,1fr) 76px; }
+  .journal .journal-row .journal-thumb { display:block; width:76px; }
+  .journal .journal-row .journal-thumb img { aspect-ratio:1/1; }
+}
