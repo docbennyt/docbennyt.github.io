@@ -23,8 +23,9 @@
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
     <link href="css/design-system.css?v=20261118-3" rel="stylesheet">
-    <script src="js/modernizr.custom.js"></script>
+
     <link rel="stylesheet" href="css/site-polish.css?v=20261124-1">
+    <link rel="stylesheet" href="css/home-about.css?v=20261124-5">
 </head>
 
 <body class="about about-current">
@@ -61,7 +62,7 @@
     <main class="about-shell">
         <section class="about-hero" aria-labelledby="about-name">
             <div class="about-portrait-wrap">
-                <img src="img/benedictus-portrait.webp" width="768" height="1280" alt="Benedictus Makuyana in a black suit" class="about-portrait">
+                <img src="img/benedictus-portrait.webp" width="768" height="1280" alt="Benedictus Makuyana in a black suit" class="about-portrait" fetchpriority="high" decoding="async">
             </div>
             <div class="about-identity">
                 <span class="section-kicker">Kariba roots · Building from Harare</span>
@@ -181,12 +182,7 @@
         </section>
     </main>
 
-    <script src="js/jquery-3.5.0.min.js"></script>
-    <script src="js/custom.js" defer></script>
-    <script src="https://cdn.credly.com/assets/utilities/embed.js" async></script>
-    <script>
-        var menuToggle = document.getElementById('menu-toggle-input');
-        if (menuToggle) menuToggle.addEventListener('change', function () { this.setAttribute('aria-expanded', this.checked ? 'true' : 'false'); });
-    </script>
+
+    <script src="js/about-credentials.js?v=1" defer></script>
 </body>
 </html>

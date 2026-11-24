@@ -35,14 +35,11 @@
 
     <!-- CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/circle.css" rel="stylesheet">
+
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
     <link href="css/design-system.css?v=20261118-3" rel="stylesheet">
-    <link href="css/home-scroll.css?v=20261124-4" rel="stylesheet">
-
-    <!-- Modernizr -->
-    <script src="js/modernizr.custom.js"></script>
+    <link href="css/home-scroll.css?v=20261124-5" rel="stylesheet">
 
     <!-- Structured Data: Person -->
     <script type="application/ld+json">
@@ -67,6 +64,7 @@
     }
     </script>
     <link rel="stylesheet" href="css/site-polish.css?v=20261124-1">
+    <link rel="stylesheet" href="css/home-about.css?v=20261124-5">
 </head>
 
 <body class="home home-scroll">
@@ -142,10 +140,10 @@
                 <div class="col-12 col-lg-8 offset-lg-4 home-details text-left text-sm-center text-lg-left">
                     <div>
                         <img src="img/benedictus-portrait.webp" class="img-fluid main-img-mobile d-lg-none"
-                            width="768" height="1280" alt="Benedictus Makuyana in a black suit">
+                            width="768" height="1280" decoding="async" alt="Benedictus Makuyana in a black suit">
 
                         <!-- Eyebrow tag -->
-                        <div class="ds-mb-4">
+                        <div class="ds-mb-4 home-eyebrow">
                             <span class="hero-badge">Software for everyday problems</span>
                         </div>
 
@@ -155,7 +153,7 @@
                             <span class="hero-title">AI Automation &amp; Product Engineer</span>
                         </h1>
                         <p class="open-sans-font" style="max-width:54ch; line-height:1.7;">
-                            I build software for African businesses and students. Much of my work is in AI automation, hospitality and education, including platforms used by multiple businesses.
+                            I build software for African businesses and students, with a focus on AI automation, hospitality and education.
                         </p>
 
                         <div class="hero-proof" aria-label="Selected current work">
@@ -182,9 +180,9 @@
                         </div>
 
                         <!-- Tertiary text link -->
-                        <p style="margin-top:1rem; font-size:0.85rem; opacity:0.7;">
+                        <p class="home-contact-note">
                             Have a project or collaboration in mind?
-                            <a href="contact.html" style="color:var(--accent); text-decoration:none; font-weight:500;">
+                            <a href="contact.html" class="home-contact-link">
                                 Let's talk &rarr;
                             </a>
                         </p>
@@ -330,39 +328,10 @@
     </main>
 
     <!-- JS Files -->
-    <script src="js/jquery-3.5.0.min.js"></script>
-    <script src="js/imagesloaded.pkgd.min.js" defer></script>
-    <script src="js/masonry.pkgd.min.js" defer></script>
-    <script src="js/classie.js" defer></script>
-    <script src="js/cbpGridGallery.js" defer></script>
-    <script src="js/jquery.hoverdir.js" defer></script>
-    <script src="js/popper.min.js" defer></script>
-    <script src="js/bootstrap.js" defer></script>
-    <script src="js/custom.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js" defer></script>
-    <script src="js/home-scroll.js?v=20261124-4" defer></script>
-    <script>
-        // Mobile menu aria-expanded
-        var menuToggle = document.getElementById('menu-toggle-input');
-        if (menuToggle) {
-            menuToggle.addEventListener('change', function () {
-                this.setAttribute('aria-expanded', this.checked ? 'true' : 'false');
-            });
-        }
 
-        // Auto-calculate age from DOB ,  updates every time the page loads
-        function calcAge(dob) {
-            var today = new Date();
-            var birth = new Date(dob);
-            var age = today.getFullYear() - birth.getFullYear();
-            var m = today.getMonth() - birth.getMonth();
-            if (m < 0 || (m === 0 && today.getDate() < birth.getDate())) age--;
-            return age;
-        }
-        var ageEl = document.getElementById('hero-age');
-        if (ageEl) ageEl.textContent = calcAge('2007-11-09');
-    </script>
+
+    <script src="js/home-scroll.js?v=20261124-5" defer></script>
+    <script src="js/about-credentials.js?v=1" defer></script>
 </body>
 
 </html>
