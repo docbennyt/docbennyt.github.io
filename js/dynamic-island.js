@@ -8,7 +8,7 @@ const greetingNode=trigger.querySelector("[data-local-greeting]"), iconNode=trig
 const reduced=matchMedia("(prefers-reduced-motion: reduce)");
 let timer=0, phase=0, cycle=0;
 function words(hour){
-  if(hour<5)return ["Hello, night owl","🌙",["Kwaziwai","Mhoroi"],["Salibonani"]];
+  if(hour<5)return ["Good evening","🌙",["Kwaziwai","Mhoroi"],["Salibonani"]];
   if(hour<12)return ["Good morning","☀️",["Mangwanani","Mamukasei"],["Livukenjani","Salibonani"]];
   if(hour<18)return ["Good afternoon","☀️",["Maswerasei","Masikati"],["Litshonenjani","Salibonani"]];
   return ["Good evening","🌙",["Manheru","Kwaziwai"],["Salibonani"]];
@@ -19,7 +19,7 @@ function renderGreeting(){
   const message=phase===0?english:phase===1?shona[cycle%shona.length]:ndebele[cycle%ndebele.length];
   greetingNode.textContent=message;greetingNode.lang=lang;iconNode.textContent=icon;
   trigger.setAttribute("aria-label",english+". Open quick access");
-  if(!reduced.matches&&typeof greetingNode.animate==="function")greetingNode.animate([{opacity:.25,transform:"translateY(4px)"},{opacity:1,transform:"translateY(0)"}],{duration:220,easing:"cubic-bezier(.2,.8,.2,1)"});
+  if(!reduced.matches&&typeof greetingNode.closest(".greeting-pair").animate==="function")greetingNode.closest(".greeting-pair").animate([{opacity:.25,transform:"translateY(3px)"},{opacity:1,transform:"translateY(0)"}],{duration:220,easing:"cubic-bezier(.2,.8,.2,1)"});
 }
 function schedule(){clearTimeout(timer);if(document.hidden||dialog.open||reduced.matches)return;timer=setTimeout(()=>{phase=(phase+1)%3;if(phase===0)cycle++;renderGreeting();schedule();},[6000,2000,2000][phase]);}
 function restart(){clearTimeout(timer);phase=0;renderGreeting();schedule();}

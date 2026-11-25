@@ -105,3 +105,27 @@
  .craft-work-link { width:100%; }
 }
 @media(prefers-reduced-motion:reduce) { .skill-tile,.skill-window,.craft-work-link,.craft-work-art img { transition:none!important; transform:none!important; } }
+
+/* Certificate finishing pass: aligned media, readable metadata and shared action treatment. */
+.about-shell .craft-credentials .credential-card,
+.about-shell .craft-credentials .credential-compact { padding:clamp(18px,2.5vw,28px); gap:20px; align-items:stretch; }
+.about-shell .craft-credentials .credential-preview { display:grid; place-items:center; box-sizing:border-box; width:100%; height:clamp(180px,20vw,248px); min-height:0; margin:0; padding:12px; border:1px solid #ffffff12; background:#0e1318; border-radius:12px; overflow:hidden; }
+.about-shell .craft-credentials .credential-image-link img { display:block; width:100%; height:100%; max-height:100%; min-height:0; object-fit:contain; border-radius:5px; }
+.about-shell .craft-credentials .credential-compact__badge img { display:block; width:100%; max-width:168px; height:100%; max-height:180px; aspect-ratio:auto; object-fit:contain; border-radius:8px; }
+.about-shell .craft-credentials .credential-details { display:flex; flex:1; flex-direction:column; justify-content:flex-start; min-width:0; padding:0; }
+.about-shell .craft-credentials .credential-provider { display:block; color:#c6b7fa; font-size:.72rem; line-height:1.5; margin:0 0 10px; }
+.about-shell .craft-credentials .credential-compact .credential-provider { color:#9cdbd9; }
+.about-shell .craft-credentials .credential-details h3 { font-size:clamp(1.15rem,1.8vw,1.42rem); line-height:1.35; letter-spacing:-.02em; margin:0 0 10px; }
+.about-shell .craft-credentials .credential-details p { color:#bfc8d4; line-height:1.7; font-size:.88rem; margin:0 0 16px; }
+.about-shell .craft-credentials .credential-meta { display:grid; gap:8px; margin:0 0 20px; }
+.about-shell .craft-credentials .credential-meta div { display:grid; grid-template-columns:82px minmax(0,1fr); gap:8px; }
+.about-shell .craft-credentials .credential-meta dt { color:#aab6c5; font:500 .68rem/1.6 var(--font-mono,monospace); text-transform:uppercase; }
+.about-shell .craft-credentials .credential-meta dd { color:#e3e9f0; font-size:.78rem; margin:0; line-height:1.6; overflow-wrap:anywhere; }
+.about-shell .craft-credentials .credential-actions { margin-top:auto; gap:8px; align-items:stretch; }
+.about-shell .craft-credentials .credential-actions a { display:inline-flex; align-items:center; justify-content:center; gap:6px; min-height:44px; padding:9px 12px; border:1px solid #7aa2ff55; border-radius:9px; font-size:.78rem; font-weight:600; color:#d5e4ff; background:#25344d; text-decoration:none; }
+.about-shell .craft-credentials .credential-actions a+a { color:#d2d9e3; background:transparent; border-color:#ffffff25; }
+.about-shell .craft-credentials .credential-actions a:hover { background:#34496b; color:#fff; text-decoration:none; }
+.about-shell .craft-credentials .credential-preview:focus-visible,.about-shell .craft-credentials .credential-actions a:focus-visible,.about-shell .craft-credentials summary:focus-visible { outline:2px solid #b5d1ff; outline-offset:3px; }
+.about-shell .craft-credentials .credly-proof { margin:0; padding-top:12px; border-top:1px solid #ffffff18; }
+.about-shell .craft-credentials .credly-proof summary { color:#b5c1d0; min-height:44px; padding:10px 0; }
+@media(max-width:560px) { .about-shell .craft-credentials .credential-preview { height:clamp(170px,56vw,240px); } .about-shell .craft-credentials .credential-actions a { flex:1 1 135px; } .about-shell .craft-credentials .credential-card,.about-shell .craft-credentials .credential-compact { gap:16px; } .about-shell .craft-credentials .credential-meta div { grid-template-columns:72px minmax(0,1fr); } }
