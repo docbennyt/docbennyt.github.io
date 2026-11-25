@@ -34,3 +34,10 @@ body:has(.action-centre[open]) { overflow:hidden; }
 .action-centre a:focus-visible,.action-centre button:focus-visible { outline:2px solid #a8c6ff; outline-offset:2px; }
 @media(max-width:991px){.home-scroll #home .dynamic-island{min-height:44px}.action-key kbd{display:none}}
 @media(max-width:600px){.action-centre{width:100%;max-width:none;max-height:calc(100dvh - 14px);margin:auto 0 0;border-radius:24px 24px 0 0;padding-bottom:env(safe-area-inset-bottom)}.action-head{padding:18px 16px 12px}.action-search{margin-inline:16px}.action-quick{padding-inline:16px}.action-results-head,.action-foot{padding-inline:16px}.action-foot{display:none}.action-scroll{padding-bottom:16px}}
+
+/* Preserve the island's geometry as the greeting changes. */
+.home-scroll #home .greeting-slot { display:inline-grid; min-width:9.1em; align-items:center; }
+.home-scroll #home .greeting-slot > span { display:block; grid-area:1/1; }
+.home-scroll #home .dynamic-island__main { gap:7px; }
+@media(max-width:370px){.home-scroll #home .greeting-slot{min-width:8.8em}.home-scroll #home .dynamic-island{gap:8px}}
+@media(prefers-reduced-motion:no-preference){.action-centre[open]{animation:action-appear .22s cubic-bezier(.2,.8,.2,1) both}@keyframes action-appear{from{opacity:.65;transform:translateY(8px) scale(.99)}to{opacity:1;transform:none}}}
