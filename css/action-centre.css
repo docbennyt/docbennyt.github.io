@@ -1,0 +1,36 @@
+/* Compact greeting; native modal lives outside the animated hero. */
+.home-scroll #home .home-eyebrow { margin-bottom:18px; }
+.home-scroll #home .dynamic-island { min-height:44px; gap:14px; padding:7px 9px 7px 13px; }
+.action-key { display:flex; align-items:center; gap:6px; border-radius:99px; padding:5px 8px; background:rgba(255,255,255,.06); color:#aebdd0; }
+.action-key kbd { font:500 .66rem/1.2 system-ui,sans-serif; background:none; padding:0;color:inherit; }
+.action-centre { box-sizing:border-box; width:min(600px,calc(100% - 32px)); max-height:calc(100dvh - 40px); margin:auto; padding:0; border:1px solid #353b43; border-radius:24px; background:#12161b; color:#f1f4f8; box-shadow:0 24px 100px #0009; overflow:hidden; font:400 14px/1.45 Inter,system-ui,sans-serif; }
+.action-centre:not([open]) { display:none; }
+.action-centre[open] { display:flex; flex-direction:column; }
+.action-centre::backdrop { background:#030609b8; backdrop-filter:blur(7px); }
+body:has(.action-centre[open]) { overflow:hidden; }
+.action-head { display:flex; justify-content:space-between; align-items:center; gap:12px; padding:22px 24px 14px; }
+.action-head h2 { margin:0; font-size:27px; font-weight:750; letter-spacing:-.04em; text-transform:none; color:inherit; }
+.action-kicker { margin:0 0 5px;color:#9aabbe;font:600 10px/1.4 monospace;letter-spacing:.08em; }
+.action-head button { background:#222831;border:1px solid #3b4149;color:#dbe3ed;border-radius:50%;width:44px;height:44px;flex:none;font-size:24px;cursor:pointer; }
+.action-search { display:flex; align-items:center; gap:10px; margin:0 24px; padding:0 13px; min-height:48px; border:1px solid #3e4959; border-radius:12px; background:#0d1116; color:#a8b8cc; }
+.action-search input { min-width:0; flex:1; border:0; outline:0; background:transparent; color:#fff; font:inherit; }
+.action-search:focus-within { border-color:#8fafff; box-shadow:0 0 0 2px #8fafff33; }
+.action-quick { display:flex; flex-wrap:wrap; gap:7px; padding:13px 24px 16px; }
+.action-quick a { min-height:38px; display:inline-flex; align-items:center; gap:7px; padding:6px 12px; border:1px solid #36414a; border-radius:9px; color:#e3eaf4; text-decoration:none; font-size:12px; }
+.action-quick a:nth-child(2) { color:#a7ecc0; border-color:#385c45; background:#1b3024; }
+.action-results-head { display:flex; justify-content:space-between; padding:12px 24px 8px; border-top:1px solid #ffffff12; color:#a5afbd; font:600 10px/1.4 monospace; letter-spacing:.06em; }
+.action-scroll { min-height:0; overflow-y:auto; overscroll-behavior:contain; padding:0 14px 12px; }
+.action-scroll ul { list-style:none;margin:0;padding:0; }
+.action-scroll li[hidden] { display:none!important; }
+.action-scroll li a { display:flex; align-items:center; gap:12px; min-height:54px; padding:8px 10px; border-radius:10px; color:#f1f4f8; text-decoration:none; }
+.action-scroll li a:hover,.action-scroll li a:focus-visible,.action-scroll li a.is-selected { background:#25303c; outline:none; }
+.action-icon { display:grid;place-items:center; flex:0 0 34px; height:34px; border-radius:9px; color:#a8c6ff; background:#1b2534; }
+.action-text { display:flex; flex-direction:column; min-width:0; flex:1; }
+.action-text strong { font-size:13px; line-height:1.4; }
+.action-text small { color:#a9b5c4; font-size:11px; }
+.action-arrow { color:#8597aa; }
+.action-foot { display:flex;justify-content:space-between; gap:10px; padding:12px 24px; border-top:1px solid #ffffff12; color:#a9b5c4; font-size:11px; }
+#action-empty { margin:16px 10px; color:#b7c2cf; }
+.action-centre a:focus-visible,.action-centre button:focus-visible { outline:2px solid #a8c6ff; outline-offset:2px; }
+@media(max-width:991px){.home-scroll #home .dynamic-island{min-height:44px}.action-key kbd{display:none}}
+@media(max-width:600px){.action-centre{width:100%;max-width:none;max-height:calc(100dvh - 14px);margin:auto 0 0;border-radius:24px 24px 0 0;padding-bottom:env(safe-area-inset-bottom)}.action-head{padding:18px 16px 12px}.action-search{margin-inline:16px}.action-quick{padding-inline:16px}.action-results-head,.action-foot{padding-inline:16px}.action-foot{display:none}.action-scroll{padding-bottom:16px}}

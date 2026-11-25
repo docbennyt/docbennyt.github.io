@@ -1,275 +1,42 @@
-/* Contact-first conversion panel and Cal.com entry point. */
-.contact .contact-connect-panel {
-  width: min(100%, 1120px);
-  margin: 0 auto clamp(34px,5vw,58px);
-  padding: clamp(22px,3.2vw,34px);
-  border: 1px solid rgba(255,255,255,.11);
-  border-radius: 24px;
-  background:
-    radial-gradient(ellipse at 0 0, rgba(91,119,210,.11), transparent 48%),
-    radial-gradient(ellipse at 100% 0, rgba(32,165,104,.10), transparent 52%),
-    rgba(12,14,17,.82);
-  box-shadow: 0 20px 60px rgba(0,0,0,.18);
-}
-.contact .contact-connect-heading {
-  display: flex;
-  align-items: end;
-  justify-content: space-between;
-  gap: 18px;
-}
-.contact .contact-connect-kicker {
-  display: block;
-  margin-bottom: 7px;
-  color: #8faeff;
-  font: 600 .66rem/1.3 "JetBrains Mono",monospace;
-  letter-spacing: .12em;
-}
-.contact .contact-connect-heading h2 {
-  margin: 0;
-  color: #f5f6f8;
-  font-size: clamp(1.35rem,2.6vw,1.9rem);
-  font-weight: 750;
-  letter-spacing: -.035em;
-  text-transform: none;
-}
-.contact .contact-connect-heading > p {
-  max-width: 38ch;
-  margin: 0;
-  color: #a9b0bb;
-  font-size: .88rem;
-  line-height: 1.6;
-}
-.contact .contact-connect-options {
-  display: grid;
-  grid-template-columns: repeat(2,minmax(0,1fr));
-  gap: 14px;
-  margin-top: 23px;
-}
-.contact .contact-connect-card {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  min-width: 0;
-  min-height: 94px;
-  padding: 17px;
-  border: 1px solid rgba(255,255,255,.105);
-  border-radius: 18px;
-  background: rgba(255,255,255,.035);
-  color: #f3f4f6;
-  text-decoration: none;
-  transition: transform .2s ease,border-color .2s ease,background .2s ease;
-}
-.contact .contact-connect-card:hover,
-.contact .contact-connect-card:focus-visible {
-  color: #fff;
-  transform: translateY(-2px);
-  border-color: rgba(112,150,255,.45);
-  background: rgba(255,255,255,.065);
-}
-.contact .contact-connect-icon {
-  display: grid;
-  place-items: center;
-  width: 44px;
-  height: 44px;
-  flex: 0 0 44px;
-  border-radius: 14px;
-  font-size: 1.05rem;
-}
-.contact .contact-connect-icon--calendar { color: #c58bff; background: rgba(155,83,222,.15); border: 1px solid rgba(177,111,240,.2); }
-.contact .contact-connect-icon--email { color: #39c9ee; background: rgba(0,174,220,.13); border: 1px solid rgba(0,190,230,.2); }
-.contact .contact-connect-card-copy { display: flex; flex: 1; flex-direction: column; gap: 4px; min-width: 0; }
-.contact .contact-connect-card-copy strong { color: #f5f6f8; font-size: .96rem; font-weight: 700; }
-.contact .contact-connect-card-copy small { color: #9ca3af; font: 500 .72rem/1.45 "JetBrains Mono",monospace; overflow-wrap: anywhere; }
-.contact .contact-connect-arrow { color: #8faeff; font-size: 1.05rem; transition: transform .2s ease; }
-.contact .contact-connect-card:hover .contact-connect-arrow { transform: translate(2px,-2px); }
-.contact .contact-connect-footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  flex-wrap: wrap;
-  margin-top: 21px;
-  padding-top: 17px;
-  border-top: 1px solid rgba(255,255,255,.09);
-}
-.contact .contact-connect-socials { display: flex; align-items: center; gap: 13px; }
-.contact .contact-connect-socials > span {
-  margin-right: 3px;
-  color: #747b86;
-  font: 600 .61rem/1.3 "JetBrains Mono",monospace;
-  letter-spacing: .11em;
-}
-.contact .contact-connect-socials a {
-  display: grid;
-  place-items: center;
-  width: 34px;
-  height: 34px;
-  border-radius: 10px;
-  color: #d3d7df;
-  font-size: 1.05rem;
-  text-decoration: none;
-  transition: color .18s ease,background .18s ease;
-}
-.contact .contact-connect-socials a:hover { color: #fff; background: rgba(255,255,255,.09); }
-.contact .contact-connect-cv {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 9px;
-  min-height: 40px;
-  padding: 0 16px;
-  border-radius: 11px;
-  background: #f5f6f8;
-  color: #101318;
-  font-size: .77rem;
-  font-weight: 750;
-  text-decoration: none;
-  transition: transform .18s ease,background .18s ease;
-}
-.contact .contact-connect-cv:hover { color: #101318; background: #fff; transform: translateY(-1px); }
-.contact .contact-connect-cv i { font-size: .85rem; }
-.contact .contact-honeypot { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; }
-.contact .contact-form-status { min-height: 0; margin: 0 0 12px; color: #a9dcb8; font-size: .86rem; }
-.contact #cf-submit:disabled { opacity: .65; cursor: wait; }
-.contact #contact-form[aria-busy="true"] { opacity: .86; }
-@media (max-width: 991px) {
-  .contact .contact-connect-panel { width: calc(100% - 32px); }
-  .contact .contact-connect-heading { align-items: start; flex-direction: column; gap: 8px; }
-}
-@media (max-width: 560px) {
-  .contact .contact-connect-panel { padding: 20px 16px; border-radius: 20px; }
-  .contact .contact-connect-options { grid-template-columns: 1fr; gap: 10px; margin-top: 17px; }
-  .contact .contact-connect-card { min-height: 80px; padding: 14px; }
-  .contact .contact-connect-footer { align-items: flex-start; }
-  .contact .contact-connect-socials { gap: 9px; flex-wrap: wrap; }
-  .contact .contact-connect-socials > span { flex-basis: 100%; margin-bottom: 3px; }
-  .contact .contact-connect-cv { width: 100%; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .contact .contact-connect-card,.contact .contact-connect-arrow,.contact .contact-connect-cv { transition: none; }
-}
-
-/* On-page Cal.com booking dialog. The calendar itself is rendered by Cal.com. */
-body.cal-booking-open { overflow:hidden; }
-.contact .contact-connect-card[data-open-booking] { cursor:pointer; width:100%; font:inherit; text-align:left; }
-.contact .cal-booking-modal[hidden] { display:none !important; }
-.contact .cal-booking-modal {
-  position:fixed;
-  inset:0;
-  z-index:10050;
-  display:grid;
-  place-items:center;
-  padding:20px;
-}
-.contact .cal-booking-backdrop {
-  position:absolute;
-  inset:0;
-  background:rgba(3,5,8,.82);
-  backdrop-filter:blur(13px);
-  -webkit-backdrop-filter:blur(13px);
-}
-.contact .cal-booking-dialog {
-  position:relative;
-  z-index:1;
-  display:flex;
-  flex-direction:column;
-  width:min(1120px,100%);
-  max-height:min(92vh,900px);
-  padding:clamp(18px,2.4vw,28px);
-  overflow:hidden;
-  border:1px solid rgba(255,255,255,.14);
-  border-radius:22px;
-  background:#0d1014;
-  box-shadow:0 30px 100px rgba(0,0,0,.55);
-}
-.contact .cal-booking-header {
-  display:flex;
-  align-items:flex-start;
-  justify-content:space-between;
-  gap:18px;
-  padding-bottom:17px;
-}
-.contact .cal-booking-kicker {
-  display:block;
-  margin-bottom:6px;
-  color:#8faeff;
-  font:700 .65rem/1.3 "JetBrains Mono",monospace;
-  letter-spacing:.13em;
-}
-.contact .cal-booking-header h2 {
-  margin:0 0 6px;
-  color:#f5f6f8;
-  font-size:clamp(1.35rem,2.5vw,1.9rem);
-  font-weight:750;
-  letter-spacing:-.035em;
-  text-transform:none;
-}
-.contact .cal-booking-header p {
-  max-width:64ch;
-  margin:0;
-  color:#aab2bf;
-  font-size:.85rem;
-  line-height:1.6;
-}
-.contact .cal-booking-close {
-  display:grid;
-  place-items:center;
-  flex:0 0 40px;
-  width:40px;
-  height:40px;
-  border:1px solid rgba(255,255,255,.14);
-  border-radius:50%;
-  background:rgba(255,255,255,.045);
-  color:#d9dee7;
-  font-size:1.4rem;
-  line-height:1;
-  cursor:pointer;
-}
-.contact .cal-booking-close:hover { color:#fff; background:rgba(255,255,255,.1); }
-.contact .cal-booking-status {
-  min-height:18px;
-  margin:0 0 8px;
-  color:#7f8997;
-  font:500 .68rem/1.4 "JetBrains Mono",monospace;
-}
-.contact .cal-booking-inline {
-  min-height:520px;
-  height:min(66vh,680px);
-  overflow:auto;
-  border:1px solid #e4e7eb;
-  border-radius:13px;
-  background:#fff;
-}
-.contact .cal-booking-inline iframe {
-  display:block;
-  width:100% !important;
-  min-height:520px;
-  height:100%;
-  border:0;
-  border-radius:13px;
-}
-.contact .cal-booking-fallback {
-  display:inline-flex;
-  align-self:flex-start;
-  margin-top:10px;
-  color:#a8c6ff;
-  font-size:.82rem;
-  text-underline-offset:3px;
-}
-.contact .cal-booking-fallback[hidden] { display:none !important; }
-.contact .cal-booking-close:focus-visible,
-.contact .cal-booking-fallback:focus-visible { outline:2px solid #a8c6ff; outline-offset:3px; }
-@media(max-width:700px) {
-  .contact .cal-booking-modal { padding:8px; }
-  .contact .cal-booking-dialog { max-height:96vh; padding:16px 12px 12px; border-radius:17px; }
-  .contact .cal-booking-header { gap:10px; padding-bottom:12px; }
-  .contact .cal-booking-header p { font-size:.78rem; }
-  .contact .cal-booking-inline { height:76vh; min-height:500px; }
-  .contact .cal-booking-inline iframe { min-height:500px; }
-}
-
-@media(max-width:700px) {
-  .contact .cal-booking-dialog { overflow-y:auto; }
-  .contact .cal-booking-inline { height:min(66vh,650px); min-height:320px; flex:1 1 auto; }
-  .contact .cal-booking-inline iframe { min-height:320px; }
-}
+/* One composition, not two competing contact sections. */
+.contact .contact-layout { width:min(1120px,calc(100% - 180px)); margin:0 auto; display:grid; grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr); gap:clamp(34px,5vw,76px); align-items:start; padding:clamp(52px,12vh,120px) 0 70px; }
+.contact .contact-intro,.contact .contact-message{min-width:0}
+.contact .contact-connect-kicker{font:600 .68rem/1.5 monospace;letter-spacing:.07em;color:#a8c6ff;margin:0 0 15px}
+.contact .contact-intro h1{font-size:clamp(3rem,7vw,6.5rem);line-height:.99;letter-spacing:-.065em;text-transform:none;margin:0 0 22px;color:#f6f6f6;font-weight:800}
+.contact .contact-intro h1 span{color:#4bc66e}
+.contact .contact-intro-copy{font-size:1rem;line-height:1.75;color:#c4cad1;max-width:40ch;margin:0 0 30px}
+.contact .contact-call{display:flex;align-items:center;gap:14px;padding:15px 16px;min-height:76px;border:1px solid #3c6750;border-radius:14px;background:#152b20;color:#f3f8f4;text-decoration:none;max-width:400px}
+.contact .contact-call:hover{background:#1b3b28;color:#fff;text-decoration:none}
+.contact .contact-call-icon{display:grid;place-items:center;width:42px;height:42px;flex:none;border-radius:12px;background:#284e35;color:#a6ecc0}
+.contact .contact-call strong,.contact .contact-call small{display:block}.contact .contact-call small{font-size:.78rem;color:#b3cbbd;margin-top:3px}.contact .contact-call>span:last-child{margin-left:auto;color:#a6ecc0}
+.contact .contact-direct{display:inline-flex;align-items:center;gap:10px;min-height:48px;color:#b6cfff;font-size:.88rem;overflow-wrap:anywhere}
+.contact .contact-connect-footer{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:18px;padding-top:18px;border-top:1px solid #ffffff19}
+.contact .contact-connect-socials{display:flex;gap:7px;align-items:center;flex-wrap:wrap}
+.contact .contact-connect-socials>span{font:600 10px monospace;color:#aeb9c8;flex-basis:100%}
+.contact .contact-connect-socials a{display:grid;place-items:center;width:44px;height:44px;color:#d9e1e9;text-decoration:none;border:1px solid #ffffff19;border-radius:12px}
+.contact .contact-connect-cv{display:inline-flex;align-items:center;gap:8px;min-height:44px;color:#e8edf3;padding:9px 12px;text-decoration:none;border:1px solid #ffffff26;border-radius:12px;align-self:end}
+.contact .contact-message{border-left:1px solid #ffffff18;padding-left:clamp(24px,3.5vw,50px)}
+.contact .contact-message h2{font-size:clamp(1.5rem,2.5vw,2.15rem);text-transform:none;letter-spacing:-.035em;margin:0 0 7px;color:#f4f6f8}
+.contact .contact-message>p{font-size:.92rem;color:#b6bfca;margin:0 0 27px}
+.contact #contact-form{padding:0!important;background:none!important;border:0!important}
+.contact #contact-form .ds-input::placeholder,.contact #contact-form .ds-textarea::placeholder{color:#939eae;opacity:1}
+.contact #contact-form .ds-textarea{min-height:154px;resize:vertical}
+.contact .contact-honeypot{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
+.contact .contact-form-status{color:#cbd7e7;font-size:.86rem;margin:0 0 12px}
+.contact #cf-submit:disabled{opacity:.65;cursor:wait}
+body.cal-booking-open{overflow:hidden}
+.contact .cal-booking-modal[hidden]{display:none!important}
+.contact .cal-booking-modal{position:fixed;inset:0;z-index:10050;display:grid;place-items:center;padding:12px;overflow:hidden}
+.contact .cal-booking-backdrop{position:absolute;inset:0;background:#030609c9;backdrop-filter:blur(8px)}
+.contact .cal-booking-dialog{box-sizing:border-box;position:relative;z-index:1;width:min(1160px,100%);max-height:calc(100dvh - 24px);display:flex;flex-direction:column;padding:0 18px 18px;overflow-y:auto;overscroll-behavior:contain;border:1px solid #39414a;border-radius:20px;background:#101318;color:#f5f6f8;scrollbar-gutter:stable}
+.contact .cal-booking-header{position:sticky;top:0;z-index:2;display:flex;justify-content:space-between;align-items:center;gap:12px;background:#101318;padding:15px 0 12px}
+.contact .cal-booking-header h2{margin:0 0 3px;font-size:clamp(1.25rem,2.5vw,1.75rem);letter-spacing:-.03em;text-transform:none;color:#f5f6f8}
+.contact .cal-booking-header p{margin:0;font-size:.82rem;color:#b1bdcb}
+.contact .cal-booking-close{flex:0 0 44px;width:44px;height:44px;border-radius:50%;border:1px solid #ffffff29;background:#1d232b;color:#fff;font-size:24px;cursor:pointer}
+.contact .cal-booking-status{margin:0 0 8px;color:#b4beca;font:500 .72rem/1.4 monospace}
+.contact .cal-booking-inline{flex:0 0 auto;min-width:0;min-height:550px;height:auto;overflow:visible;border-radius:12px;background:white}
+.contact .cal-booking-inline iframe{display:block;width:100%!important;min-height:550px;border:0;border-radius:12px}
+.contact .cal-booking-fallback{display:inline-flex;align-self:start;margin-top:12px;color:#b4ccff;font-size:.82rem;text-decoration:underline}
+.contact .cal-booking-fallback:focus-visible,.contact .cal-booking-close:focus-visible{outline:2px solid #a8c6ff;outline-offset:3px}
+@media(max-width:991px){.contact .contact-layout{width:min(680px,calc(100% - 36px));grid-template-columns:1fr;gap:36px;padding:40px 0 26px}.contact .contact-message{border-left:0;border-top:1px solid #ffffff19;padding:30px 0 0}.contact .contact-intro-copy{margin-bottom:20px}.contact .contact-connect-footer{margin-top:8px}}
+@media(max-width:600px){.contact .cal-booking-modal{padding:0;align-items:stretch}.contact .cal-booking-dialog{width:100%;max-height:100dvh;height:100dvh;padding:0 10px max(12px,env(safe-area-inset-bottom));border-radius:0;border:0}.contact .cal-booking-inline,.contact .cal-booking-inline iframe{min-height:620px}.contact .cal-booking-header{padding-top:max(10px,env(safe-area-inset-top))}}

@@ -91,7 +91,7 @@
         throw new Error(details || "The form service could not accept the message.");
       }
       form.reset();
-      const success = "Message sent. Thank you for reaching out — I'll get back to you as soon as I can.";
+      const success = "Message sent. Thank you for reaching out. I'll get back to you as soon as I can.";
       if (status) status.textContent = success;
       showToast("Message sent successfully.", "success");
     } catch (error) {

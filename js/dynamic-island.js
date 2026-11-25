@@ -1,50 +1,19 @@
 (() => {
-  "use strict";
-  const island = document.querySelector("[data-visitor-island]");
-  if (!island) return;
-  const greeting = island.querySelector("[data-local-greeting]");
-  const periodIcon = island.querySelector("[data-local-period-icon]");
-  const timeNode = island.querySelector("[data-local-time]");
-  const dateNode = island.querySelector("[data-local-date]");
-  const zoneNode = island.querySelector("[data-local-zone]");
-  const details = island.querySelector("#visitor-island-details");
-  const timeFormatter = new Intl.DateTimeFormat(undefined, { hour: "numeric", minute: "2-digit" });
-  const dateFormatter = new Intl.DateTimeFormat(undefined, { weekday: "long", month: "long", day: "numeric" });
-  const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone || "Your local time";
-  function getGreeting(hour) {
-    if (hour >= 5 && hour < 12) return { text: "Good morning", icon: "☀️" };
-    if (hour >= 12 && hour < 17) return { text: "Good afternoon", icon: "🌤️" };
-    if (hour >= 17 && hour < 24) return { text: "Good evening", icon: "🌙" };
-    return { text: "Hello, night owl", icon: "🌌" };
-  }
-  function update() {
-    const now = new Date();
-    const phrase = getGreeting(now.getHours());
-    const localTime = timeFormatter.format(now);
-    greeting.textContent = phrase.text;
-    periodIcon.textContent = phrase.icon;
-    timeNode.textContent = localTime;
-    timeNode.dateTime = now.toISOString();
-    dateNode.textContent = dateFormatter.format(now);
-    zoneNode.textContent = timeZone.replace(/_/g, " ");
-    island.setAttribute("aria-label", "Hey. " + phrase.text + ". Your local time is " + localTime + ". Activate to see the date and time zone.");
-  }
-  function setExpanded(expanded) {
-    island.setAttribute("aria-expanded", String(expanded));
-    details.hidden = !expanded;
-    island.classList.toggle("is-expanded", expanded);
-  }
-  island.addEventListener("click", () => setExpanded(island.getAttribute("aria-expanded") !== "true"));
-  document.addEventListener("click", event => {
-    if (!island.contains(event.target)) setExpanded(false);
-  });
-  document.addEventListener("keydown", event => {
-    if (event.key === "Escape" && island.getAttribute("aria-expanded") === "true") {
-      setExpanded(false);
-      island.focus();
-    }
-  });
-  document.addEventListener("visibilitychange", () => { if (!document.hidden) update(); });
-  update();
-  window.setInterval(update, 30000);
+"use strict";
+const trigger=document.querySelector("[data-visitor-island]"), dialog=document.getElementById("action-centre");
+if(!trigger||!dialog)return;
+const search=dialog.querySelector("input"), rows=[...dialog.querySelectorAll("#action-results li")], count=dialog.querySelector("#action-count"), empty=dialog.querySelector("#action-empty");
+let selected=-1;
+function greet(){const h=new Date().getHours();const [text,icon]=h<5?["Hello, night owl","🌙"]:h<12?["Good morning","☀️"]:h<18?["Good afternoon","☀️"]:["Good evening","🌙"];trigger.querySelector("[data-local-greeting]").textContent=text;trigger.querySelector("[data-local-period-icon]").textContent=icon;trigger.setAttribute("aria-label",text+". Open quick access");}
+function visible(){return rows.filter(r=>!r.hidden).map(r=>r.querySelector("a"));}
+function mark(i){const a=visible(); selected=a.length?Math.max(0,Math.min(i,a.length-1)):-1;rows.forEach(r=>r.querySelector("a").classList.remove("is-selected"));if(selected>=0){a[selected].classList.add("is-selected");a[selected].scrollIntoView({block:"nearest"});}}
+function filter(){const q=search.value.trim().toLowerCase().split(/\s+/).filter(Boolean);for(const r of rows)r.hidden=!q.every(s=>(r.textContent+" "+r.dataset.actionGroup).toLowerCase().includes(s));const n=visible().length;count.textContent=n+" actions";empty.hidden=!!n;selected=-1;rows.forEach(r=>r.querySelector("a").classList.remove("is-selected"));}
+function open(){if(dialog.open)return;search.value="";filter();dialog.showModal();trigger.setAttribute("aria-expanded","true");if(matchMedia("(pointer:fine)").matches)search.focus();else dialog.querySelector("[data-close-action]").focus();}
+trigger.addEventListener("click",open);dialog.querySelector("[data-close-action]").addEventListener("click",()=>dialog.close());
+dialog.addEventListener("close",()=>{trigger.setAttribute("aria-expanded","false");trigger.focus({preventScroll:true});});
+dialog.addEventListener("click",e=>{if(e.target===dialog){const r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)dialog.close();}else if(e.target.closest("a"))dialog.close();});
+search.addEventListener("input",filter);
+dialog.addEventListener("keydown",e=>{if(e.target!==search)return;if(e.key==="ArrowDown"||e.key==="ArrowUp"){e.preventDefault();mark(selected+(e.key==="ArrowDown"?1:-1));}else if(e.key==="Enter"&&visible().length){e.preventDefault();visible()[Math.max(0,selected)].click();}});
+document.addEventListener("keydown",e=>{if((e.metaKey||e.ctrlKey)&&e.key.toLowerCase()==="k"){e.preventDefault();dialog.open?dialog.close():open();}});
+greet();document.addEventListener("visibilitychange",()=>{if(!document.hidden)greet();});setInterval(greet,60000);
 })();

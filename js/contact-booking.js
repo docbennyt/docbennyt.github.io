@@ -64,23 +64,23 @@
         });
         calInitialized = true;
       }
-      Cal("on", {
+      Cal.ns["30min"]("on", {
         action: "linkReady",
         callback: () => { if (status) status.textContent = "Choose a date and an available time below."; }
       });
-      Cal("on", {
+      Cal.ns["30min"]("on", {
         action: "linkFailed",
         callback: () => showFallback("Cal.com could not load the calendar. Open the booking page in a new tab instead.")
       });
       const observer = new MutationObserver(() => {
         if (inline.querySelector("iframe")) {
           if (status) status.textContent = "Choose a date and an available time below.";
-          if (fallback) fallback.hidden = true;
+          if (fallback) fallback.hidden = false;
           observer.disconnect();
         }
       });
       observer.observe(inline, { childList: true, subtree: true });
-      Cal("inline", {
+      Cal.ns["30min"]("inline", {
         elementOrSelector: "#cal-booking-inline",
         calLink: "benedictus-makuyana/30min",
         config: {
@@ -90,7 +90,7 @@
         }
       });
       window.setTimeout(() => {
-        if (!inline.querySelector("iframe") && fallback && fallback.hidden) {
+        if (!inline.querySelector("iframe")) {
           showFallback("The calendar is taking longer than expected. You can also open the booking page directly.");
         }
       }, 12000);
@@ -114,12 +114,15 @@
     modal.hidden = true;
     modal.setAttribute("aria-hidden", "true");
     document.body.classList.remove("cal-booking-open");
+    if (location.hash === "#book") history.replaceState(null, "", location.pathname + location.search);
     if (lastTrigger) lastTrigger.focus();
   }
   openers.forEach(trigger => trigger.addEventListener("click", event => {
     event.preventDefault();
     openModal(trigger);
   }));
+  if (location.hash === "#book") openModal(openers[0]);
+  window.addEventListener("hashchange", () => { if (location.hash === "#book" && modal.hidden) openModal(openers[0]); });
   modal.addEventListener("click", event => {
     if (event.target === modal || event.target.closest("[data-close-booking]")) closeModal();
   });

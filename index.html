@@ -65,11 +65,8 @@
     </script>
     <link rel="stylesheet" href="css/site-polish.css?v=20261124-1">
     <link rel="stylesheet" href="css/home-about.css?v=20261124-6">
-<style id="visitor-island-critical">
-body.home.home-scroll #home .home-eyebrow{display:block!important;visibility:visible!important;opacity:1!important;position:relative;z-index:5;margin:0 0 16px}
-body.home.home-scroll #home .dynamic-island{display:inline-flex!important;visibility:visible!important;opacity:1!important;position:relative;z-index:6;max-width:100%;min-height:40px;padding:7px 12px;border:1px solid rgba(148,163,184,.3);border-radius:999px;background:rgba(20,24,31,.94);color:#eef2f7;box-shadow:0 7px 24px rgba(0,0,0,.2);font:600 .76rem/1.2 Inter,system-ui,sans-serif;cursor:pointer}
-@media(max-width:991px){body.home.home-scroll #home .home-eyebrow{grid-column:1/-1;grid-row:2;margin:15px 0 0!important}body.home.home-scroll #home .dynamic-island{min-height:38px;font-size:.72rem}}
-</style>
+
+<link rel="stylesheet" href="css/action-centre.css?v=1">
 </head>
 
 <body class="home home-scroll">
@@ -148,25 +145,7 @@ body.home.home-scroll #home .dynamic-island{display:inline-flex!important;visibi
                             width="768" height="1280" decoding="async" alt="Benedictus Makuyana in a black suit">
 
                         <!-- Eyebrow tag -->
-                        <div class="home-eyebrow">
-                            <button class="dynamic-island" type="button" data-visitor-island aria-expanded="false"
-                                aria-controls="visitor-island-details" title="Show your local date and time zone">
-                                <span class="dynamic-island__main">
-                                    <span class="dynamic-island__live-dot" aria-hidden="true"></span>
-                                    <span class="dynamic-island__hello">Hey 👋</span>
-                                    <span class="dynamic-island__greeting" data-local-greeting>Good evening</span>
-                                    <span class="dynamic-island__period-icon" data-local-period-icon aria-hidden="true">🌙</span>
-                                </span>
-                                <span class="dynamic-island__clock">
-                                    <time data-local-time>--:--</time>
-                                    <span class="dynamic-island__chevron" aria-hidden="true">⌄</span>
-                                </span>
-                                <span class="dynamic-island__details" id="visitor-island-details" hidden>
-                                    <span data-local-date>Your local date</span>
-                                    <span data-local-zone>Your time zone</span>
-                                </span>
-                            </button>
-                        </div>
+                        <div class="home-eyebrow"><button class="dynamic-island" type="button" data-visitor-island aria-expanded="false" aria-haspopup="dialog" aria-controls="action-centre"><span class="dynamic-island__main"><span class="dynamic-island__live-dot" aria-hidden="true"></span><span data-local-greeting>Hello there</span><span data-local-period-icon aria-hidden="true">✦</span></span><span class="action-key" aria-hidden="true"><i class="fa fa-search"></i><kbd>Ctrl K</kbd></span></button></div>
 
                         <!-- Main heading -->
                         <h1 class="hero-heading">
@@ -351,9 +330,31 @@ body.home.home-scroll #home .dynamic-island{display:inline-flex!important;visibi
     <!-- JS Files -->
 
 
-    <script src="js/dynamic-island.js?v=20261124-2" defer></script>
+    <script src="js/dynamic-island.js?v=20261125-1" defer></script>
     <script src="js/home-scroll.js?v=20261124-5" defer></script>
     <script src="js/about-credentials.js?v=1" defer></script>
+<dialog id="action-centre" class="action-centre" aria-labelledby="action-title"><div class="action-head"><div><p class="action-kicker">DR BENNYT / QUICK ACCESS</p><h2 id="action-title">Where to?</h2></div><button type="button" data-close-action aria-label="Close quick access">×</button></div><div class="action-search"><i class="fa fa-search" aria-hidden="true"></i><input id="action-search" type="search" placeholder="Search pages, projects, articles…" aria-label="Search quick actions" autocomplete="off"></div><div class="action-quick"><a href="portfolio.html"><i class="fa fa-briefcase" aria-hidden="true"></i> My work</a><a href="contact.html#book"><i class="fa fa-calendar" aria-hidden="true"></i> Book a call</a><a href="mailto:dr.bennyt.09@gmail.com"><i class="fa fa-envelope" aria-hidden="true"></i> Email</a></div><div class="action-results-head"><span>EXPLORE</span><span id="action-count" role="status"></span></div><div class="action-scroll"><ul id="action-results"><li data-action-group="Pages"><a href="index.html"><span class="action-icon"><i class="fa fa-home" aria-hidden="true"></i></span><span class="action-text"><strong>Home</strong><small>Introduction</small></span><span class="action-arrow" aria-hidden="true">↗</span></a></li>
+<li data-action-group="Pages"><a href="about.html"><span class="action-icon"><i class="fa fa-user" aria-hidden="true"></i></span><span class="action-text"><strong>About</strong><small>My story and experience</small></span><span class="action-arrow" aria-hidden="true">↗</span></a></li>
+<li data-action-group="Pages"><a href="portfolio.html"><span class="action-icon"><i class="fa fa-briefcase" aria-hidden="true"></i></span><span class="action-text"><strong>Selected work</strong><small>Products and client work</small></span><span class="action-arrow" aria-hidden="true">↗</span></a></li>
+<li data-action-group="Pages"><a href="blog.html"><span class="action-icon"><i class="fa fa-book" aria-hidden="true"></i></span><span class="action-text"><strong>Field notes</strong><small>Engineering articles</small></span><span class="action-arrow" aria-hidden="true">↗</span></a></li>
+<li data-action-group="Pages"><a href="contact.html"><span class="action-icon"><i class="fa fa-envelope" aria-hidden="true"></i></span><span class="action-text"><strong>Contact</strong><small>Send a message</small></span><span class="action-arrow" aria-hidden="true">↗</span></a></li>
+<li data-action-group="Connect"><a href="contact.html#book"><span class="action-icon"><i class="fa fa-calendar" aria-hidden="true"></i></span><span class="action-text"><strong>Book a call</strong><small>30 minutes on Google Meet</small></span><span class="action-arrow" aria-hidden="true">↗</span></a></li>
+<li data-action-group="Connect"><a href="mailto:dr.bennyt.09@gmail.com"><span class="action-icon"><i class="fa fa-envelope" aria-hidden="true"></i></span><span class="action-text"><strong>Email me</strong><small>Direct email</small></span><span class="action-arrow" aria-hidden="true">↗</span></a></li>
+<li data-action-group="Connect"><a href="https://github.com/docbennyt/"><span class="action-icon"><i class="fa fa-github" aria-hidden="true"></i></span><span class="action-text"><strong>GitHub</strong><small>Public code and projects</small></span><span class="action-arrow" aria-hidden="true">↗</span></a></li>
+<li data-action-group="Connect"><a href="https://www.linkedin.com/in/makuyanabenedictus/"><span class="action-icon"><i class="fa fa-linkedin" aria-hidden="true"></i></span><span class="action-text"><strong>LinkedIn</strong><small>Professional profile</small></span><span class="action-arrow" aria-hidden="true">↗</span></a></li>
+<li data-action-group="Connect"><a href="https://www.instagram.com/dr_bennyt/"><span class="action-icon"><i class="fa fa-instagram" aria-hidden="true"></i></span><span class="action-text"><strong>Instagram</strong><small>Social profile</small></span><span class="action-arrow" aria-hidden="true">↗</span></a></li>
+<li data-action-group="Connect"><a href="files/Benedictus_Makuyana_AI_Automation_Marketing_CV.pdf" download="Benedictus-Makuyana-CV"><span class="action-icon"><i class="fa fa-download" aria-hidden="true"></i></span><span class="action-text"><strong>Download CV</strong><small>PDF résumé</small></span><span class="action-arrow" aria-hidden="true">↗</span></a></li>
+<li data-action-group="Projects"><a href="portfolio.html#pf-shelfsmart"><span class="action-icon"><i class="fa fa-shopping-bag" aria-hidden="true"></i></span><span class="action-text"><strong>ShelfSmart</strong><small>Offline retail software</small></span><span class="action-arrow" aria-hidden="true">↗</span></a></li>
+<li data-action-group="Projects"><a href="portfolio.html#pf-aido"><span class="action-icon"><i class="fa fa-bolt" aria-hidden="true"></i></span><span class="action-text"><strong>aiDo / GuestAI</strong><small>Business automation</small></span><span class="action-arrow" aria-hidden="true">↗</span></a></li>
+<li data-action-group="Projects"><a href="portfolio.html#pf-calenderzw"><span class="action-icon"><i class="fa fa-calendar" aria-hidden="true"></i></span><span class="action-text"><strong>CalenderZW</strong><small>University timetables</small></span><span class="action-arrow" aria-hidden="true">↗</span></a></li>
+<li data-action-group="Projects"><a href="https://aether-type.netlify.app/"><span class="action-icon"><i class="fa fa-gamepad" aria-hidden="true"></i></span><span class="action-text"><strong>Aether Type</strong><small>Play the typing game</small></span><span class="action-arrow" aria-hidden="true">↗</span></a></li>
+<li data-action-group="Articles"><a href="blog-post.html"><span class="action-icon"><i class="fa fa-file-text-o" aria-hidden="true"></i></span><span class="action-text"><strong>Give your coding agent a failing test</strong><small>AI workflows</small></span><span class="action-arrow" aria-hidden="true">↗</span></a></li>
+<li data-action-group="Articles"><a href="blog-post-1.html"><span class="action-icon"><i class="fa fa-file-text-o" aria-hidden="true"></i></span><span class="action-text"><strong>Your first developer portfolio</strong><small>Career</small></span><span class="action-arrow" aria-hidden="true">↗</span></a></li>
+<li data-action-group="Articles"><a href="blog-post-2.html"><span class="action-icon"><i class="fa fa-file-text-o" aria-hidden="true"></i></span><span class="action-text"><strong>Your API response and TypeScript</strong><small>Engineering</small></span><span class="action-arrow" aria-hidden="true">↗</span></a></li>
+<li data-action-group="Articles"><a href="blog-post-3.html"><span class="action-icon"><i class="fa fa-file-text-o" aria-hidden="true"></i></span><span class="action-text"><strong>What should a customer do on your website?</strong><small>Product</small></span><span class="action-arrow" aria-hidden="true">↗</span></a></li>
+<li data-action-group="Articles"><a href="blog-post-4.html"><span class="action-icon"><i class="fa fa-file-text-o" aria-hidden="true"></i></span><span class="action-text"><strong>The sale has to survive a dropped connection</strong><small>Offline-first</small></span><span class="action-arrow" aria-hidden="true">↗</span></a></li>
+<li data-action-group="Articles"><a href="blog-post-5.html"><span class="action-icon"><i class="fa fa-file-text-o" aria-hidden="true"></i></span><span class="action-text"><strong>Will that timetable open on a student’s phone?</strong><small>Calendars</small></span><span class="action-arrow" aria-hidden="true">↗</span></a></li>
+<li data-action-group="Articles"><a href="blog-post-6.html"><span class="action-icon"><i class="fa fa-file-text-o" aria-hidden="true"></i></span><span class="action-text"><strong>A guest asked for a late checkout</strong><small>Hospitality AI</small></span><span class="action-arrow" aria-hidden="true">↗</span></a></li></ul><p id="action-empty" hidden>No matches. Try “work”, “book” or “GitHub”.</p></div><footer class="action-foot"><span>↑ ↓ Navigate · Enter Open</span><span>Esc Close</span></footer></dialog>
 </body>
 
 </html>
