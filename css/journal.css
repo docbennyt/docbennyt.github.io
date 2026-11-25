@@ -497,3 +497,18 @@ html, body { margin: 0; overflow-x: clip; }
   .journal .journal-row .journal-thumb { display:block; width:76px; }
   .journal .journal-row .journal-thumb img { aspect-ratio:1/1; }
 }
+
+/* Editorial covers are distinct from explanatory diagrams. Keep the full cover visible. */
+.journal .journal-row { grid-template-columns:minmax(0,1fr) minmax(136px,24%); align-items:center; gap:clamp(16px,3vw,36px); }
+.journal .journal-row .journal-thumb { display:block; width:100%; margin:0; }
+.journal .journal-row .journal-thumb img { width:100%; height:auto; aspect-ratio:5/3; object-fit:cover; border-radius:10px; }
+.journal .journal-article-head h1 { font-size:clamp(2.25rem,5.5vw,4.9rem); line-height:1.04; }
+.journal .journal-article-cover { width:min(100%,58rem); margin:0 0 clamp(20px,4vw,42px); border:0; background:transparent; border-radius:12px; }
+.journal .journal-article-cover img { display:block; width:100%; height:auto; aspect-ratio:auto; max-height:none; object-fit:contain; border-radius:12px; }
+.journal .journal-article-cover figcaption { padding:.55rem 0 0; }
+.journal .journal-teaching-figure { margin:1.5rem 0; border:1px solid #ffffff18; border-radius:12px; overflow:hidden; background:#111820; }
+.journal .journal-teaching-figure img { display:block;width:100%;height:auto;object-fit:contain; }
+.journal .journal-teaching-figure figcaption { padding:10px 13px;color:var(--journal-muted);font:400 .76rem/1.5 var(--journal-sans); }
+.journal .journal-reading-grid { padding-top:clamp(12px,2.7vw,32px); }
+@media(max-width:600px){.journal .journal-row{grid-template-columns:minmax(0,1fr) 100px;gap:12px;align-items:start}.journal .journal-row h3{font-size:clamp(1.25rem,5vw,1.6rem);line-height:1.15}.journal .journal-row .journal-thumb img{aspect-ratio:4/3}.journal .journal-article-head h1{font-size:clamp(2rem,9vw,3rem)}.journal .journal-article-cover{margin-bottom:20px}.journal .journal-teaching-figure{margin:1.2rem 0}}
+@media(max-width:370px){.journal .journal-row{grid-template-columns:minmax(0,1fr) 82px;gap:10px}}

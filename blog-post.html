@@ -11,16 +11,16 @@
     <meta property="og:title" content="Give your coding agent a failing test and a smaller job">
     <meta property="og:description" content="A practical way to brief a coding agent, verify its work and measure whether it actually saves you time.">
     <meta property="og:url" content="https://docbennyt.github.io/blog-post.html">
-    <meta property="og:image" content="https://docbennyt.github.io/img/blog/illustrations/agent-loop.svg">
+    <meta property="og:image" content="https://docbennyt.github.io/img/blog/covers/agent-review.svg">
     <meta name="twitter:card" content="summary_large_image">
     <meta property="article:modified_time" content="2026-11-24">
     <meta property="article:author" content="https://docbennyt.github.io/about.html">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Give your coding agent a failing test and a smaller job","description":"A practical way to brief a coding agent, verify its work and measure whether it actually saves you time.","author":{"@type":"Person","name":"Benedictus Makuyana","url":"https://docbennyt.github.io/about.html"},"mainEntityOfPage":"https://docbennyt.github.io/blog-post.html","articleSection":"AI workflows","inLanguage":"en","dateModified":"2026-11-24","image":"https://docbennyt.github.io/img/blog/illustrations/agent-loop.svg"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Give your coding agent a failing test and a smaller job","description":"A practical way to brief a coding agent, verify its work and measure whether it actually saves you time.","author":{"@type":"Person","name":"Benedictus Makuyana","url":"https://docbennyt.github.io/about.html"},"mainEntityOfPage":"https://docbennyt.github.io/blog-post.html","articleSection":"AI workflows","inLanguage":"en","dateModified":"2026-11-24","image":"https://docbennyt.github.io/img/blog/covers/agent-review.svg"}</script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/journal.css?v=20261124-visuals-1">
+    <link rel="stylesheet" href="css/journal.css?v=20261125-2">
 
     <link rel="stylesheet" href="css/site-polish.css?v=20261124-1">
 </head>
@@ -37,8 +37,7 @@
         </ul>
     </nav>
 </header>
-        <figure class="journal-article-cover"><img src="img/blog/illustrations/agent-loop.svg" width="1200" height="720" alt="Diagram showing an AI coding workflow from a clear brief and failing test to a focused patch and human review." fetchpriority="high" decoding="async"><figcaption>A coding agent works best when the task has a visible finish line and a human-owned review.</figcaption></figure>
-<main id="main" class="journal-shell journal-reading">
+        <main id="main" class="journal-shell journal-reading">
     <div class="journal-return"><a href="blog.html">← All articles</a></div>
     <article>
         <header class="journal-article-head">
@@ -47,6 +46,7 @@
             <p class="journal-deck">A practical loop for AI-assisted development, with one workflow to verify and two studies that explain why I measure the whole job.</p>
             <p class="journal-byline"><span>By <a rel="author" href="about.html">Benedictus Makuyana</a></span><time datetime="2026-11-18">18 November 2026</time></p><div class="journal-tags" aria-label="Article topics"><span>#AI-Agents</span><span>#Code-Review</span><span>#Testing</span><span>#Developer-Tools</span></div>
         </header>
+        <figure class="journal-article-cover"><img src="img/blog/covers/agent-review.svg" width="1200" height="720" alt="Illustration of a failing automated test and a verified code review" fetchpriority="high" decoding="async"></figure>
 
         <div class="journal-reading-grid">
             <aside>
@@ -57,6 +57,7 @@
 <aside class="journal-callout"><span>THE RULE</span><p>Give the agent a reproducible failure, a narrow change and a check that proves the user-facing behaviour.</p></aside>
 <h2 id="give-it-an-observable-finish-line">1. Give it an observable finish line</h2>
 <p>Imagine a staff member edits a booking note and loses the connection just before saving. “Make saving robust” is too vague. Write the expected behaviour instead: keep the draft, show that saving failed and let the staff member retry without typing everything again.</p>
+<figure class="journal-teaching-figure"><img src="img/blog/illustrations/agent-loop.svg" width="1200" height="720" alt="Diagram showing an AI coding workflow from a clear brief and failing test to a focused patch and human review." loading="lazy" decoding="async"><figcaption>A coding agent works best when the task has a visible finish line and a human-owned review.</figcaption></figure>
 <p>Give the agent the reproduction steps, the relevant save flow and the command for the focused test. Ask it to change that path and report what it ran. If it discovers that a shared persistence layer must change, pause and inspect that dependency before the patch grows.</p>
 <div class="journal-steps" aria-label="A focused coding-agent handoff"><div class="journal-step"><span>01</span><strong>Reproduce</strong><small>Show the failure on the original code</small></div><div class="journal-step"><span>02</span><strong>Constrain</strong><small>Name the expected behaviour and files</small></div><div class="journal-step"><span>03</span><strong>Verify</strong><small>Run the regression check and inspect the diff</small></div></div>
 <p>Playwright recommends testing what users can see and do. For this example, check that the note survives the failed request and appears after a successful retry. Run the test against the original code too; otherwise you do not know whether it catches the bug.</p>

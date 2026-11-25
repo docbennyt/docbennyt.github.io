@@ -11,16 +11,16 @@
     <meta property="og:title" content="Will that timetable open on a student’s phone?">
     <meta property="og:description" content="A timetable is only useful when a student can check the imported sessions and open them in a real calendar.">
     <meta property="og:url" content="https://docbennyt.github.io/blog-post-5.html">
-    <meta property="og:image" content="https://docbennyt.github.io/img/blog/illustrations/timetable-flow.svg">
+    <meta property="og:image" content="https://docbennyt.github.io/img/work/calenderzw-showcase-800.webp">
     <meta name="twitter:card" content="summary_large_image">
     <meta property="article:modified_time" content="2026-11-24">
     <meta property="article:author" content="https://docbennyt.github.io/about.html">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Will that timetable open on a student’s phone?","description":"A timetable is only useful when a student can check the imported sessions and open them in a real calendar.","author":{"@type":"Person","name":"Benedictus Makuyana","url":"https://docbennyt.github.io/about.html"},"mainEntityOfPage":"https://docbennyt.github.io/blog-post-5.html","articleSection":"Product","inLanguage":"en","dateModified":"2026-11-24","image":"https://docbennyt.github.io/img/blog/illustrations/timetable-flow.svg"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Will that timetable open on a student’s phone?","description":"A timetable is only useful when a student can check the imported sessions and open them in a real calendar.","author":{"@type":"Person","name":"Benedictus Makuyana","url":"https://docbennyt.github.io/about.html"},"mainEntityOfPage":"https://docbennyt.github.io/blog-post-5.html","articleSection":"Product","inLanguage":"en","dateModified":"2026-11-24","image":"https://docbennyt.github.io/img/work/calenderzw-showcase-800.webp"}</script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/journal.css?v=20261124-visuals-1">
+    <link rel="stylesheet" href="css/journal.css?v=20261125-2">
 
     <link rel="stylesheet" href="css/site-polish.css?v=20261124-1">
 </head>
@@ -37,8 +37,7 @@
         </ul>
     </nav>
 </header>
-        <figure class="journal-article-cover"><img src="img/blog/illustrations/timetable-flow.svg" width="1200" height="720" alt="Diagram showing a student timetable moving through import, preview, conflict resolution and calendar export." fetchpriority="high" decoding="async"><figcaption>Students should be able to inspect what the app understood before trusting an exported calendar.</figcaption></figure>
-<main id="main" class="journal-shell journal-reading">
+        <main id="main" class="journal-shell journal-reading">
     <div class="journal-return"><a href="blog.html">← All articles</a></div>
     <article>
         <header class="journal-article-head">
@@ -60,7 +59,8 @@
 <aside class="journal-callout"><span>STUDENT-FIRST RULE</span><p>Do not turn an uncertain timetable into calendar events silently. Show the student what was understood and let them correct it first.</p></aside>
 <h2 id="preview-before-you-import">1. Preview before you import</h2>
 <p>A heading that looks like a room number might be a course code. A term date range may apply to every row without being repeated. A time can be valid but still ambiguous if the source omits whether a session is before or after midday.</p>
-<figure class="journal-inline-project"><img src="img/work/calenderzw-showcase-800.webp" srcset="img/work/calenderzw-showcase-480.webp 480w, img/work/calenderzw-showcase-800.webp 800w, img/work/calenderzw-showcase-1200.webp 1200w" sizes="(min-width: 760px) 760px, 92vw" width="1200" height="900" alt="CalenderZW displaying a class timetable on a laptop and phone" loading="lazy" decoding="async"><figcaption>CalenderZW is the product context: a timetable should remain useful after it leaves the class group chat.</figcaption></figure>
+<figure class="journal-teaching-figure"><img src="img/blog/illustrations/timetable-flow.svg" width="1200" height="720" alt="Diagram showing a student timetable moving through import, preview, conflict resolution and calendar export." loading="lazy" decoding="async"><figcaption>Students should be able to inspect what the app understood before trusting an exported calendar.</figcaption></figure>
+
 <p>Show a preview of the sessions the app has parsed. Put lines it could not map beside the preview so the student can correct them before export. Keep three sample inputs in your tests: a regular weekly timetable, an incomplete row and two sessions at the same time. The first should import quickly; the second should show what was skipped; the third should make the conflict visible.</p>
 <h2 id="keep-calendar-events-stable">2. Keep calendar events stable</h2>
 <p>The iCalendar standard uses a <code>UID</code> to identify an event and defines recurrence through properties such as <code>RRULE</code>. Time-zone information matters too. For a weekly class, decide how the local start time and time zone are represented, and where the recurrence ends.</p>

@@ -11,16 +11,16 @@
     <meta property="og:title" content="Your API response hasn’t read your TypeScript types">
     <meta property="og:description" content="TypeScript can check your code, but it cannot make an external JSON response trustworthy at runtime.">
     <meta property="og:url" content="https://docbennyt.github.io/blog-post-2.html">
-    <meta property="og:image" content="https://docbennyt.github.io/img/blog/illustrations/api-boundary.svg">
+    <meta property="og:image" content="https://docbennyt.github.io/img/blog/covers/api-validation.svg">
     <meta name="twitter:card" content="summary_large_image">
     <meta property="article:modified_time" content="2026-11-24">
     <meta property="article:author" content="https://docbennyt.github.io/about.html">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Your API response hasn’t read your TypeScript types","description":"TypeScript can check your code, but it cannot make an external JSON response trustworthy at runtime.","author":{"@type":"Person","name":"Benedictus Makuyana","url":"https://docbennyt.github.io/about.html"},"mainEntityOfPage":"https://docbennyt.github.io/blog-post-2.html","articleSection":"Engineering","inLanguage":"en","dateModified":"2026-11-24","image":"https://docbennyt.github.io/img/blog/illustrations/api-boundary.svg"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Your API response hasn’t read your TypeScript types","description":"TypeScript can check your code, but it cannot make an external JSON response trustworthy at runtime.","author":{"@type":"Person","name":"Benedictus Makuyana","url":"https://docbennyt.github.io/about.html"},"mainEntityOfPage":"https://docbennyt.github.io/blog-post-2.html","articleSection":"Engineering","inLanguage":"en","dateModified":"2026-11-24","image":"https://docbennyt.github.io/img/blog/covers/api-validation.svg"}</script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/journal.css?v=20261124-visuals-1">
+    <link rel="stylesheet" href="css/journal.css?v=20261125-2">
 
     <link rel="stylesheet" href="css/site-polish.css?v=20261124-1">
 </head>
@@ -37,8 +37,7 @@
         </ul>
     </nav>
 </header>
-        <figure class="journal-article-cover"><img src="img/blog/illustrations/api-boundary.svg" width="1200" height="720" alt="Diagram showing an untrusted API payload passing through runtime checks before becoming a typed value." fetchpriority="high" decoding="async"><figcaption>Validate at the network boundary. Only pass a trusted shape into the rest of the application.</figcaption></figure>
-<main id="main" class="journal-shell journal-reading">
+        <main id="main" class="journal-shell journal-reading">
     <div class="journal-return"><a href="blog.html">← All articles</a></div>
     <article>
         <header class="journal-article-head">
@@ -47,6 +46,7 @@
             <p class="journal-deck">A successful request can still return the wrong shape. Here’s a small parser for the boundary and the requests I’d test around it.</p>
             <p class="journal-byline"><span>By <a rel="author" href="about.html">Benedictus Makuyana</a></span><time datetime="2026-11-18">18 November 2026</time></p><div class="journal-tags" aria-label="Article topics"><span>#TypeScript</span><span>#APIs</span><span>#Validation</span><span>#Testing</span></div>
         </header>
+        <figure class="journal-article-cover"><img src="img/blog/covers/api-validation.svg" width="1200" height="720" alt="Editorial illustration of incoming data passing through a validation shield" fetchpriority="high" decoding="async"></figure>
 
         <div class="journal-reading-grid">
             <aside>
@@ -57,6 +57,7 @@
 <aside class="journal-callout"><span>THE BOUNDARY RULE</span><p>Treat data from a network, file or user input as <code>unknown</code> until runtime checks prove the shape you need.</p></aside>
 <h2 id="validate-at-the-boundary">1. Validate at the boundary</h2>
 <p>Keep the check close to the code that receives the response. If the screen only needs a session title, validate that field instead of pretending the whole server response matches a TypeScript interface.</p>
+<figure class="journal-teaching-figure"><img src="img/blog/illustrations/api-boundary.svg" width="1200" height="720" alt="Diagram showing an untrusted API payload passing through runtime checks before becoming a typed value." loading="lazy" decoding="async"><figcaption>Validate at the network boundary. Only pass a trusted shape into the rest of the application.</figcaption></figure>
 <h2 id="return-a-shape-the-ui-can-trust">2. Return a shape the UI can trust</h2>
 <p>Here is a deliberately small parser. It accepts an object with a non-empty title and returns only the field the caller needs. A missing, empty or non-string title is rejected before it reaches the component.</p>
 <pre><code>type Session = { title: string };

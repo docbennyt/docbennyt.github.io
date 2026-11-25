@@ -11,16 +11,16 @@
     <meta property="og:title" content="A guest asked for a late checkout. What should the AI do?">
     <meta property="og:description" content="A practical hospitality example for deciding what an AI assistant may answer, when staff must approve an exception and what the handoff should contain.">
     <meta property="og:url" content="https://docbennyt.github.io/blog-post-6.html">
-    <meta property="og:image" content="https://docbennyt.github.io/img/blog/illustrations/guestai-handoff.svg">
+    <meta property="og:image" content="https://docbennyt.github.io/img/work/aido-home-800.webp">
     <meta name="twitter:card" content="summary_large_image">
     <meta property="article:modified_time" content="2026-11-24">
     <meta property="article:author" content="https://docbennyt.github.io/about.html">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"A guest asked for a late checkout. What should the AI do?","description":"A practical hospitality example for deciding what an AI assistant may answer, when staff must approve an exception and what the handoff should contain.","author":{"@type":"Person","name":"Benedictus Makuyana","url":"https://docbennyt.github.io/about.html"},"mainEntityOfPage":"https://docbennyt.github.io/blog-post-6.html","articleSection":"AI workflows","inLanguage":"en","dateModified":"2026-11-24","image":"https://docbennyt.github.io/img/blog/illustrations/guestai-handoff.svg"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"A guest asked for a late checkout. What should the AI do?","description":"A practical hospitality example for deciding what an AI assistant may answer, when staff must approve an exception and what the handoff should contain.","author":{"@type":"Person","name":"Benedictus Makuyana","url":"https://docbennyt.github.io/about.html"},"mainEntityOfPage":"https://docbennyt.github.io/blog-post-6.html","articleSection":"AI workflows","inLanguage":"en","dateModified":"2026-11-24","image":"https://docbennyt.github.io/img/work/aido-home-800.webp"}</script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/journal.css?v=20261124-visuals-1">
+    <link rel="stylesheet" href="css/journal.css?v=20261125-2">
 
     <link rel="stylesheet" href="css/site-polish.css?v=20261124-1">
 </head>
@@ -37,8 +37,7 @@
         </ul>
     </nav>
 </header>
-        <figure class="journal-article-cover"><img src="img/blog/illustrations/guestai-handoff.svg" width="1200" height="720" alt="Diagram showing a hospitality AI assistant checking verified policy, handing an exception to staff and confirming only an approved answer." fetchpriority="high" decoding="async"><figcaption>A safe hospitality assistant distinguishes policy answers, pending requests and confirmed decisions.</figcaption></figure>
-<main id="main" class="journal-shell journal-reading">
+        <main id="main" class="journal-shell journal-reading">
     <div class="journal-return"><a href="blog.html">← All articles</a></div>
     <article>
         <header class="journal-article-head">
@@ -60,7 +59,8 @@
 <aside class="journal-callout"><span>THE SAFETY RULE</span><p>The assistant may explain verified policy and collect a request. The booking system or an authorised staff member must decide whether an exception is approved.</p></aside>
 <h2 id="give-the-assistant-a-small-set-of-jobs">1. Give the assistant a small set of jobs</h2>
 <p>Let it explain a verified standard checkout time. Let it ask which time the guest needs. Let it prepare a request for reception when the guest asks for an exception. Do not let a language model invent room availability or approve a late checkout just because the answer sounds friendly.</p>
-<figure class="journal-inline-project"><img src="img/work/aido-home-800.webp" srcset="img/work/aido-home-480.webp 480w, img/work/aido-home-800.webp 800w, img/work/aido-home-1200.webp 1200w" sizes="(min-width: 760px) 760px, 92vw" width="1200" height="750" alt="aiDo website showing an enquiry and business workflow" loading="lazy" decoding="async"><figcaption>aiDo's product context: an enquiry workflow needs a reliable handoff, not just a fluent reply.</figcaption></figure>
+<figure class="journal-teaching-figure"><img src="img/blog/illustrations/guestai-handoff.svg" width="1200" height="720" alt="Diagram showing a hospitality AI assistant checking verified policy, handing an exception to staff and confirming only an approved answer." loading="lazy" decoding="async"><figcaption>A safe hospitality assistant distinguishes policy answers, pending requests and confirmed decisions.</figcaption></figure>
+
 <p>Put that boundary in the application workflow and permission checks. A prompt can guide the wording, but the booking system or a staff decision controls what may be promised. NIST describes <em>confabulation</em> as generated content that is presented confidently even when it is false or inconsistent. That risk matters when a guest may make travel plans based on one sentence.</p>
 <h2 id="make-the-handoff-useful-to-staff">2. Make the handoff useful to staff</h2>
 <p>Send the guest’s question, requested time, date and a booking reference when it is appropriate and available. Include whether the assistant already shared the standard policy. Give staff enough context to find the booking without copying unnecessary personal details into another system.</p>

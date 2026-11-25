@@ -11,16 +11,16 @@
     <meta property="og:title" content="The sale has to survive a dropped connection">
     <meta property="og:description" content="A practical offline-first design: save the sale locally, retry with the same identity and show the cashier what is still pending.">
     <meta property="og:url" content="https://docbennyt.github.io/blog-post-4.html">
-    <meta property="og:image" content="https://docbennyt.github.io/img/blog/illustrations/offline-pos.svg">
+    <meta property="og:image" content="https://docbennyt.github.io/img/work/shelfsmart-showcase-800.webp">
     <meta name="twitter:card" content="summary_large_image">
     <meta property="article:modified_time" content="2026-11-24">
     <meta property="article:author" content="https://docbennyt.github.io/about.html">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"The sale has to survive a dropped connection","description":"A practical offline-first design: save the sale locally, retry with the same identity and show the cashier what is still pending.","author":{"@type":"Person","name":"Benedictus Makuyana","url":"https://docbennyt.github.io/about.html"},"mainEntityOfPage":"https://docbennyt.github.io/blog-post-4.html","articleSection":"Engineering","inLanguage":"en","dateModified":"2026-11-24","image":"https://docbennyt.github.io/img/blog/illustrations/offline-pos.svg"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"The sale has to survive a dropped connection","description":"A practical offline-first design: save the sale locally, retry with the same identity and show the cashier what is still pending.","author":{"@type":"Person","name":"Benedictus Makuyana","url":"https://docbennyt.github.io/about.html"},"mainEntityOfPage":"https://docbennyt.github.io/blog-post-4.html","articleSection":"Engineering","inLanguage":"en","dateModified":"2026-11-24","image":"https://docbennyt.github.io/img/work/shelfsmart-showcase-800.webp"}</script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/journal.css?v=20261124-visuals-1">
+    <link rel="stylesheet" href="css/journal.css?v=20261125-2">
 
     <link rel="stylesheet" href="css/site-polish.css?v=20261124-1">
 </head>
@@ -37,8 +37,7 @@
         </ul>
     </nav>
 </header>
-        <figure class="journal-article-cover"><img src="img/blog/illustrations/offline-pos.svg" width="1200" height="720" alt="Diagram showing a point-of-sale transaction saved locally, queued for sync, retried with the same ID and reconciled." fetchpriority="high" decoding="async"><figcaption>An offline sale needs durable local storage, a retry-safe sync job and a clear reconciliation state.</figcaption></figure>
-<main id="main" class="journal-shell journal-reading">
+        <main id="main" class="journal-shell journal-reading">
     <div class="journal-return"><a href="blog.html">← All articles</a></div>
     <article>
         <header class="journal-article-head">
@@ -60,7 +59,8 @@
 <aside class="journal-callout"><span>OFFLINE-FIRST RULE</span><p>Save locally first, make the pending state visible and design every retry so the same sale cannot be recorded twice.</p></aside>
 <h2 id="separate-recording-a-sale-from-confirming-payment">1. Separate a sale from payment confirmation</h2>
 <p>A recorded cash sale and an electronically verified payment are different jobs. For this design exercise, let the cashier record a cash sale while offline. Keep a payment that needs remote confirmation in a separate state; do not display it as paid just because the customer showed a screenshot.</p>
-<figure class="journal-inline-project"><img src="img/work/shelfsmart-showcase-800.webp" srcset="img/work/shelfsmart-showcase-480.webp 480w, img/work/shelfsmart-showcase-800.webp 800w, img/work/shelfsmart-showcase-1200.webp 1200w" sizes="(min-width: 760px) 760px, 92vw" width="1200" height="900" alt="ShelfSmart point-of-sale and inventory screens on a laptop and phone" loading="lazy" decoding="async"><figcaption>ShelfSmart is the product context for this design exercise; the flow below describes the general offline-first pattern.</figcaption></figure>
+<figure class="journal-teaching-figure"><img src="img/blog/illustrations/offline-pos.svg" width="1200" height="720" alt="Diagram showing a point-of-sale transaction saved locally, queued for sync, retried with the same ID and reconciled." loading="lazy" decoding="async"><figcaption>An offline sale needs durable local storage, a retry-safe sync job and a clear reconciliation state.</figcaption></figure>
+
 <p>Show which sales are saved on the device and which the server has acknowledged. Persist the sale and the instruction to sync it in one local transaction. In SQLite, a transaction is atomic: either the writes commit together or they do not. Without that boundary, a crash could leave a sale with no sync job, or a sync job pointing to a sale that was never saved.</p>
 <h2 id="save-the-sale-and-sync-job-together">2. Save the sale and sync job together</h2>
 <p>Use a local outbox or pending-operations table. The sale record and its outbox entry should be committed together. After a restart, the app reads the pending work from storage instead of relying on an in-memory queue that disappeared when the process closed.</p>
