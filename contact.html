@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description"
         content="Contact Benedictus Makuyana about AI automation, product engineering, software projects, collaborations, freelance work or internships.">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://docbennyt.github.io/contact.html">
 
@@ -39,7 +40,7 @@
     
     <link href="css/style.css" rel="stylesheet">
     <link href="css/design-system.css?v=20260904" rel="stylesheet">
-    <link href="css/contact-upgrade.css?v=20261125-1" rel="stylesheet">
+    <link href="css/contact-upgrade.css?v=20261126-2" rel="stylesheet">
 
     <!-- Modernizr -->
     
@@ -114,9 +115,9 @@
                         <a class="contact-connect-cv" href="files/Benedictus_Makuyana_AI_Automation_Marketing_CV.pdf" download="Benedictus-Makuyana-CV">
                             <i class="fa fa-external-link" aria-hidden="true"></i><span>Download CV</span>
                         </a>
-                    </div></section><section class="contact-message" aria-labelledby="message-title"><h2 id="message-title">Send me a message</h2><p>Share a little about your idea and how I can help.</p><form id="contact-form" action="https://formspree.io/f/mljeporj" method="POST">
+                    </div></section><section class="contact-message" aria-labelledby="message-title"><h2 id="message-title">Send me a message</h2><p>Share a little about your idea and how I can help.</p><form id="contact-form" action="https://formspree.io/f/mljeporj" method="POST" accept-charset="UTF-8">
                             
-                            <input type="hidden" name="_subject" value="New Portfolio Inquiry">
+                            
                             <div class="contact-honeypot" aria-hidden="true"><label for="cf-company">Leave this field empty</label><input id="cf-company" type="text" name="_gotcha" tabindex="-1" autocomplete="off"></div>
 
                             <div class="row">
@@ -124,7 +125,7 @@
                                     <div class="ds-field">
                                         <label class="ds-label-text" for="cf-name">Your Name <span
                                                 aria-hidden="true">*</span></label>
-                                        <input class="ds-input" type="text" id="cf-name" name="name" autocomplete="name"
+                                        <input class="ds-input" type="text" id="cf-name" name="name" autocomplete="name" aria-describedby="cf-name-error" maxlength="120"
                                             required aria-required="true" placeholder="Jane Doe">
                                         <span class="ds-field-error" id="cf-name-error" aria-live="polite"></span>
                                     </div>
@@ -134,7 +135,7 @@
                                         <label class="ds-label-text" for="cf-email">Email Address <span
                                                 aria-hidden="true">*</span></label>
                                         <input class="ds-input" type="email" id="cf-email" name="email"
-                                            autocomplete="email" required aria-required="true"
+                                            autocomplete="email" required aria-required="true" aria-describedby="cf-email-error" maxlength="254"
                                             placeholder="jane@company.com">
                                         <span class="ds-field-error" id="cf-email-error" aria-live="polite"></span>
                                     </div>
@@ -142,26 +143,37 @@
                                 <div class="col-12 mb-3">
                                     <div class="ds-field">
                                         <label class="ds-label-text" for="cf-subject">Subject</label>
-                                        <input class="ds-input" type="text" id="cf-subject" name="subject"
+                                        <input class="ds-input" type="text" id="cf-subject" name="subject" maxlength="180" aria-describedby="cf-subject-error"
                                             placeholder="Project Enquiry">
+                                        <span class="ds-field-error" id="cf-subject-error"></span>
                                     </div>
                                 </div>
                                 <div class="col-12 mb-3">
                                     <div class="ds-field">
                                         <label class="ds-label-text" for="cf-message">Message <span
                                                 aria-hidden="true">*</span></label>
-                                        <textarea class="ds-textarea" id="cf-message" name="message" required
+                                        <textarea class="ds-textarea" id="cf-message" name="message" required maxlength="10000" aria-describedby="cf-message-error"
                                             aria-required="true"
                                             placeholder="What are you working on?"></textarea>
                                         <span class="ds-field-error" id="cf-message-error" aria-live="polite"></span>
                                     </div>
                                 </div>
                                 <div class="col-12">
-                                    <p id="cf-status" class="contact-form-status" role="status" aria-live="polite"></p>
+                                    <div id="cf-notice" class="contact-notice" data-state="idle" hidden>
+                                        <span class="contact-notice-icon" aria-hidden="true"><i class="fa fa-info-circle"></i></span>
+                                        <div class="contact-notice-body">
+                                            <div id="cf-status" role="status" aria-live="polite" aria-atomic="true"><strong id="cf-notice-title"></strong><p id="cf-notice-detail"></p></div>
+                                            <div class="contact-notice-actions" id="cf-notice-actions" hidden>
+                                                <a id="cf-email-fallback" href="mailto:dr.bennyt.09@gmail.com"><i class="fa fa-envelope-o" aria-hidden="true"></i> Open email app</a>
+                                                <button type="button" id="cf-copy-message">Copy message</button>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <button type="submit" class="button" id="cf-submit">
                                         <span class="button-text">Send Message</span>
                                         <span class="button-icon fa fa-send" aria-hidden="true"></span>
                                     </button>
+                                    <p class="contact-submit-note">Your message goes directly to my inbox.</p>
                                 </div>
                             </div>
                         </form></section></main>
@@ -182,8 +194,7 @@
                     </section>
                 </div>
 
-    <!-- Toast Container -->
-    <div id="toast-container" class="ds-toast-container" aria-live="polite"></div>
+    
 
     <!-- JS Files -->
     
@@ -197,7 +208,7 @@
     
     
     
-    <script src="js/contact-page.js?v=20261125-1" defer></script>
+    <script src="js/contact-page.js?v=20261126-2" defer></script>
     <script src="js/contact-booking.js?v=20261125-1" defer></script>
 </body>
 
