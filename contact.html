@@ -40,7 +40,7 @@
     
     <link href="css/style.css" rel="stylesheet">
     <link href="css/design-system.css?v=20260904" rel="stylesheet">
-    <link href="css/contact-upgrade.css?v=20261126-2" rel="stylesheet">
+    <link href="css/contact-upgrade.css?v=20261126-3" rel="stylesheet">
 
     <!-- Modernizr -->
     
@@ -125,55 +125,45 @@
                                     <div class="ds-field">
                                         <label class="ds-label-text" for="cf-name">Your Name <span
                                                 aria-hidden="true">*</span></label>
-                                        <input class="ds-input" type="text" id="cf-name" name="name" autocomplete="name" aria-describedby="cf-name-error" maxlength="120"
+                                        <input class="ds-input" type="text" id="cf-name" name="name" data-fs-field autocomplete="name" aria-describedby="cf-name-error" maxlength="120"
                                             required aria-required="true" placeholder="Jane Doe">
-                                        <span class="ds-field-error" id="cf-name-error" aria-live="polite"></span>
+                                        <span class="ds-field-error" id="cf-name-error" data-fs-error="name" aria-live="polite"></span>
                                     </div>
                                 </div>
                                 <div class="col-12 col-sm-6 mb-3">
                                     <div class="ds-field">
                                         <label class="ds-label-text" for="cf-email">Email Address <span
                                                 aria-hidden="true">*</span></label>
-                                        <input class="ds-input" type="email" id="cf-email" name="email"
+                                        <input class="ds-input" type="email" id="cf-email" name="email" data-fs-field
                                             autocomplete="email" required aria-required="true" aria-describedby="cf-email-error" maxlength="254"
                                             placeholder="jane@company.com">
-                                        <span class="ds-field-error" id="cf-email-error" aria-live="polite"></span>
+                                        <span class="ds-field-error" id="cf-email-error" data-fs-error="email" aria-live="polite"></span>
                                     </div>
                                 </div>
                                 <div class="col-12 mb-3">
                                     <div class="ds-field">
                                         <label class="ds-label-text" for="cf-subject">Subject</label>
-                                        <input class="ds-input" type="text" id="cf-subject" name="subject" maxlength="180" aria-describedby="cf-subject-error"
+                                        <input class="ds-input" type="text" id="cf-subject" name="subject" data-fs-field maxlength="180" aria-describedby="cf-subject-error"
                                             placeholder="Project Enquiry">
-                                        <span class="ds-field-error" id="cf-subject-error"></span>
+                                        <span class="ds-field-error" id="cf-subject-error" data-fs-error="subject"></span>
                                     </div>
                                 </div>
                                 <div class="col-12 mb-3">
                                     <div class="ds-field">
                                         <label class="ds-label-text" for="cf-message">Message <span
                                                 aria-hidden="true">*</span></label>
-                                        <textarea class="ds-textarea" id="cf-message" name="message" required maxlength="10000" aria-describedby="cf-message-error"
+                                        <textarea class="ds-textarea" id="cf-message" name="message" data-fs-field required maxlength="10000" aria-describedby="cf-message-error"
                                             aria-required="true"
                                             placeholder="What are you working on?"></textarea>
-                                        <span class="ds-field-error" id="cf-message-error" aria-live="polite"></span>
+                                        <span class="ds-field-error" id="cf-message-error" data-fs-error="message" aria-live="polite"></span>
                                     </div>
                                 </div>
                                 <div class="col-12">
-                                    <div id="cf-notice" class="contact-notice" data-state="idle" hidden>
-                                        <span class="contact-notice-icon" aria-hidden="true"><i class="fa fa-info-circle"></i></span>
-                                        <div class="contact-notice-body">
-                                            <div id="cf-status" role="status" aria-live="polite" aria-atomic="true"><strong id="cf-notice-title"></strong><p id="cf-notice-detail"></p></div>
-                                            <div class="contact-notice-actions" id="cf-notice-actions" hidden>
-                                                <a id="cf-email-fallback" href="mailto:dr.bennyt.09@gmail.com"><i class="fa fa-envelope-o" aria-hidden="true"></i> Open email app</a>
-                                                <button type="button" id="cf-copy-message">Copy message</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <button type="submit" class="button" id="cf-submit">
+                                    <button type="submit" class="button" id="cf-submit" data-fs-submit-btn>
                                         <span class="button-text">Send Message</span>
                                         <span class="button-icon fa fa-send" aria-hidden="true"></span>
                                     </button>
-                                    <p class="contact-submit-note">Your message goes directly to my inbox.</p>
+                                    <p class="contact-submit-note">Messages are sent securely through Formspree.</p>
                                 </div>
                             </div>
                         </form></section></main>
@@ -208,8 +198,22 @@
     
     
     
-    <script src="js/contact-page.js?v=20261126-2" defer></script>
+    <script src="js/contact-page.js?v=20261126-3" defer></script>
+    <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
     <script src="js/contact-booking.js?v=20261125-1" defer></script>
+<div id="cf-notice" class="contact-notice" data-state="idle" hidden>
+                                        <span class="contact-notice-icon" aria-hidden="true"><i class="fa fa-info-circle"></i></span>
+                                        <div class="contact-notice-body">
+                                            <div id="cf-status" role="status" aria-live="polite" aria-atomic="true"><strong id="cf-notice-title"></strong><p id="cf-notice-detail"></p></div>
+                                            <div class="contact-notice-actions" id="cf-notice-actions" hidden>
+                                                <a id="cf-email-fallback" href="mailto:dr.bennyt.09@gmail.com"><i class="fa fa-envelope-o" aria-hidden="true"></i> Open email app</a>
+                                                <button type="button" id="cf-copy-message">Copy message</button>
+                                                <button type="button" id="cf-native-submit" hidden>Continue on Formspree</button>
+                                            </div>
+                                            <p id="cf-provider-detail" class="contact-provider-detail" hidden></p>
+                                        </div>
+                                        <button type="button" id="cf-close-notice" class="contact-notice-close" aria-label="Dismiss notification">×</button>
+                                    </div>
 </body>
 
 </html>

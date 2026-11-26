@@ -41,12 +41,12 @@ body.cal-booking-open{overflow:hidden}
 @media(max-width:991px){.contact .contact-layout{width:min(680px,calc(100% - 36px));grid-template-columns:1fr;gap:36px;padding:40px 0 26px}.contact .contact-message{border-left:0;border-top:1px solid #ffffff19;padding:30px 0 0}.contact .contact-intro-copy{margin-bottom:20px}.contact .contact-connect-footer{margin-top:8px}}
 @media(max-width:600px){.contact .cal-booking-modal{padding:0;align-items:stretch}.contact .cal-booking-dialog{width:100%;max-height:100dvh;height:100dvh;padding:0 10px max(12px,env(safe-area-inset-bottom));border-radius:0;border:0}.contact .cal-booking-inline,.contact .cal-booking-inline iframe{min-height:620px}.contact .cal-booking-header{padding-top:max(10px,env(safe-area-inset-top))}}
 
-/* Calm in-flow feedback, no overlay or duplicate toast. */
-.contact #contact-form .contact-notice[hidden],.contact #contact-form .contact-notice-actions[hidden]{display:none!important}
-.contact #contact-form .contact-notice{display:flex;align-items:flex-start;gap:12px;padding:15px 16px;margin:0 0 16px;border:1px solid #43536b;border-radius:13px;background:#18222f;color:#e4eaf3}
-.contact #contact-form .contact-notice[data-state="success"]{background:#142a20;border-color:#38694c}
-.contact #contact-form .contact-notice[data-state="error"]{background:#2c1e24;border-color:#79454e}
-.contact #contact-form .contact-notice[data-state="warning"]{background:#29251b;border-color:#74613a}
+/* Single floating notification, above content and away from the navigation. */
+.contact .contact-notice[hidden],.contact .contact-notice-actions[hidden]{display:none!important}
+.contact .contact-notice{display:flex;align-items:flex-start;gap:12px;padding:15px 16px;margin:0 0 16px;border:1px solid #43536b;border-radius:13px;background:#18222f;color:#e4eaf3}
+.contact .contact-notice[data-state="success"]{background:#142a20;border-color:#38694c}
+.contact .contact-notice[data-state="error"]{background:#2c1e24;border-color:#79454e}
+.contact .contact-notice[data-state="warning"]{background:#29251b;border-color:#74613a}
 .contact .contact-notice-icon{display:grid;place-items:center;flex:0 0 25px;height:25px;font-size:20px;color:#a8c6ff}
 .contact .contact-notice[data-state="success"] .contact-notice-icon{color:#8de3ad}
 .contact .contact-notice[data-state="warning"] .contact-notice-icon{color:#f2ce85}
@@ -64,5 +64,14 @@ body.cal-booking-open{overflow:hidden}
 .contact #contact-form input:-webkit-autofill,.contact #contact-form input:-webkit-autofill:hover,.contact #contact-form input:-webkit-autofill:focus{-webkit-box-shadow:0 0 0 1000px #191f28 inset!important;-webkit-text-fill-color:#edf1f7!important;caret-color:#edf1f7}
 .contact #contact-form .contact-submit-note{font-size:.76rem;color:#abb6c5;line-height:1.5;margin:10px 0 0}
 .contact #cf-submit:disabled{opacity:.85;cursor:wait}
-@media(max-width:600px){.contact #contact-form .contact-notice{padding:13px 12px;gap:9px}.contact #contact-form .contact-notice-actions{gap:7px}.contact #cf-submit{width:100%;text-align:left;min-height:52px}}
+@media(max-width:600px){.contact .contact-notice{padding:13px 12px;gap:9px}.contact .contact-notice-actions{gap:7px}.contact #cf-submit{width:100%;text-align:left;min-height:52px}}
 @media(prefers-reduced-motion:reduce){.contact #contact-form .fa-spin{animation:none!important}}
+
+.contact .contact-notice{position:fixed;top:calc(18px + env(safe-area-inset-top,0px));right:88px;width:min(430px,calc(100% - 112px));max-height:calc(100dvh - 36px);overflow:auto;overscroll-behavior:contain;box-sizing:border-box;margin:0;z-index:10040;box-shadow:0 16px 45px #0007;gap:10px;padding:14px;align-items:flex-start}
+.contact .contact-notice-close{display:grid;place-items:center;flex:0 0 32px;width:32px;height:32px;border:1px solid #ffffff22;background:#ffffff09;color:#e8edf4;border-radius:9px;font:400 20px/1 system-ui;cursor:pointer;margin:-3px -3px 0 0}
+.contact .contact-notice-close:hover{background:#ffffff18}
+.contact .contact-notice-close:focus-visible{outline:2px solid #a8c6ff;outline-offset:2px}
+.contact .contact-notice .contact-provider-detail{font:400 .68rem/1.55 monospace;color:#c4b8b9;margin:8px 0 0;overflow-wrap:anywhere}
+.contact .contact-notice [hidden]{display:none!important}
+@media(max-width:991px){.contact .contact-notice{left:50%;right:auto;transform:translateX(-50%);top:calc(12px + env(safe-area-inset-top,0px));width:min(430px,calc(100% - 24px));max-height:calc(100dvh - 100px)}}
+@media(prefers-reduced-motion:no-preference){.contact .contact-notice:not([hidden]){animation:contact-notice-in .22s ease-out both}@keyframes contact-notice-in{from{opacity:0;translate:0 -8px}to{opacity:1;translate:0 0}}}
