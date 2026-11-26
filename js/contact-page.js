@@ -46,7 +46,7 @@
     form.target="_blank";nativeMode=true;
     try{HTMLFormElement.prototype.submit.call(form);}
     finally{nativeMode=false;if(oldTarget===null)form.removeAttribute("target");else form.setAttribute("target",oldTarget);}
-    show("warning","Continue in the new tab","Formspree will show the next step or the reason it cannot accept your message. Your original draft remains here.",{fallback:true});
+    show("warning","Continue in the new tab","Follow the instructions in the new tab. Your draft is safe here.",{fallback:true});
   });
   // If the CDN cannot load, the ordinary HTML form still submits to Formspree.
   form.addEventListener("submit",e=>{
@@ -70,26 +70,26 @@
     renderSuccess:()=>{},renderFormError:()=>{},
     onSubmit:()=>{
       show("sending","Sending your message","This usually takes a few seconds.");
-      slowTimer=setTimeout(()=>{if(busy)show("sending","Still connecting…","Your draft is safe. Please keep this page open while Formspree responds.");},15000);
+      slowTimer=setTimeout(()=>{if(busy)show("sending","Still connecting…","Your draft is safe. Please keep this page open.");},15000);
     },
     onSuccess:()=>{
       form.reset();fields.forEach(clearField);
-      show("success","Message sent","Thanks for reaching out. Your message was accepted by Formspree.");
+      show("success","Message sent","Thanks! I’ll be in touch.");
     },
     onError:(_,error)=>{
       const errors=error.getFormErrors(), codes=errors.map(e=>e.code).filter(c=>c&&c!=="UNSPECIFIED");
       const message=errors.map(e=>String(e.message||"")).join(" ").slice(0,240);
       const field=fields.find(f=>f.input.getAttribute("aria-invalid")==="true");
       const known=codes.join(", ");
-      const reference=known?"Formspree reference: "+known:"";
+      const reference="";
       // Render service-provided messages as text, never HTML; do not log form contents.
       if(field&&!errors.length){show("error","Check the highlighted fields","Correct the highlighted information and send again.");field.input.focus();return;}
       if(/rate limit|too many requests|429/i.test(message)){
-        show("warning","Please wait a moment","Try again later, or contact me directly by email.",{fallback:true,reference:reference||message});
+        show("warning","Please wait a moment","Try again later, or contact me directly by email.",{fallback:true,reference});
       }else if(/BLOCKED|INACTIVE|FORM_NOT_FOUND|PROJECT_NOT_FOUND/.test(known)||/captcha|verification|forbidden|domain|disabled|not found|blocked/i.test(message)){
-        show("error","Formspree could not accept your message","Your draft is safe. Continue on Formspree to see its verification or error page, or use email.",{fallback:true,native:true,reference:reference||message});
+        show("error","Message not sent","Your draft is safe. Continue verification or use email.",{fallback:true,native:true,reference});
       }else{
-        show("warning","Delivery could not be confirmed","Your draft is still here. Check before retrying to avoid sending twice, or contact me directly.",{fallback:true,reference:reference||message});
+        show("warning","Delivery could not be confirmed","Your draft is still here. Check before retrying to avoid sending twice, or contact me directly.",{fallback:true,reference});
       }
       console.warn("Formspree submission error", {codes:codes});
     },
