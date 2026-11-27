@@ -65,7 +65,7 @@
 <p>Why not apply that to agentic web development? Instead of explaining which button is too small, select the actual button in a preview, attach the relevant context and tell the AI what to change. Better still, make simple visual changes directly when possible, then ask the agent to implement only what needs a code change.</p>
 <h2 id="webd">Introducing aiDo WebD</h2>
 <p>WebD is the open-source project I want to build around that idea. Think of the reusable skills approach I discovered through <a href="https://www.skool.com/finalphaseai/about">FinalPhase AI</a>, combined with the visual feedback loop that products like <a href="https://lovable.dev/blog/visual-edits">Lovable</a> have already demonstrated. I want that experience to work with the existing website, repository and AI assistant a developer already uses.</p>
-<figure class="journal-teaching-figure"><img src="img/blog/covers/webd.svg" width="1200" height="720" alt="Illustrative WebD concept showing a selected button, a precise change request and the preview" loading="lazy" decoding="async"><figcaption>Product concept, not a screenshot of a released application.</figcaption></figure>
+<figure class="journal-teaching-figure"><img src="img/blog/illustrations/webd-loop.svg" width="1200" height="720" alt="Illustrative comparison of repeated prompting and a targeted visual editing workflow" loading="lazy" decoding="async"><figcaption>The proposed workflow aims to reduce repeated explanations; this is not a benchmark.</figcaption></figure>
 <div class="journal-steps" aria-label="Proposed WebD workflow"><div class="journal-step"><span>01</span><strong>Select</strong><small>Point to the element in a real preview</small></div><div class="journal-step"><span>02</span><strong>Specify</strong><small>Describe the change and attach focused context</small></div><div class="journal-step"><span>03</span><strong>Verify</strong><small>Inspect the smallest patch and preview before release</small></div></div>
 <p>The first version should be a browser companion that captures a selected element, viewport, and relevant styles, then packages that context for the AI you choose. Reusable, attributed skills can bring in the right design and engineering constraints for a job. Direct styling, source mapping, repository patches and preview checks are later steps, not features I am claiming to have shipped today.</p>
 <p>WebD should not depend on unofficial ChatGPT endpoints, extract session credentials or pretend that a Plus subscription includes unrestricted API access. <a href="https://help.openai.com/en/articles/9039756-managing-billing-for-chatgpt-and-the-api-platform">ChatGPT and API billing are separate</a>. The starting point is a user-controlled handoff, with official integrations where they are available.</p>
@@ -78,8 +78,8 @@
     <section class="journal-related" aria-labelledby="related-title">
         <h2 id="related-title">Keep reading</h2>
         <ul>
-                <li><p class="journal-meta"><span>Engineering</span> <span>4 min read</span></p><h3><a href="blog-post-2.html">Your API response hasn’t read your TypeScript types</a></h3></li>
-                <li><p class="journal-meta"><span>AI workflows</span> <span>4 min read</span></p><h3><a href="blog-post-6.html">A guest asked for a late checkout. What should the AI do?</a></h3></li>
+                <li><p class="journal-meta"><span>Engineering</span> <span>3 min read</span></p><h3><a href="blog-post-2.html">Your API response hasn’t read your TypeScript types</a></h3></li>
+                <li><p class="journal-meta"><span>AI workflows</span> <span>3 min read</span></p><h3><a href="blog-post-6.html">A guest asked for a late checkout. What should the AI do?</a></h3></li>
         </ul>
     </section>
 </main>
