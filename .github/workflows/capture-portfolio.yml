@@ -9,48 +9,37 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 6
     steps:
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
-      - name: Install capture tools
+      - name: Install browser
         run: |
-          python -m pip install playwright==1.51.0 pillow==11.2.1
-          python -m playwright install --with-deps chromium
+          npm install --no-audit --no-fund playwright@1.51.1
+          npx playwright install --with-deps chromium
       - name: Capture public websites
         run: |
-          python - <<'PY'
-          import io, base64, re
-          from PIL import Image
-          from playwright.sync_api import sync_playwright
-          targets = [('guestai-home','https://guest.aido.co.zw/','guest'),('timelesshr-home','https://timelesshr.co.zw/','payroll')]
-          with sync_playwright() as p:
-              browser = p.chromium.launch(args=['--no-sandbox'])
-              for name, url, expected in targets:
-                  page = browser.new_page(viewport={'width':1440,'height':900},device_scale_factor=1)
-                  try:
-                      response = page.goto(url,wait_until='domcontentloaded',timeout=45000)
-                      if not response or response.status >= 400:
-                          raise RuntimeError('HTTP '+str(response.status if response else 'missing'))
-                      page.wait_for_timeout(3000)
-                      page.evaluate("document.fonts.ready")
-                      body = page.locator('body').inner_text(timeout=10000)
-                      if expected not in body.lower() or len(body)<100 or re.search(r'checking your browser|verify you are human|access denied', body, re.I):
-                          raise RuntimeError('Unexpected page content: '+body[:100])
-                      shot = page.screenshot(animations='disabled',timeout=20000)
-                      image = Image.open(io.BytesIO(shot)).convert('RGB')
-                      for width in (480,800,1200):
-                          out=io.BytesIO()
-                          image.resize((width,round(width*900/1440)),Image.Resampling.LANCZOS).save(out,format='WEBP',quality=84,method=6)
-                          data=base64.b64encode(out.getvalue()).decode()
-                          key=f'{name}-{width}'
-                          print('CAPTURE_BEGIN '+key,flush=True)
-                          for i in range(0,len(data),4000):
-                              print('CAPTURE_DATA '+key+' '+data[i:i+4000],flush=True)
-                          print('CAPTURE_END '+key,flush=True)
-                      print('CAPTURE_OK '+name+' '+page.title(),flush=True)
-                  except Exception as e:
-                      print('CAPTURE_FAILED '+name+' '+str(e)[:300],flush=True)
-                  finally:
-                      page.close()
-              browser.close()
-          PY
+          node <<'JS'
+          const {chromium}=require('playwright');
+          (async()=>{
+            const browser=await chromium.launch({args:['--no-sandbox']});
+            for(const [name,url,expected] of [['guestai-home','https://guest.aido.co.zw/','guest'],['timelesshr-home','https://timelesshr.co.zw/','payroll']]){
+              try{
+                for(const width of [480,800,1200]){
+                  const page=await browser.newPage({viewport:{width:1440,height:900},deviceScaleFactor:width/1440});
+                  try{
+                    const response=await page.goto(url,{waitUntil:'domcontentloaded',timeout:40000});
+                    if(!response||response.status()>=400)throw Error('HTTP '+response?.status());
+                    await page.waitForTimeout(2500);
+                    await page.evaluate(()=>document.fonts.ready);
+                    const body=await page.locator('body').innerText({timeout:10000});
+                    if(body.length<100||!body.toLowerCase().includes(expected)||/checking your browser|verify you are human|access denied/i.test(body))throw Error('Unexpected page content');
+                    const shot=await page.screenshot({type:'jpeg',quality:84,animations:'disabled',timeout:20000,scale:'device'});
+                    const key=name+'-'+width, data=shot.toString('base64');
+                    console.log('CAPTURE_BEGIN '+key);
+                    for(let i=0;i<data.length;i+=4000)console.log('CAPTURE_DATA '+key+' '+data.slice(i,i+4000));
+                    console.log('CAPTURE_END '+key);
+                  }finally{await page.close();}
+                }
+                console.log('CAPTURE_OK '+name);
+              }catch(e){console.log('CAPTURE_FAILED '+name+' '+e.message.slice(0,300));}
+            }
+            await browser.close();
+          })().catch(e=>{console.error(e);process.exitCode=1;});
+          JS
